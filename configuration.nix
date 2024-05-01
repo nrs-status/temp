@@ -27,12 +27,20 @@
   #Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+users.users.ryan = {
+  name = "ryan";
+  home = "/home/ryan2";
+  isNormalUser = true;
+};
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sieyes = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       firefox
+      sway
+      fish
       docker
       okular
       calibre
@@ -46,8 +54,9 @@
     ];
   };
 
+  # Allow closed-source packages
   nixpkgs.config.allowUnfree = true;
-
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -55,6 +64,7 @@
     wget
     curl
     git
+    sway
   ];
 
   environment.variables.EDITOR = "vim";
