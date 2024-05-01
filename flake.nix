@@ -23,12 +23,14 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { flakelight, nixpkgs, ... }:
+  outputs = { flakelight, ... }:
     flakelight ./. {
 	nixosConfigurations.nineveh = {
         	system = "x86_64-linux";
         	modules = [{ system.stateVersion = "23.11"; } 
-				./configuration.nix ];
+				./configuration.nix
+				./home.nix 
+		];
 	};
 
 
