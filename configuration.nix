@@ -27,31 +27,10 @@
   #Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-users.users.ryan = {
-  name = "ryan";
-  home = "/home/ryan2";
-  isNormalUser = true;
-};
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Needs to be set here before being set in home-manager 
   users.users.sieyes = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      firefox
-      sway
-      fish
-      docker
-      okular
-      calibre
-      kitty
-      wine
-      jq
-      fd
-      nnn
-      wl-clipboard
-      grim 
-    ];
   };
 
   # Allow closed-source packages

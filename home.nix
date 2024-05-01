@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  # TODO please change the username & home directory to your own
-  home.username = "ryan";
-  home.homeDirectory = "/home/ryan2";
+  #these must match configuration.nix or will throw error
+  home.username = "sieyes";
+  home.homeDirectory = "/home/sieyes";
   
 # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
