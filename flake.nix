@@ -25,7 +25,7 @@
 
   outputs = { flakelight, nixpkgs, ... }:
     flakelight ./. {
-	nixosConfigurations.nixos = {
+	nixosConfigurations.nineveh = {
         	system = "x86_64-linux";
         	modules = [{ system.stateVersion = "23.11"; } 
 				./configuration.nix ];
