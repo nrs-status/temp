@@ -1,6 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+let cfg = config.nineveh.home.core;
+in
 {
-	  home.packages = with pkgs; [
+	options.nineveh.home.core.enable = lib.mkEnableOption "core programs";
+
+  config = lib.mkIf cfg.enable {
+    home = { packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
@@ -68,4 +74,6 @@
     pciutils # lspci
     usbutils # lsusb
   ];
+};
+};
 }

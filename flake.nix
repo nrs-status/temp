@@ -15,26 +15,28 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      nineveh = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
+  	nixosConfigurations = {
+		nineveh = nixpkgs.lib.nixosSystem {
+				specialArgs = {
+					home.core.enable = true;
+				};
+				system = "x86_64-linux";
+				modules = [
+					./configuration.nix
+				
+					# make home-manager as a module of nixos
+					# so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+					home-manager.nixosModules.home-manager {
+						home-manager.useGlobalPkgs = true;
+						home-manager.useUserPackages = true;
 
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+						# Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+						home-manager.users.sieyes =  import ./home.nix;
+			        	 }
 
-            # TODO replace ryan with your own username
-            home-manager.users.sieyes =  import ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          }
-        ];
-      };
-    };
+					{ nineveh.home.core.enable = true; }
+        			];
+      		};
+	};
   };
 }
