@@ -12,36 +12,27 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flakelight = {
-      url = "github:nix-community/flakelight";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-	
   };
 
-  outputs = inputs@{ flakelight, nixpkgs, home-manager, ... }: 
-	flakelight ./. {
-	inherit inputs; 
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       nineveh = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-	inputs.self.homeModules.pkgs
-	# ./nix/homeModules/pkgs.nix
+
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-         # home-manager.nixosModules.home-manager
-         # {
-          #  home-manager.useGlobalPkgs = true;
-          #  home-manager.useUserPackages = true;
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
             # TODO replace ryan with your own username
-          #  home-manager.users.sieyes =  import ./home.nix;
+            home-manager.users.sieyes =  import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          #}
+          }
         ];
       };
     };

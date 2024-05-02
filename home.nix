@@ -1,7 +1,7 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-	imports = [ inputs.self.homeModules ];
+	imports = [ ./nix/pkgs.nix ];
 
   #these must match configuration.nix or will throw error
   home.username = "sieyes";
