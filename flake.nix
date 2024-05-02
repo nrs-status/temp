@@ -21,13 +21,14 @@
   };
 
   outputs = inputs@{ flakelight, nixpkgs, home-manager, ... }: 
-	flakelight ./. ({ lib, config, ... }: {
+	flakelight ./. {
 	inherit inputs; 
     nixosConfigurations = {
       nineveh = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+	inputs.self.homeModules.pkgs
 	# ./nix/homeModules/pkgs.nix
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -44,13 +45,5 @@
         ];
       };
     };
-	homeConfigurations.sieyes = {
-		system = "x86_64-linux";
-		modules = [
-			#inputs.self.homeModules.pkgs
-			./nix/homeModules/pkgs.nix
-		];
-
-};	
-  });
+  };
 }
