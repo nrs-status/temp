@@ -21,8 +21,14 @@
   time.timeZone = "America/Argentina/Buenos_Aires";
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+    sound.enable = true;
+    hardware.pulseaudio.enable = true;
+
+#  services.pipewire.enable = true;
+#  services.pipewire.audio.enable = true;
+#  services.pipewire.pulse.enable = true;
+#  services.pipewire.alsa.enable = true;
+#  services.pipewire.wireplumber.enable = true;
 
   #Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -30,7 +36,7 @@
   # Define a user account. Needs to be set here before being set in home-manager 
   users.users.sieyes = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "networkmanager" "audio" ]; # wheel enables ‘sudo’ for the user.
   };
 
   # Allow closed-source packages
@@ -44,9 +50,34 @@
     curl
     git
     sway
+    pavucontrol
+    pulseaudio
+    keyd
   ];
 
+	services.keyd = {
+		enable = true;
+		keyboards = {
+			default = {
+				ids = [ "*" ];
+				settings = {
+					main = {
+						"4"  = "e";
+						rightcontrol = "rightshift";
+						rightalt = "#";
+					};#.
+					shift = {
+						rightalt = "$";
+					};
+				};
+		
+			};
+		};
+	};
+
+
   environment.variables.EDITOR = "vim";
+
 
   programs.sway = {
     enable = true;

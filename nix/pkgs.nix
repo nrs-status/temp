@@ -40,6 +40,7 @@
     gawk
     zstd
     gnupg
+    firefox
 
     # nix related
     #
