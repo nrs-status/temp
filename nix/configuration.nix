@@ -6,7 +6,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./nixosModules/hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -83,6 +83,7 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
 
   #Enable the gnome-keyring secrets vault.
   services.gnome.gnome-keyring.enable = true;

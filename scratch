@@ -1,0 +1,24 @@
+browser on 1
+terminal+browser on 2
+terminal on 4
+
+directory search shortcut: https://www.youtube.com/watch?v=bdumjiHabhQ 4:30
+how to pull window from one workspace to the other? might be necessary for 1-2
+full screen window
+
+tpm tmux plugin manager
+	vim tmux navigator
+
+same keys for navigating tmux panes vs sway panes
+
+tmuxifier
+
+
+catpuccin tmux and nvim
+
+
+valume and connection info in sway: https://www.youtube.com/watch?v=e7bezUA6G4g
+
+
+swaybg (background image)
+waybar

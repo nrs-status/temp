@@ -3,38 +3,33 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    # home-manager, used for managing user configuration
-    home-manager = {
+    
+   home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }: 
+	let 
+		env = import ./nix/envs/nineveh.nix;
+	in
+	{
   	nixosConfigurations = {
 		nineveh = nixpkgs.lib.nixosSystem {
-				specialArgs = {
-					home.core.enable = true;
-				};
 				system = "x86_64-linux";
 				modules = [
-					./configuration.nix
 				
-					# make home-manager as a module of nixos
-					# so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+					# make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
 					home-manager.nixosModules.home-manager {
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
 
-						# Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-						home-manager.users.sieyes =  import ./home.nix;
-			        	 }
+						home-manager.users.sieyes =  import ./nix/home.nix;
 
-					{ nineveh.home.core.enable = true; }
+						home-manager.extraSpecialArgs = env.homeVars;						
+			        	 }
+					./nix/configuration.nix
         			];
       		};
 	};

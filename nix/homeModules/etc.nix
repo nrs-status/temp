@@ -9,9 +9,18 @@ in
     home = { packages = with pkgs; [
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
-
+transmission_4-gtk
+mods
+unrar
+wineWowPackages.stable
+zulu17
+crawl
+brogue
+tome4
+tmux
     neofetch
     nnn # terminal file manager
+    
 
     # archives
     zip
