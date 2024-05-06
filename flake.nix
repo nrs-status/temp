@@ -11,27 +11,54 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: 
-	let 
-		env = import ./nix/envs/nineveh.nix;
-	in
-	{
-  	nixosConfigurations = {
-		nineveh = nixpkgs.lib.nixosSystem {
-				system = "x86_64-linux";
-				modules = [
-				
-					# make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-					home-manager.nixosModules.home-manager {
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-
-						home-manager.users.sieyes =  import ./nix/home.nix;
-
-						home-manager.extraSpecialArgs = env.homeVars;						
-			        	 }
-					./nix/configuration.nix
-        			];
-      		};
-	};
+  let
+    env = import ./nix/envs/nineveh.nix;
+    stringListToEnabledOptions = import resources/stringListToEnabledOptions.nix;
+  in
+  {
+    nixosConfigurations = {
+      #the following variable name must be the current host's variable name, otherwise will raise an error
+      ${env.nixosVars.hostName} = nixpkgs.lib.nixosSystem {
+	system = env.nixosVars.system;
+	specialArgs = env;
+	modules = [
+	({ pkgs, ...}: {
+	networking.hostName = env.nixosVars.hostName;
+	time.timeZone = env.nixosVars.timeZone;
+})
+	  ./nix/nixosModules
+	  ({ pkgs, ... }: {
+	    #${env.nixosVars.hostName}.osOpts = stringListToEnabledOptions env.nixosVars.modulesToEnable;
+	    nineveh.system.keyRebindings.enable = true;
+	    nineveh.system.bluetooth.enable = true;
+	  })
+	  # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+	  home-manager.nixosModules.home-manager {
+	    home-manager = 
+	    let
+	      mainUser = env.nixosVars.mainUser;
+	    in
+	    {
+	      useGlobalPkgs = true;
+	      useUserPackages = true;
+	      extraSpecialArgs = env;
+	      users.${mainUser} = {
+		imports = [
+		  ./nix/homeModules
+	      ];
+		
+		home = {
+		  username = mainUser;
+		  homeDirectory = "/home/${mainUser}";
+		  stateVersion = "23.11";
+		};
+		programs.home-manager.enable = true;
+		${env.nixosVars.hostName}.home = stringListToEnabledOptions env.homeVars.pkgSets;
+	      }; 
+	    };
+	  }
+	];
+      };
+    };
   };
 }

@@ -1,44 +1,37 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, osConfig, ... }:
 
-{
-  options.nineveh.home = {
-    sway.enable = lib.mkEnableOption "sway";
-    waybar = {
-      batteryModule = lib.mkEnableOption "Enable the battery module in Waybar";
-      bluetoothModule =
-        lib.mkEnableOption "Enable the bluetooth module in Waybar";
-    };
+let
+  gruvbox = import ../../resources/gruvbox_colors.nix;
+  cfg = config.${osConfig.networking.hostName}.home.sway;
+in {
+  options.${osConfig.networking.hostName}.home = { 
+    sway.enable = lib.mkEnableOption "Firefox";
+    waybar.bluetoothModule.enable = lib.mkEnableOption "Enable the bluetooth module in Waybar";
   };
-
-  config = lib.mkIf cfg.sway.enable {
+  config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-	grim #for screenshots, try 'slurp' if it doesn't work out
-	wl-clipboard
-	mako #notification system
-	
+        grim # screenshot functionality, alternatively try 'slurp'
+        wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+        mako # notification system developed by swaywm maintainer
       ];
     };
 
-    programs = {
-      waybar = {
+    programs = { 
+      waybar = {#needs to be enabled in wayland.windowManager.sway.config.bars
         enable = true;
         package = pkgs.waybar;
         settings = [{
-          layer = "bottom";
-          position = "bottom";
+          layer = "top";
+          position = "top";
           height = 35;
           modules-left =
-            [ "sway/workspaces" "sway/mode" "idle_inhibitor" ];
-          modules-right = with config.lunik1.home.waybar;
-            ([ "temperature" "cpu" "backlight" 
-              ++ lib.optional batteryModule "battery"
-              ++ [ "custom/memory" "disk" "network" ]
-              ++ lib.optional bluetoothModule "bluetooth" ++ [
-              "pulseaudio"
-              "clock"
-            ]);
-            pulseaudio = {
+            [ "sway/workspaces" "sway/mode" "idle_inhibitor" ]; 
+            modules-right = [ "backlight" "battery"  "network" ]
+            ++ lib.optional config.${osConfig.networking.hostName}.home.waybar.bluetoothModule.enable "bluetooth" #enabled through nixosModules/bluetooth.nix
+            ++ [ "pulseaudio" "clock" ];
+            "sway/workspaces".numeric-first = true;
+           pulseaudio = {
               on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
               on-click-right =
                 "${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
@@ -61,49 +54,10 @@
             backlight = {
               format = "{icon}";
               format-icons = [ "󰛩" "󱩎" "󱩏" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩕" "󱩖" "󰛨" ];
-              on-scroll-up = "${pkgs.light}/bin/light -A 1";
-              on-scroll-down = "${pkgs.light}/bin/light -U 1";
+              on-scroll-up = "${pkgs.light}/bin/light -A 10";
+              on-scroll-down = "${pkgs.light}/bin/light -U 10";
               on-click-right = "${pkgs.light}/bin/light -S 100";
               on-click-middle = "${pkgs.light}/bin/light -S 0";
-            };
-            "custom/memory" = {
-              exec = "${pkgs.procps}/bin/free -b | ${pkgs.gawk}/bin/gawk -f ${
-                  ../../resources/waybar/memory_module.awk
-                }";
-              return-type = "json";
-              interval = 5;
-            };
-            cpu = {
-              format = "{icon}";
-              format-icons = [ "󰡳" "󰡵" "󰊚" "󰡴" ];
-              interval = 1;
-            };
-            temperature = {
-              format-icons = [ "󰜗" "󱃃" "󰔏" "󱃂" "󰸁" ];
-              format = "󰔏{temperatureC}°C";
-              interval = 1;
-              critical_threshold = 90;
-              hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
-            };
-            disk = {
-              states =
-                let nIcons = 9;
-                in builtins.listToAttrs (map
-                  (x: {
-                    "name" = builtins.toString x;
-                    "value" = builtins.floor ((x * 100.0) / (nIcons - 1) + 0.5);
-                  })
-                  (lib.range 0 (nIcons - 1)));
-              format-0 = "󰝦";
-              format-1 = "󰪞";
-              format-2 = "󰪟";
-              format-3 = "󰪠";
-              format-4 = "󰪡";
-              format-5 = "󰪢";
-              format-6 = "󰪣";
-              format-7 = "󰪤";
-              format-8 = "󰪥";
-              interval = 60;
             };
             network = {
               format-wifi = "{icon}";
@@ -135,7 +89,6 @@
                 critical = 10;
                 warning = 30;
               };
-              # TODO % capacity in tooltip
             };
             idle_inhibitor = {
               format = "{icon}";
@@ -148,13 +101,13 @@
               interval = 1;
               format = "󰅐 {:%T}";
               tooltip-format = "{:%F}";
-            };
-          };
-        }];
+            };          
+          }];
+          style = import ../../resources/waybar_style.nix;
       };
     };
 
-    wayland.windowManager.sway =
+    wayland.windowManager.sway = 
       let
         lockCommand = lib.concatStringsSep " " (with gruvbox;
           let rO = lib.removePrefix "#"; # remove Octothorpe
@@ -164,7 +117,7 @@
             "--clock"
             "--indicator"
             "--fade-in 1"
-            "--font 'Myosevka'"
+            "--font 'Iosevka'"
             "--inside-color ${rO dark.bg}"
             "--inside-clear-color ${rO light.yellow.bright}"
             "--inside-caps-lock-color ${rO light.orange.bright}"
@@ -191,17 +144,11 @@
             "--effect-blur 7x5"
           ]);
       in
-      {
-        enable = true;
-
-        # https://github.com/NixOS/nixpkgs/issues/128469
-        # sway does not like using the non-system mesa so get the sway binary
-        # from the NixOS module
-        package = null;
-
-        config = rec {
-          bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
-          colors = {
+    {
+      enable = true;
+      config = {
+        bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+        colors = {
             background = gruvbox.dark.bg;
             focused = {
               background = gruvbox.dark.bg;
@@ -239,83 +186,22 @@
               text = gruvbox.dark.fg;
             };
           };
-          floating = {
+        floating = {
             border = 4;
             titlebar = true;
           };
-          focus.followMouse = false;
-          fonts = {
-            names = [ "Myosevka Proportional" ];
+        fonts = {
+            names = [ "Iosevka Proportional" ];
             size = 14.0;
           };
-          # gaps = { smartBorders = "on"; };
-          input = {
-            "*" = {
-              xkb_numlock = "enabled";
-              xkb_layout = "gb";
-              xkb_options = "compose:ralt";
-            };
-          };
-          keybindings = lib.mkOptionDefault {
-            "${modifier}+b" = "splitv";
-            "${modifier}+v" = "splith";
-            "${modifier}+n" =
-              "exec --no-startup-id ${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
-            "${modifier}+Shift+q" = "kill";
-            "${modifier}+Shift+e" = ''
-              exec ${pkgs.sway}/bin/swaynag -t warning -f "Myosevka Proportional" -m "Exit sway?" -b "Yes" "${pkgs.sway}/bin/swaymsg exit"'';
-            "${modifier}+Shift+x" = "${lockCommand}";
-            "${modifier}+p" =
-              "exec --no-startup-id ${pkgs.grim}/bin/grim ~/Pictures/screenshots/$(date +%F-%T).png";
-            "Print" =
-              "exec --no-startup-id ${pkgs.grim}/bin/grim ~/Pictures/screenshots/$(date +%F-%T).png";
-            "XF86AudioRaiseVolume" =
-              "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
-            "XF86AudioLowerVolume" =
-              "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
-            "XF86AudioMute" =
-              "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
-            "XF86AudioPrev" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s previous";
-            "XF86AudioNext" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s next";
-            "XF86AudioPlay" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s play-pause";
-            "XF86AudioStop" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s stop";
-            "Control+XF86AudioPrev" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s position 30-";
-            "Control+XF86AudioNext" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s position 30+";
-            "Control+XF86AudioPlay" =
-              "exec --no-startup-id ${pkgs.playerctl}/bin/playerctl -s stop";
-          };
-          menu = ''
-            ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --no-generic --term="${pkgs.foot}/bin/footclient" --dmenu="${pkgs.dmenu-wayland}/bin/dmenu-wl -i -fn 'Myosevka Proportional 14' -nb '${gruvbox.dark.bg}' -nf '${gruvbox.dark.fg}' -sb '${gruvbox.light.bg}' -sf '${gruvbox.light.fg}'"'';
-          modifier = "Mod4";
-          output = {
-            "*" = {
-              bg =
-                "${pkgs.nix-wallpaper.override{ preset = "gruvbox-light-rainbow"; }}/share/wallpapers/nixos-wallpaper.png stretch";
-            };
-          };
-          startup = [
-            { command = "dbus-update-activation-environment --systemd PATH DISPLAY WAYLAND_DISPLAY DBUS_SESSION_BUS_ADDRESS SWAYSOCK XDG_SESSION_TYPE XDG_SESSION_DESKTOP XDG_CURRENT_DESKTOP"; }
-            {
-              command =
-                "${pkgs.swayidle}/bin/swayidle timeout 300 '${lockCommand} --grace 5' before-sleep '${lockCommand}'";
-            }
-          ];
-          terminal = "${pkgs.foot}/bin/footclient";
-          window = {
-            border = 2;
+        focus.followMouse = false;
+        modifier = "Mod4";
+        terminal = "${pkgs.kitty}/bin/kitty";
+        window = {
+            border = 1;
             commands = [
               {
                 criteria = { app_id = "kitty"; };
-                command = "opacity 0.90";
-              }
-              {
-                criteria = { app_id = "foot"; };
                 command = "opacity 0.90";
               }
               {
@@ -325,42 +211,7 @@
             ];
           };
           workspaceAutoBackAndForth = true;
-        };
-        # Need to use extraConfig to enable i3 titlebar hiding behaviour
-        extraConfig = ''
-          hide_edge_borders --i3 both
-        '';
-        # systemdIntegration = true;
-        # wrapperFeatures.gtk = true;
-      };
-
-    xdg = {
-      enable = true;
-      configFile = {
- 
-      };
-      mimeApps = {
-        enable = true;
-        defaultApplications = {
-          "inode/directory" = [ "thunar.desktop" ];
-          "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
-          "appliction/oxps" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
-          "application/x-fictionbook" =
-            [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
-          "application/epub+zip" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
-          "application/x-cbr" = [ "org.pwmt.zathura-cb.desktop" ];
-          "application/x-cb7" = [ "org.pwmt.zathura-cb.desktop" ];
-          "application/x-cbt" = [ "org.pwmt.zathura-cb.desktop" ];
-          "image/vnd.djvu" = [ "org.pwmt.zathura-djvu.desktop" ];
-          "image/vnd.djvu+multipage" = [ "org.pwmt.zathura-djvu.desktop" ];
-          "application/postscript" = [ "org.pwmt.zathura-ps.desktop" ];
-          "application/eps" = [ "org.pwmt.zathura-ps.desktop" ];
-          "application/x-eps" = [ "org.pwmt.zathura-ps.desktop" ];
-          "image/eps" = [ "org.pwmt.zathura-ps.desktop" ];
-          "image/x-eps" = [ "org.pwmt.zathura-ps.desktop" ];
-        };
       };
     };
   };
 }
-

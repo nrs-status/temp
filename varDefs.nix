@@ -1,3 +1,0 @@
-{
-	enableVal = true;
-}

@@ -1,8 +1,8 @@
-{ config, lib, pkgs, host, ... }:
+{ config, lib, pkgs,nixosVars, osConfig, ... }:
 
-let cfg = config.host.home.cli;
+let cfg = config.${osConfig.networking.hostName}.home.cli;
 in {
-  options.host.home.cli.enable = lib.mkEnableOption "CLI programs";
+  options.${osConfig.networking.hostName}.home.cli.enable = lib.mkEnableOption "CLI programs";
 
   config = lib.mkIf cfg.enable {
     home = {
@@ -18,7 +18,10 @@ in {
         xxHash
         yazi
         pb_cli
-	zoxide
+        fzf
+        jq
+        trash-cli
+        mods
 
 
 	#Archives
@@ -46,6 +49,7 @@ in {
      #   RSYNC_COMPRESS_LIST = "lz4 zstd zlibx zlib none";
      #   MANWIDTH = 80;
      # };
+    };
 
 
     programs = {
@@ -61,7 +65,7 @@ in {
           split = 32;
         };
       };
-      atuin = {#hell history
+      atuin = {#shell history
         enable = true;
         settings = {
           dialect = "uk";
@@ -144,7 +148,7 @@ in {
           show_battery = true;
           log_level = "DISABLED";
           color_theme = "${pkgs.btop}/share/btop/themes/gruvbox_dark.theme";
-        }
+        };
       };
       dircolors = {
         enable = true;
@@ -157,7 +161,6 @@ in {
       nix-index = {
         enable = true;
       };
-      nix-index-database.comma.enable = true;
       tealdeer = {
         enable = true;
         settings.updates = {
@@ -165,7 +168,7 @@ in {
           auto_update_interval_hours = 24;
         };
       };
-      tmux = import ../../configs_to_import_in_nix/tmux.nix { inheritdd (pkgs) tmuxPlugins; };
+      tmux = import ../../resources/tmux.nix { inherit (pkgs) tmuxPlugins; };
       fzf = rec {
         enable = true;
         enableFishIntegration = true;
@@ -182,6 +185,12 @@ in {
           external-downloader = "${pkgs.aria2}/bin/aria2c";
         };
       };
+      zoxide = {
+        enable = true;
+        options = [
+          "--cmd j"
+        ];
+      };
     };
+};
 }
-

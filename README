@@ -1,0 +1,2 @@
+1. modify profiles in nix/envs to add or remove package sets 
+2. change the active profile using the 'env' variable in flake.nix
