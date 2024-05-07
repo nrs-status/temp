@@ -14,6 +14,7 @@
 			"kitty"
 			"fonts"
 			#"bluetooth"
+			"etc"		
 			"custom_packages"
 		];
 	};
