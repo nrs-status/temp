@@ -11,6 +11,6 @@ pkgs.oh-my-fish.overrideAttrs (finalAttrs: previousAttrs: {
   };
 
   postInstall = ''
-    cat $out/bin/omf-install
+    $out/bin/omf-install
     '';
 })
