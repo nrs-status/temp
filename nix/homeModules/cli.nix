@@ -42,12 +42,7 @@ in {
         cfspeedtest
 
         #scripts
-        (pkgs.writeShellScriptBin "rb" ''
-          LOC=$(pwd)
-          nixos-rebuild switch
-          cd /etc/nixos
-          git commit -am "autocommit $(date)"
-          cd $LOC'')
+        (pkgs.writeShellScriptBin "rb" (builtins.readFile ../../resources/rebuild.sh))
       ];
 
      # sessionVariables = {
