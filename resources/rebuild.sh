@@ -7,7 +7,7 @@ else
 fi
 
 LOC=$(pwd)
-nixos rebuild switch
+nixos-rebuild switch
 cd /etc/nixos
 git commit -am "${COMMIT_MSG}"
 cd $LOC
