@@ -11,6 +11,6 @@ pkgs.oh-my-fish.overrideAttrs (finalAttrs: previousAttrs: {
   };
 
   postInstall = ''
-    $out/bin/omf-install kawasaki
+    cat $out/bin/omf-install
     '';
 })
