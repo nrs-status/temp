@@ -42,7 +42,7 @@ in {
         cfspeedtest
 
         #scripts
-        (pkgs.writeShellScriptBin "rebuild" ''
+        (pkgs.writeShellScriptBin "rb" ''
           LOC=$(pwd)
           nixos-rebuild switch
           cd /etc/nixos
