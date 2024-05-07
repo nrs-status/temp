@@ -192,7 +192,7 @@ in {
           };
         fonts = {
             names = [ "Iosevka Proportional" ];
-            size = 10.0;
+            size = 11.0;
           };
         focus.followMouse = false;
         modifier = "Mod4";
