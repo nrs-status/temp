@@ -14,7 +14,7 @@
 			"kitty"
 			"fonts"
 			#"bluetooth"
-			#"custom_packages"
+			"custom_packages"
 		];
 	};
 	nixosVars = {
