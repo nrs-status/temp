@@ -10,6 +10,5 @@ in {
       ];
     };
   };
-     #fish = pkgs.callPackage ../../custom_packages/fish.nix {};
 }
 
