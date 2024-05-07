@@ -40,6 +40,14 @@ in {
 	psmisc
         smartmontools
         cfspeedtest
+
+        #scripts
+        (pkgs.writeShellScriptBin "rebuild" ''
+          LOC=$(pwd)
+          nixos-rebuild switch
+          cd /etc/nixos
+          git commit -am "autocommit $(date)"
+          cd $LOC'')
       ];
 
      # sessionVariables = {
