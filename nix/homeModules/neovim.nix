@@ -7,7 +7,9 @@ in {
   config = lib.mkIf cfg.enable {
 
     home = { sessionVariables.EDITOR = "nvim";
-	packages = with pkgs; [ vitetris ];
+    packages = with pkgs; [
+      alejandra #for formatting nix
+        ];
 };
     pam.sessionVariables.EDITOR = "nvim";
 
