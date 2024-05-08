@@ -8,10 +8,7 @@ in {
   options.${osConfig.networking.hostName}.home.custom_packages.enable = lib.mkEnableOption "Custom Packages";
   config = lib.mkIf cfg.enable {
     home = {
-      packages = map callableCallPackage (getNixFiles {
-        dir = ../../resources/custom_packages;
-        ignore = ["default.nix" "oh-my-fish-plugins.nix" ];
-      });
+      packages = map builtins.baseNameOf import ./../../resources/custom_packages;
     };
   };
 }

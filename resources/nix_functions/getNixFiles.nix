@@ -1,3 +1,5 @@
+#produces a list of paths to nix files
+
 { lib, ... }:
 with lib;
 let
@@ -8,11 +10,11 @@ let
         let
 	#lib.path.removePrefix does: /some/path -> ./path
 	#lib.removePrefix does: ./some/path -> some/path
-          getSuffixlessBasename = lib.removePrefix "./" (lib.path.removePrefix dir file);
+          basename = baseNameOf file;
         in
         hasSuffix ".nix" file
-        && getSuffixlessBasename != "default.nix"
-        && ! (builtins.elem getSuffixlessBasename ignore))
+        && basename != "default.nix"
+        && ! (builtins.elem basename ignore))
       (filesystem.listFilesRecursive dir));
 
 in

@@ -13,7 +13,7 @@
   outputs = inputs@{ nixpkgs, home-manager, ... }: 
   let
     env = import ./nix/envs/nineveh.nix;
-    stringListToEnabledOptions = import resources/stringListToEnabledOptions.nix;
+    stringListToEnabledOptions = import resources/nix_functions/stringListToEnabledOptions.nix;
   in
   {
     nixosConfigurations = {

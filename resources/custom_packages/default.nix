@@ -1,10 +1,10 @@
 { lib, ... }:
 
 let
-  getNixFiles = import ../resources/getNixFiles.nix { inherit lib; };
+  getNixFiles = import ../getNixFiles.nix { inherit lib; };
 in
   {
-    imports = getNixFiles {
+    result = getNixFiles {
       dir = ./.;
       ignore = [];
     };

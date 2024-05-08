@@ -32,8 +32,10 @@ in {
       policies = {
         DownloadDirectory = "/home/${nixosVars.mainUser}/downloads";
         #DefaultDownloadDirectory = "/home/sieyes/downloads";
+
+        #find the extension ID in about:support
         ExtensionSettings = {
-          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+          "*".installation_mode = ""; # blocks all addons except the ones specified below
           # gruvbox theme:
           "{eb8c4a94-e603-49ef-8e81-73d3c4cc04ff}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/gruvbox-dark-theme/latest.xpi";
