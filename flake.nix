@@ -15,8 +15,8 @@
     home-manager,
     ...
   }: let
-    env = import ./nix/envs/nineveh.nix;
-    stringListToEnabledOptions = import resources/nix_functions/stringListToEnabledOptions.nix;
+    env = import ./envs/nineveh.nix;
+    stringListToEnabledOptions = import resources/nixFunctions/stringListToEnabledOptions.nix;
   in {
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
@@ -28,7 +28,7 @@
             networking.hostName = env.nixosVars.hostName;
             time.timeZone = env.nixosVars.timeZone;
           }
-          ./nix/nixosModules
+          ./nixosModules
           ({pkgs, ...}: {
             #${env.nixosVars.hostName}.osOpts = stringListToEnabledOptions env.nixosVars.modulesToEnable;
             nineveh.system.keyRebindings.enable = true;
@@ -45,7 +45,7 @@
               extraSpecialArgs = env;
               users.${mainUser} = {
                 imports = [
-                  ./nix/homeModules
+                  ./homeModules
                 ];
 
                 home = {

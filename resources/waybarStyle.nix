@@ -1,4 +1,4 @@
-let gruvbox = import ./gruvbox_colors.nix;
+let gruvbox = import ./gruvboxColors.nix;
 in ''
    * {
       border: none;
