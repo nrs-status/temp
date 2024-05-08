@@ -35,7 +35,18 @@ in {
 
         #find the extension ID in about:support
         ExtensionSettings = {
-          "*".installation_mode = ""; # blocks all addons except the ones specified below
+          #tabstash
+          "tab-stash@condordes.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/tab-stash/latest.xpi";
+            installation_mode = "force_installed";
+          };
+
+          #tree tabs
+          "treestyletab@piro.sakura.ne.jp" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi";
+            installation_mode = "force_installed";
+          };
+
           # gruvbox theme:
           "{eb8c4a94-e603-49ef-8e81-73d3c4cc04ff}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/gruvbox-dark-theme/latest.xpi";
