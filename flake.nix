@@ -2,7 +2,8 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+   # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+   nixpkgs.url = "github:nixos/nixpkgs/tree/nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -15,8 +16,8 @@
     home-manager,
     ...
   }: let
-    env = import ./envs/nineveh.nix;
-    stringListToEnabledOptions = import resources/nixFunctions/stringListToEnabledOptions.nix;
+    env = import envs/nineveh;
+    utils = import ./utils;
   in {
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
@@ -28,7 +29,6 @@
             networking.hostName = env.nixosVars.hostName;
             time.timeZone = env.nixosVars.timeZone;
           }
-          ./nixosModules
           ({pkgs, ...}: {
             #${env.nixosVars.hostName}.osOpts = stringListToEnabledOptions env.nixosVars.modulesToEnable;
             nineveh.system.keyRebindings.enable = true;

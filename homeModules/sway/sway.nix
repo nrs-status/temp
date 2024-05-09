@@ -1,7 +1,7 @@
 { config, lib, pkgs, osConfig, ... }:
 
 let
-  gruvbox = import ../resources/gruvboxColors.nix;
+  gruvbox = import ./gruvboxColors.nix;
   cfg = config.${osConfig.networking.hostName}.home.sway;
 in {
   options.${osConfig.networking.hostName}.home = { 
@@ -103,7 +103,7 @@ in {
               tooltip-format = "{:%F}";
             };          
           }];
-          style = import ../resources/waybarStyle.nix;
+          style = import ./waybarStyle.nix;
       };
     };
 

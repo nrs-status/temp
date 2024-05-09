@@ -1,4 +1,4 @@
 rec {
-  pkgs = import <nixpkgs> {};
+  pkgs = import <unstable> {};
   lib = pkgs.lib;
 }

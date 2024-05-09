@@ -23,7 +23,7 @@ in {
         trash-cli
         mods
         nix-output-monitor
-
+        nvd
 
 
 	#Archives
@@ -44,7 +44,7 @@ in {
         cfspeedtest
 
         #scripts
-        (pkgs.writeShellScriptBin "rb" (builtins.readFile ../resources/scriptsToReadFileFrom/rebuild.sh))
+        (pkgs.writeShellScriptBin "rb" (builtins.readFile ./rebuild.sh))
       ];
 
      # sessionVariables = {
@@ -173,7 +173,7 @@ in {
           auto_update_interval_hours = 24;
         };
       };
-      tmux = import ../resources/tmux.nix { inherit (pkgs) tmuxPlugins; };
+      tmux = import ./tmux.nix { inherit (pkgs) tmuxPlugins; };
       fzf = rec {
         enable = true;
         enableFishIntegration = true;
