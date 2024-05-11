@@ -19,6 +19,20 @@ in {
     programs.nixvim = {
       enable = true;
 	defaultEditor = true;
+	globals.mapleader = " ";
+
+    opts = {
+      number = true;         # Show line numbers
+      relativenumber = true; # Show relative line numbers
+
+      shiftwidth = 2;        # Tab width should be 2
+    highlight = {
+    Comment.fg = "#ff00ff";
+    Comment.bg = "#000000";
+    Comment.underline = true;
+    Comment.bold = true;
+  };
+    };
 	plugins = {
 	cmp = {
       enable = true;
@@ -43,6 +57,7 @@ in {
         };
       };
     };
+
 };
 };
 
