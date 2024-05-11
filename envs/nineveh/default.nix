@@ -7,6 +7,7 @@
 			"cli"
 			"git"
 		#	"neovim"
+			"nixvim"
 			"firefox"
 			"multimedia"
 			"games"

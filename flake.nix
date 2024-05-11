@@ -9,11 +9,19 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+	nixvim = {
+        url = "github:nix-community/nixvim";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
+	nixvim,
     ...
   }: let
     env = import envs/nineveh;
@@ -52,7 +60,10 @@
               useUserPackages = true;
 extraSpecialArgs = env;
               users.${mainUser} = {
-                imports = [ ./homeModules ];
+                imports = [
+			 ./homeModules
+			nixvim.homeManagerModules.nixvim
+		 ];
                 home = {
                   username = mainUser;
                   homeDirectory = "/home/${mainUser}";
@@ -63,7 +74,7 @@ extraSpecialArgs = env;
               };
             };
           })
-
+	
 
    #      home-manager.nixosModules.home-manager 
    #      ({ config, lib, ... }:
