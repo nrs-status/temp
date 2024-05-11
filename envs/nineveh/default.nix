@@ -26,6 +26,7 @@
 		mainUserHomeDir = "/home/sieyes";
 
 		modulesToEnable = [
+		#"home-manager" implement this option when you have time in order to make nixosModules/bluetooth.nix modular		
 		"keyRebindings"
 		"bluetooth"
 			];

@@ -21,7 +21,7 @@
     utils = import ./utils { lib = nixpkgs.lib; };
   in {
     nixosConfigurations = {
-      #the following variable name must be the current host's name, otherwise will raise an error
+      #the following variable name must be the current host's variable name, otherwise will raise an error
       ${hostName} = nixpkgs.lib.nixosSystem {
         system = env.nixosVars.system;
         specialArgs = env;
@@ -32,12 +32,15 @@
           }
           ./nixosModules
           {
-          ${hostName}.system = utils.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
+            #options.${hostName}.system.homeManager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize nixosModules/bluetooth.nix
+            config.${hostName}.system = utils.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
           }
          # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
+         
+           home-manager.nixosModules.home-manager
           {
             home-manager = let
+              inherit utils;
               mainUser = env.nixosVars.mainUser;
             in {
               useGlobalPkgs = true;
@@ -58,6 +61,7 @@
               };
             };
           }
+        
         ];
       };
     };

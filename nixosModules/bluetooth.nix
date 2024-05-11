@@ -14,9 +14,8 @@ in {
       blueman
     ];
 
-    home-manager.users.${nixosVars.mainUser}.${nixosVars.hostName}.home.waybar.bluetoothModule.enable = true;
+    #home-manager.users.${nixosVars.mainUser}.${nixosVars.hostName}.home.waybar.bluetoothModule.enable = true;
 
-   # home-manager.nixosModules.home-manager { home-manager = users.${nixosVars.mainUser}.${nixosVars.hostName}.home.waybar.bluetoothModule.enable = true; };
 
     # passwordless access to rfkill without sudo so bluetooth can be toggled
     security.sudo.extraRules = [{

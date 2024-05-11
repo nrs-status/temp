@@ -3,7 +3,7 @@
 if [ "$#" -eq 0 ]; then
 	COMMIT_MSG="autocommit $(date)"
 else
-	COMMIT_MSG=$@
+	COMMIT_MSG=$1
 fi
 
 LOC=$(pwd)
