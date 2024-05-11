@@ -17,7 +17,7 @@
     ...
   }: let
     env = import envs/nineveh;
-    utils = import ./utils;
+    utils = import ./utils { lib = nixpkgs.lib; };
   in {
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
@@ -35,30 +35,30 @@
             nineveh.system.keyRebindings.enable = true;
 #            nineveh.system.bluetooth.enable = true;
           })
-          # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-         # home-manager.nixosModules.home-manager
-         # {
-         #   home-manager = let
-         #     mainUser = env.nixosVars.mainUser;
-         #   in {
-         #     useGlobalPkgs = true;
-         #     useUserPackages = true;
-         #     extraSpecialArgs = env;
-         #     users.${mainUser} = {
-         #       imports = [
-         #         ./homeModules
-         #       ];
+         # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = let
+              mainUser = env.nixosVars.mainUser;
+            in {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = env;
+              users.${mainUser} = {
+                imports = [
+                  ./homeModules
+                ];
 
-         #       home = {
-         #         username = mainUser;
-         #         homeDirectory = "/home/${mainUser}";
-         #         stateVersion = "23.11";
-         #       };
-         #       programs.home-manager.enable = true;
-         #       ${env.nixosVars.hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
-         #     };
-         #   };
-         # }
+                home = {
+                  username = mainUser;
+                  homeDirectory = "/home/${mainUser}";
+                  stateVersion = "24.05";
+                };
+                programs.home-manager.enable = true;
+                ${env.nixosVars.hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
+              };
+            };
+          }
         ];
       };
     };
