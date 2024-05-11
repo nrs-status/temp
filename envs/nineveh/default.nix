@@ -27,7 +27,7 @@
 
 		modulesToEnable = [
 		"keyRebindings"
-#		"bluetooth"
+		"bluetooth"
 			];
 	};
 }
