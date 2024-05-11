@@ -90,7 +90,7 @@ in {
                 critical = 10;
                 warning = 30;
               };
-              tooltip-format = "{timeTo}";
+              tooltip-format = "{timeTo} - {capacity}%";
               tooltip = "true";
             };
             idle_inhibitor = {
