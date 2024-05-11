@@ -52,7 +52,7 @@
                 home = {
                   username = mainUser;
                   homeDirectory = "/home/${mainUser}";
-                  stateVersion = "24.05";
+                  stateVersion = "23.11";
                 };
                 programs.home-manager.enable = true;
                 ${env.nixosVars.hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
