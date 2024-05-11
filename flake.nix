@@ -17,11 +17,12 @@
     ...
   }: let
     env = import envs/nineveh;
+    hostName = env.nixosVars.hostName;
     utils = import ./utils { lib = nixpkgs.lib; };
   in {
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
-      ${env.nixosVars.hostName} = nixpkgs.lib.nixosSystem {
+      ${hostName} = nixpkgs.lib.nixosSystem {
         system = env.nixosVars.system;
         specialArgs = env;
         modules = [
@@ -30,11 +31,11 @@
             time.timeZone = env.nixosVars.timeZone;
           }
           ./nixosModules
-          ({pkgs, ...}: {
-            #${env.nixosVars.hostName}.osOpts = stringListToEnabledOptions env.nixosVars.modulesToEnable;
-            nineveh.system.keyRebindings.enable = true;
+          {
+          ${hostName}.system = utils.stringListToEnabledOptions env.nixosVars.modulesToEnable;
+           # nineveh.system.keyRebindings.enable = true;
 #            nineveh.system.bluetooth.enable = true;
-          })
+          }
          # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
           {
@@ -55,7 +56,7 @@
                   stateVersion = "23.11";
                 };
                 programs.home-manager.enable = true;
-                ${env.nixosVars.hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
+              ${hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
               };
             };
           }
