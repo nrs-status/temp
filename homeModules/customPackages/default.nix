@@ -7,8 +7,8 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = let
-        getNixFiles = import ../resources/nixFunctions/getNixFiles.nix { inherit lib; };
-        customPackagesPaths = getNixFiles {
+        utils = import ../../utils;
+        customPackagesPaths = utils.getNixFiles {
           dir = ../customPackages;
           ignore = [];
         };

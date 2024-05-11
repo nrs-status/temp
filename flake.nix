@@ -3,7 +3,7 @@
 
   inputs = {
    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-   nixpkgs.url = "github:nixos/nixpkgs/tree/nixpkgs-unstable";
+   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -29,35 +29,36 @@
             networking.hostName = env.nixosVars.hostName;
             time.timeZone = env.nixosVars.timeZone;
           }
+          ./nixosModules
           ({pkgs, ...}: {
             #${env.nixosVars.hostName}.osOpts = stringListToEnabledOptions env.nixosVars.modulesToEnable;
             nineveh.system.keyRebindings.enable = true;
-            nineveh.system.bluetooth.enable = true;
+#            nineveh.system.bluetooth.enable = true;
           })
           # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = let
-              mainUser = env.nixosVars.mainUser;
-            in {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = env;
-              users.${mainUser} = {
-                imports = [
-                  ./homeModules
-                ];
+         # home-manager.nixosModules.home-manager
+         # {
+         #   home-manager = let
+         #     mainUser = env.nixosVars.mainUser;
+         #   in {
+         #     useGlobalPkgs = true;
+         #     useUserPackages = true;
+         #     extraSpecialArgs = env;
+         #     users.${mainUser} = {
+         #       imports = [
+         #         ./homeModules
+         #       ];
 
-                home = {
-                  username = mainUser;
-                  homeDirectory = "/home/${mainUser}";
-                  stateVersion = "23.11";
-                };
-                programs.home-manager.enable = true;
-                ${env.nixosVars.hostName}.home = stringListToEnabledOptions env.homeVars.pkgSets;
-              };
-            };
-          }
+         #       home = {
+         #         username = mainUser;
+         #         homeDirectory = "/home/${mainUser}";
+         #         stateVersion = "23.11";
+         #       };
+         #       programs.home-manager.enable = true;
+         #       ${env.nixosVars.hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
+         #     };
+         #   };
+         # }
         ];
       };
     };

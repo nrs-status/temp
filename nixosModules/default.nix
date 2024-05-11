@@ -1,11 +1,12 @@
-{ lib, ... }:
+{ lib, ... }@inputs:
 let
-  getNixFiles = import ../resources/nixFunctions/getNixFiles.nix { inherit lib; };
+  utils = import ../utils inputs;
 in
+# @NOTE: Additional modules must be at least staged in git
 {
-  # @NOTE: Additional modules must be at least staged in git.
-  imports = getNixFiles {
+  imports = utils.recursivelyListNixFilesExceptThoseInIgnoreList {
     dir = ./.;
-    ignore = []; 
+    ignore = [ ./default.nix ];
   };
 }
+
