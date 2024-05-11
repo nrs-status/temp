@@ -89,7 +89,7 @@ in {
                 critical = 10;
                 warning = 30;
               };
-              tooltip-format = "{state}"; 
+              tooltip-format = "{time}"; 
             };
             idle_inhibitor = {
               format = "{icon}";
