@@ -85,11 +85,13 @@ in {
               rotate = 270;
               # TODO set different icons when charging (currently broken?)
               format-icons = [ "󱃍" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+              format-charging = "";
               states = {
                 critical = 10;
                 warning = 30;
               };
-              tooltip-format = "{time}"; 
+              tooltip-format = "{time}";
+              tooltip = "true";
             };
             idle_inhibitor = {
               format = "{icon}";
