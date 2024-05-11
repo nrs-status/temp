@@ -81,14 +81,15 @@ in {
               on-click-right = "${pkgs.utillinux}/bin/rfkill toggle bluetooth";
             };
             battery = {
-              format = "{icon} {capacity}%";
-              #rotate = 270;
+              format = "{icon}";
+              rotate = 270;
               # TODO set different icons when charging (currently broken?)
               format-icons = [ "󱃍" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
               states = {
                 critical = 10;
                 warning = 30;
               };
+              tooltip-format = "{state}"; 
             };
             idle_inhibitor = {
               format = "{icon}";
