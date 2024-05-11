@@ -18,6 +18,7 @@
   }: let
     env = import envs/nineveh;
     hostName = env.nixosVars.hostName;
+	mainUser = env.nixosVars.mainUser;
     utils = import ./utils { lib = nixpkgs.lib; };
   in {
     nixosConfigurations = {
@@ -32,36 +33,63 @@
           }
           ./nixosModules
           {
-            options.${hostName}.system.homeManager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize nixosModules/bluetooth.nix
+            options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize nixosModules/bluetooth.nix
             config.${hostName}.system = utils.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
           }
          # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-         
-           home-manager.nixosModules.home-manager
-          {
-            home-manager = let
-              inherit hostName;
-              mainUser = env.nixosVars.mainUser;
-            in nixpkgs.lib.mkIf hostName.homeManager.enable {
+
+
+          home-manager.nixosModules.home-manager
+          ({ config, lib, ... }:
+          let 
+            inherit env;
+		inherit hostName;
+		mainUser = env.nixosVars.mainUser;
+          in
+        {
+            home-manager = lib.mkIf config.${hostName}.system.home-manager.enable { 
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = env;
+extraSpecialArgs = env;
               users.${mainUser} = {
-                imports = [
-                  ./homeModules
-                ];
-
+                imports = [ ./homeModules ];
                 home = {
                   username = mainUser;
                   homeDirectory = "/home/${mainUser}";
                   stateVersion = "23.11";
                 };
                 programs.home-manager.enable = true;
-              ${hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets; #in charge of setting the homeModule options
+                ${hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
               };
             };
-          }
-        
+          })
+
+
+   #      home-manager.nixosModules.home-manager 
+   #      ({ config, lib, ... }:
+   #      {
+   #      home-manager = 
+   #      let
+   #        mainUser = env.nixosVars.mainUser;
+   #      in nixpkgs.lib.mkIf (config.networking.hostName.homeManager.enable == "true") {
+   #           useGlobalPkgs = true;
+   #           useUserPackages = true;
+   #           extraSpecialArgs = env;
+   #           users.${mainUser} = {
+   #             imports = [
+   #               ./homeModules
+   #             ];
+
+   #             home = {
+   #               username = mainUser;
+   #               homeDirectory = "/home/${mainUser}";
+   #               stateVersion = "23.11";
+   #             };
+   #             programs.home-manager.enable = true;
+   #           ${hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets; #in charge of setting the homeModule options
+   #           };
+   #         };
+   #       })
         ];
       };
     };

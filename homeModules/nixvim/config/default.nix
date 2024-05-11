@@ -1,11 +1,11 @@
 { lib, ... }:
 let 
-  utils = ../../utils { inherit lib; }; 
+  utils = import ../../../utils { inherit lib; }; 
 in
 {
   # Import all your configuration modules here
-  imports = utils.recusrivelyListNixFilesExceptThoseInIgnoreList {
+  imports = utils.recursivelyListNixFilesExceptThoseInIgnoreList {
     dir = ./.;
-    ignore = [ ./default.nix ]
+    ignore = [ ./default.nix ];
   };
 }
