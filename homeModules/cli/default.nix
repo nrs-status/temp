@@ -36,7 +36,7 @@ in {
 	atool
 
 	#Monitoring	
-        
+        acpi        
         duf
         ncdu
 	psmisc
