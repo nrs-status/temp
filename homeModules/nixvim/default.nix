@@ -43,6 +43,10 @@ in {
           key = "<Leader>wq";
         }
         {
+          action = ":q!<cr>";
+          key = "<leader>q1";
+        }
+        {
           action = ":w<cr>";
           key = "<leader>w";
         }
