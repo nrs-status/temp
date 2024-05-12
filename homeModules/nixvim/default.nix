@@ -20,7 +20,14 @@ in {
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
-      globals.mapleader = " ";
+      
+      viAlias = true;
+      vimAlias = true;
+
+      globals = {
+        mapleader = " ";
+        maplocalleader = " ";
+      };
 
       clipboard.providers.wl-copy.enable = true;
 
