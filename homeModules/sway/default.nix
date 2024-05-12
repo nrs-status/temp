@@ -43,6 +43,7 @@ in {
             mode = "hide";
             modifier = "Mod4";
             hidden_state = "hide";
+            start_hidden = "true";
             layer = "top";
             tray_output = "primary";
 
@@ -221,6 +222,7 @@ in {
         keybindings = lib.mkOptionDefault {
           "${modifier}+Shift+backslash" = "splith";
           "${modifier}+minus" = "splitv";
+          "${modifier}" = "killall -SIGUSR1 .waybar-wrapped";
         };
 
         focus.followMouse = false;
