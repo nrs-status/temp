@@ -24,15 +24,13 @@ in {
         mods
         nix-output-monitor
         nvd
+        eza #ls alternative
 
 
 	#Archives
 	#currently test driving atool, previous stack is commented out
-        #lrzip
-        #lz4
-        #p7zip
-        #unar
-        #unzip
+        unzip
+        unrar
 	atool
 
 	#Monitoring	
