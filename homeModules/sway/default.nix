@@ -15,7 +15,8 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        grim # screenshot functionality, alternatively try 'slurp'
+        grim #screenshot tool 
+        slurp #allows selecting a piece of screen for screenshot
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         mako # notification system developed by swaywm maintainer
         wev #xev analogue
