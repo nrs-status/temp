@@ -17,6 +17,7 @@
       "etc"
       "gammastep"
       "cloudwork"
+      "gtk"
       #"custom_packages"
     ];
   };
