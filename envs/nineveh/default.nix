@@ -14,7 +14,6 @@
       "sway"
       "kitty"
       "fonts"
-      #"bluetooth"
       "etc"
       "gammastep"
       "cloudwork"
