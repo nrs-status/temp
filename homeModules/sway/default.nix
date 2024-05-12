@@ -159,7 +159,7 @@ in {
       in
     {
       enable = true;
-      config = {
+      config = rec {
         bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
        
         colors = {
@@ -208,6 +208,11 @@ in {
             names = [ "Iosevka Proportional" ];
             size = 11.0;
           };
+
+          keybindings = lib.mkOptionDefault {
+            "${modifier}+Shift+backslash" = "splith";
+          };
+
         focus.followMouse = false;
         modifier = "Mod4";
         terminal = "${pkgs.kitty}/bin/kitty";
