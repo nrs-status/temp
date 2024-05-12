@@ -8,7 +8,7 @@ in {
       enable = true;
       provider = "manual";
       latitude = -27.5;
-      longitude = -59;
+      longitude = -59.0;
     };
  #   services.redshift = {
  #     enable = true;

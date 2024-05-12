@@ -6,7 +6,6 @@
 			#"core"
 			"cli"
 			"git"
-		#	"neovim"
 			"nixvim"
 			"firefox"
 			"multimedia"
@@ -15,7 +14,8 @@
 			"kitty"
 			"fonts"
 			#"bluetooth"
-			"etc"		
+			"etc"	
+			"redshift"
 			#"custom_packages"
 		];
 	};
