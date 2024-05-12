@@ -38,6 +38,10 @@ in {
           action = ":q";
           key = "<Leader>q";
         }
+        {
+          action = ":Telescope find_files<CR>";
+          key = "<Leader>ff";
+        }
       ];
 
       opts = {
