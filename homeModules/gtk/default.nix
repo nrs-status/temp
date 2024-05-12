@@ -10,10 +10,10 @@ in {
 
     gtk = {
       enable = true;
-      font = {
-        package = pkgs.iosevka;
-        name = "Iosevka";
-      };
+  #    font = {
+  #      package = pkgs.iosevka;
+  #      name = "Iosevka";
+  #    };
       theme = {
         package = pkgs.qogir-icon-theme;
         name = "Qogir";
