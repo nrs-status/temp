@@ -22,7 +22,7 @@ in {
         enable = true;
         package = pkgs.waybar;
         settings = [{
-          layer = "top";
+         # layer = "top";
           position = "top";
           height = 35;
           mode = "hide";
