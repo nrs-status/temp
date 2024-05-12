@@ -46,6 +46,11 @@ in {
           action = ":Telescope live_grep<cr>";
           key = "<leader>lg";
         }
+        {
+          action = "<Esc>";
+          key = "jk";
+          mode = [ "i" ];
+        }
       ];
 
       opts = {
@@ -91,6 +96,9 @@ in {
         cmp-rg.enable = true;
         cmp-treesitter.enable = true;
         cmp-zsh.enable = true;
+        cmp-cmdline.enable = true;
+        cmp-path.enable = true;
+        cmp_luasnip.enable = true;
 
         comment.enable = true;
 
