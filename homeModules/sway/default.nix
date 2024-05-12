@@ -14,6 +14,7 @@ in {
         grim # screenshot functionality, alternatively try 'slurp'
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         mako # notification system developed by swaywm maintainer
+        wev #xev analogue
       ];
     };
 
