@@ -30,6 +30,9 @@ in {
         number = true; # Show line numbers
         #relativenumber = true; # Show relative line numbers
 
+        mouse = "a"; # Enable mouse control
+        mousemodel = "extend"; # Mouse right-click extends the current selection
+
         vimAlias = true;
 
         shiftwidth = 2; # Tab width should be 2
@@ -39,6 +42,8 @@ in {
           Comment.underline = true;
           Comment.bold = true;
         };
+
+
       };
       plugins = {
         telescope.enable = true;
