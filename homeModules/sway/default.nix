@@ -222,7 +222,8 @@ in {
         keybindings = lib.mkOptionDefault {
           "${modifier}+Shift+backslash" = "splith";
           "${modifier}+minus" = "splitv";
-          "${modifier}" = "killall -SIGUSR1 .waybar-wrapped";
+          "${modifier}" = "exec killall -SIGUSR1 .waybar-wrapped";
+          "${modifier}+y" = "exec firefox";
         };
 
         focus.followMouse = false;
