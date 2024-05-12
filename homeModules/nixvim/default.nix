@@ -152,6 +152,7 @@ in {
 
         treesitter = {
           enable = true;
+          indent = true;
         };
       };
     };
