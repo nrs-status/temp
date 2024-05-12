@@ -43,7 +43,7 @@ in {
             mode = "hide";
             modifier = "Mod4";
             hidden_state = "hide";
-            start_hidden = "true";
+            #start_hidden = "true";
             layer = "top";
             tray_output = "primary";
 
