@@ -24,7 +24,7 @@ in {
 
       clipboard.providers.wl-copy.enable = true;
 
-      colorschemes.gruvbox.enable = true;
+      colorschemes.gruvbox.enable = false;
 
       opts = {
         number = true; # Show line numbers
