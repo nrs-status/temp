@@ -14,6 +14,8 @@ in {
       source-code-pro
       source-sans-pro
       source-serif-pro
+
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
     ];
 
     fonts.fontconfig.enable = true;
