@@ -8,6 +8,8 @@ in {
       packages = with pkgs; [
         brogue
         crawl
+        wine64
+
       ];
     };
   };

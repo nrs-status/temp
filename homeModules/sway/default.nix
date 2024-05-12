@@ -122,6 +122,7 @@ in {
             };
             clock = {
               interval = 1;
+              timezone = "America/Argentina/Buenos_Aires";
               format = "󰅐{:%T}";
               tooltip-format = "{:%F}";
             };
