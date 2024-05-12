@@ -234,9 +234,10 @@ in {
           "${modifier}+p" =
             "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
             "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
-            "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
-            "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
-            "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
+            "Shift+Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/snippet_$(date +%F-%T).png";
+            "F7" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
+            "F6" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
+            "F5" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
           };
 
         focus.followMouse = false;
