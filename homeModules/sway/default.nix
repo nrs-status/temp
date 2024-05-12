@@ -30,6 +30,7 @@ in {
          hidden_state = "hide";
          modifier-reset = "press";
          position = "top";
+         ipc = true;
          layer = "top";
           height = 35;
           mode = "hide";
