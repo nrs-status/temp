@@ -116,6 +116,8 @@ in {
 
         neo-tree.enable = true;
 
+        friendly-snippets.enable = true;
+
         none-ls = { 
           enable = true;
           sources = {
@@ -127,6 +129,12 @@ in {
               sqlfluff.enable = true;
               yamlfmt.enable = true;
             };
+
+            diagnostics = {
+              mypy.enable = true;
+              cppcheck.enable = true;
+              zsh.enable = true;
+            }; 
           };
         };
 
