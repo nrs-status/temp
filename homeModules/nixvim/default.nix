@@ -27,7 +27,7 @@ in {
       colorschemes.gruvbox.enable = true;
 
       opts = {
-        number = true; # Show line numbers
+        #number = true; # Show line numbers
         relativenumber = true; # Show relative line numbers
 
         viAlias = true;

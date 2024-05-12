@@ -1,7 +1,7 @@
-bluetooth - compartamentalize properly; currently will fail to work if home-manager isn't enabled, yet is located in nixosModule. proposed fix: make the part related to homeManager an if-statement. for this, we need to make home-manager an option, but I haven't figured out how to do this 
+
+aliases
 nvim
 emacs
-redshift
 git credentials
 vault secrets
 fix section in flake that calls for system modules, where we have the commented line "stringListToEnabledOptions env.nixosVars.modules.ToEnable"

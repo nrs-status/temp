@@ -15,7 +15,7 @@
 			"fonts"
 			#"bluetooth"
 			"etc"	
-			"redshift"
+			"gammastep"
 			#"custom_packages"
 		];
 	};

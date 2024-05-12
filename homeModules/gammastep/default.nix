@@ -1,8 +1,8 @@
 { config, lib, pkgs, osConfig, ... }:
 
-let cfg = config.${osConfig.networking.hostName}.home.redshift;
+let cfg = config.${osConfig.networking.hostName}.home.gammastep;
 in {
-  options.${osConfig.networking.hostName}.home.redshift.enable = lib.mkEnableOption "Redshift";
+  options.${osConfig.networking.hostName}.home.gammastep.enable = lib.mkEnableOption "Gammastep";
   config = lib.mkIf cfg.enable {
     services.gammastep = {
       enable = true;
