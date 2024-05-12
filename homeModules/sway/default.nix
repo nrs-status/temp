@@ -25,6 +25,7 @@ in {
          # layer = "top";
          start_hidden = true;
          hidden_state = "hide";
+         modifier-reset = "press";
           position = "top";
           height = 35;
           mode = "hide";
