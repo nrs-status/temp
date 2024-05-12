@@ -60,8 +60,8 @@ in {
         }
         {
           action = "<Esc>";
-          key = "jk";
-          mode = [ "i" "n" "v" ]; 
+          key = " jk";
+          mode = [ "i" ]; 
         }
         {
           action = "<Cmd>Neotree toggle<CR>";

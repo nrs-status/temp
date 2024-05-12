@@ -12,6 +12,7 @@ in {
 
         #image
         imagemagick
+        imv
 
         #video
         streamlink

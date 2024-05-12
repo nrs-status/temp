@@ -238,7 +238,12 @@ in {
             "F7" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
             "F6" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
             "F5" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
-          };
+        };
+
+        startup = [
+          { command = "exec swaymsg 'workspace 1; exec firefox' "; }
+          { command = "exec swaymsg 'workspace 2; exec kitty' "; }
+        ];
 
         focus.followMouse = false;
         modifier = "Mod4";
