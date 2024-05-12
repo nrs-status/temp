@@ -62,7 +62,7 @@ in ''
   #window,
   #workspaces {
       margin: 0 4px;
-      padding: 0 10px;
+      padding: 0 100px;
   }
 
   #clock {
