@@ -35,7 +35,7 @@ in {
 
       keymaps = [
         {
-          action = ":q";
+          action = ":q<cr>";
           key = "<Leader>q";
         }
         {
