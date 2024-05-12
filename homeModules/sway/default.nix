@@ -220,6 +220,13 @@ in {
           size = 11.0;
         };
 
+        input = {
+          "*" = {
+            xkb_numlock = "enabled";
+            xkb_layout = "us";
+          };
+        };
+
         keybindings = lib.mkOptionDefault {
           "${modifier}+Shift+backslash" = "splith";
           "${modifier}+minus" = "splitv";
