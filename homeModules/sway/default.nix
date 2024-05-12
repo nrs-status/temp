@@ -158,7 +158,8 @@ in {
     {
       enable = true;
       config = {
-        bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+        #bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+        bars = [{ command = "swaybar --bar_id bar-0"; }];
         colors = {
             background = gruvbox.dark.bg;
             focused = {
