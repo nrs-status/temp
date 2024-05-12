@@ -23,8 +23,6 @@ in {
       enable = true;
         package = pkgs.waybar;
         settings = [{
-         # layer = "top";
-         start_hidden = true;
 
       modifier = "Mod4";
       position = "top";
