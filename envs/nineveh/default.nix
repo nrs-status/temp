@@ -16,7 +16,7 @@
       "fonts"
       #"bluetooth"
       "etc"
-      "gammastep"
+      #"gammastep"
       #"custom_packages"
     ];
   };
