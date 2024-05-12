@@ -17,6 +17,7 @@
       #"bluetooth"
       "etc"
       "gammastep"
+      "cloudwork"
       #"custom_packages"
     ];
   };

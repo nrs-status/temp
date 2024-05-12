@@ -59,6 +59,11 @@ in {
           action = "<Cmd>Neotree toggle<CR>";
           key = "<leader>n";
         }
+        {
+          action = "vim.lsp.buf.hover";
+          key  = "<leader>k";
+          mode = [ "n" ];
+        }
 
       ];
 
@@ -113,6 +118,8 @@ in {
 
         comment.enable = true;
 
+        lspkind.enable = true;
+
         gitsigns.enable = true;
 
         indent-blankline = {
@@ -143,7 +150,7 @@ in {
             ruff-lsp.enable = true;
 
             terraformls.enable = true;
-
+            nixd.enable = true;
             sqls.enable = true;
 
             yamlls.enable = true;
