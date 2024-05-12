@@ -34,15 +34,15 @@ in {
         mousemodel = "extend"; # Mouse right-click extends the current selection
 
 
-#        shiftwidth = 2; # Tab width should be 2
-#        highlight = {
-#          Comment.fg = "#ff00ff";
-#          Comment.bg = "#000000";
-#          Comment.underline = true;
-#          Comment.bold = true;
-#        };
-#
-#        
+        shiftwidth = 2; # Tab width should be 2
+        highlight = {
+          Comment.fg = "#ff00ff";
+          Comment.bg = "#000000";
+          Comment.underline = true;
+          Comment.bold = true;
+        };
+
+        
 #      swapfile = false; # Disable the swap file
 #      modeline = true; # Tags such as 'vim:ft=sh'
 #      modelines = 100; # Sets the type of modelines
