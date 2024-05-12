@@ -8,7 +8,12 @@ in {
     home.packages = with pkgs; [
       material-design-icons
       iosevka
-      nerdfonts
+      font-awesome
+      noto-fonts
+      noto-fonts-cjk
+      source-code-pro
+      source-sans-pro
+      source-serif-pro
     ];
 
     fonts.fontconfig.enable = true;
