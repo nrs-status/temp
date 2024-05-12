@@ -18,7 +18,15 @@ in {
       ];
     };
 
-    programs = { 
+    programs = {
+      wofi = {
+        enable = true;
+        settings = {
+          location = "bottom-right";
+        };  
+      };
+
+
       waybar = {#needs to be enabled in wayland.windowManager.sway.config.bars
       enable = true;
         package = pkgs.waybar;
