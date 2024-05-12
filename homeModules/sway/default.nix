@@ -24,6 +24,7 @@ in {
         settings = [{
          # layer = "top";
          start_hidden = true;
+         hidden_state = "hide";
           position = "top";
           height = 35;
           mode = "hide";
