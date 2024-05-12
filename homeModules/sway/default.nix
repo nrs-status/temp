@@ -25,6 +25,7 @@ in {
           layer = "top";
           position = "top";
           height = 35;
+          mode = "hide";
           modules-left =
             [ "sway/workspaces" "sway/mode" "idle_inhibitor" ]; 
             modules-right = [ "backlight" "battery"  "network" ]
