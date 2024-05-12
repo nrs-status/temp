@@ -60,10 +60,9 @@ in ''
   #tray,
   #mode,
   #idle_inhibitor,
-
   #window,
   #workspaces {
-      margin: 0 4px;
+      margin: 0 10px;
   }
 
   #clock {
