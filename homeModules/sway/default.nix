@@ -70,7 +70,7 @@ in {
                 portable = "󰏶";
                 default = ["󰕿" "󰖀" "󰕾"];
               };
-              format = "{icon} {volume:3}%";
+              format = "{icon}{volume:3}%";
               format-bluetooth = "{icon}󰂯{volume:3}%";
               format-muted = "󰝟{volume:3}%";
             };
@@ -83,7 +83,7 @@ in {
               on-click-middle = "${pkgs.light}/bin/light -S 0";
             };
             network = {
-              format-wifi = "{icon} ";
+              format-wifi = "{icon}";
               interval = 20;
               format-ethernet = "󰈀";
               format-linked = "󰌷";
