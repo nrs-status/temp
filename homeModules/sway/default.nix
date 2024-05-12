@@ -220,7 +220,7 @@ in {
         };
 
         keybindings = lib.mkOptionDefault {
-          "${modifier}+Shift+backslash" = "splith";
+          "${modifier}+Shift+backslash" = "split h";
           "${modifier}+v" = "splitv";
           "${modifier}+s" = "exec killall -SIGUSR1 .waybar-wrapped";
         };
