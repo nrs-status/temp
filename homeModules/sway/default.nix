@@ -26,7 +26,7 @@ in {
          # layer = "top";
          start_hidden = true;
 
-      modifier = "Super_L";
+      modifier = "Mod4";
          hidden_state = "hide";
          modifier-reset = "press";
           position = "top";
