@@ -29,7 +29,8 @@ in {
       modifier = "Mod4";
          hidden_state = "hide";
          modifier-reset = "press";
-          position = "top";
+         position = "top";
+         layer = "top";
           height = 35;
           mode = "hide";
           modules-left =
