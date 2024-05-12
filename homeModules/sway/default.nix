@@ -223,9 +223,9 @@ in {
           "${modifier}+minus" = "splitv";
           "${modifier}+s" = "exec killall -SIGUSR1 .waybar-wrapped";
           "${modifier}+p" =
-            "exec --no-startup-id ${pkgs.grim}/bin/grim ~/Pictures/screenshots/$(date +%F-%T).png";
+            "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
             "Print" =
-              "exec --no-startup-id ${pkgs.grim}/bin/grim ~/Pictures/screenshots/$(date +%F-%T).png";
+              "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
             };
 
         focus.followMouse = false;
