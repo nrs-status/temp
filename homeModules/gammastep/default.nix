@@ -9,13 +9,8 @@ in {
       provider = "manual";
       latitude = -27.5;
       longitude = -59.0;
+      dawnTime = "7:00-8:00";
+      duskTime = "23:00-00:00";
     };
- #   services.redshift = {
- #     enable = true;
- #     temperature = {
- #       day = 5500;
- #       night = 3700;
- #     };
- #   };
   };
 }
