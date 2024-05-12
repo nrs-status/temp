@@ -50,7 +50,10 @@ in {
         cursorcolumn = true; # Highlight the screen column of the cursor
       };
       plugins = {
-        telescope.enable = true;
+        telescope = { 
+          enable = true;
+          extensions.fzf-native.enable = true;
+        };
         rainbow-delimiters.enable = true;
         nix.enable = true;
         sleuth.enable = true;
