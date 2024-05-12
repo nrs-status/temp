@@ -43,6 +43,10 @@ in {
           key = "<Leader>wq";
         }
         {
+          action = ":w<cr>";
+          key = "<leader>w";
+        }
+        {
           action = ":Telescope find_files<CR>";
           key = "<Leader>ff";
         }
@@ -62,6 +66,11 @@ in {
         {
           action = "vim.lsp.buf.hover";
           key  = "<leader>k";
+          mode = [ "n" ];
+        }
+        {
+          action = "vim.lsp.buf.definition";
+          key = "<leader>gd";
           mode = [ "n" ];
         }
 
