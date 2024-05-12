@@ -4,7 +4,7 @@ in ''
       border: none;
       border-radius: 0;
       font-family: Iosevka;
-      font-size: 16px;
+      font-size: 20px;
       min-height: 0;
   }
 
@@ -62,7 +62,8 @@ in ''
   #idle_inhibitor,
   #window,
   #workspaces {
-      margin: 0 10px;
+      margin: 0 4px;
+      padding: 0 10pkx;
   }
 
   #clock {
