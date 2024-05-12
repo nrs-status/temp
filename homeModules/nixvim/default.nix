@@ -57,7 +57,6 @@ in {
         {
           action = "<Esc>";
           key = "jk";
-          mode = [ "i" ];
         }
         {
           action = "<Cmd>Neotree toggle<CR>";

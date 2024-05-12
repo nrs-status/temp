@@ -211,6 +211,7 @@ in {
 
           keybindings = lib.mkOptionDefault {
             "${modifier}+Shift+backslash" = "splith";
+            "${modifier}+minus" = "splitv";
           };
 
         focus.followMouse = false;
