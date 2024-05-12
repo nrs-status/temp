@@ -61,8 +61,13 @@ in ''
   #idle_inhibitor,
   #window,
   #workspaces {
-      margin: 0 0px;
+      margin: 0 4px;
       padding: 0 10px;
+  }
+
+  #window,
+  #workspaces {
+      margin: 0 4px;
   }
 
   #clock {
