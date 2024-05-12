@@ -21,7 +21,6 @@ in ''
   }
 
   #workspaces button {
-      padding: 0 5px;
       background-color: transparent;
       color: ${gruvbox.dark.fg};
       box-shadow: inset 0 -3px transparent;
