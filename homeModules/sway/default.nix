@@ -256,7 +256,6 @@ in {
             }
           ];
         };
-        workspaceAutoBackAndForth = true;
       };
     };
   };
