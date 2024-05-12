@@ -3,8 +3,8 @@ in ''
    * {
       border: none;
       border-radius: 0;
-      font-family: Myosevka;
-      font-size: 23px;
+      font-family: Iosevka;
+      font-size: 20px;
       min-height: 0;
   }
 
@@ -21,7 +21,6 @@ in ''
   }
 
   #workspaces button {
-      padding: 0 5px;
       background-color: transparent;
       color: ${gruvbox.dark.fg};
       box-shadow: inset 0 -3px transparent;
@@ -60,25 +59,15 @@ in ''
   #tray,
   #mode,
   #idle_inhibitor,
-  #mpd {
-      padding: 0 10px;
+  #window,
+  #workspaces {
       margin: 0 4px;
-      color: ${gruvbox.dark.fg};
+      padding: 0 10px;
   }
 
   #window,
   #workspaces {
       margin: 0 4px;
-  }
-
-  /* If workspaces is the leftmost module, omit left margin */
-  .modules-left > widget:first-child > #workspaces {
-      margin-left: 0;
-  }
-
-  /* If clock is the rightmost module, omit right margin */
-  .modules-right > widget:last-child > #clock {
-      margin-right: 0;
   }
 
   #clock {
