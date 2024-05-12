@@ -116,6 +116,20 @@ in {
 
         neo-tree.enable = true;
 
+        none-ls = { 
+          enable = true;
+          sources = {
+            formatting = {
+              alejandra.enable = true;
+              black.enable = true;
+              clang_format.enable = true;
+              shellharden.enable = true;
+              sqlfluff.enable = true;
+              yamlfmt.enable = true;
+            };
+          };
+        };
+
         cmp = {
           enable = true;
           autoEnableSources = true;
