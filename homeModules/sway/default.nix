@@ -36,10 +36,17 @@ in {
         package = pkgs.waybar;
         settings = [
           {
+            #settings for hide
             swaybar_command = "waybar";
+            ipc = "true";
+            mode = "hide";
             modifier = "Mod4";
-            position = "top";
+            hidden_state = "hide";
             layer = "top";
+            tray_output = "primary";
+
+
+            position = "top";
             height = 35;
             modules-left = ["sway/workspaces" "sway/mode" "idle_inhibitor"];
             modules-right =
