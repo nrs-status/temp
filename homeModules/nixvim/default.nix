@@ -73,6 +73,11 @@ in {
           key = "<leader>gd";
           mode = [ "n" ];
         }
+        {
+          action = "vim.lsp.buf.code_action";
+          key = "<leader>ca";
+          mode = [ "n" ];
+        }
 
       ];
 
