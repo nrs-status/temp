@@ -33,6 +33,13 @@ in {
 
       colorschemes.gruvbox.enable = true;
 
+      keymaps = [
+        {
+          action = ":q";
+          key = "<Leader>q";
+        }
+      ];
+
       opts = {
         number = true; # Show line numbers
         relativenumber = true; # Show relative line numbers
