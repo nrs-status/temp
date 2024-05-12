@@ -27,13 +27,9 @@ in {
          start_hidden = true;
 
       modifier = "Mod4";
-         hidden_state = "hide";
-         modifier-reset = "press";
-         position = "top";
-         ipc = true;
+      position = "top";
          layer = "top";
           height = 35;
-          mode = "hide";
           modules-left =
             [ "sway/workspaces" "sway/mode" "idle_inhibitor" ]; 
             modules-right = [ "backlight" "battery"  "network" ]
