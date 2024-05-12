@@ -20,11 +20,13 @@ in {
 
     programs = { 
       waybar = {#needs to be enabled in wayland.windowManager.sway.config.bars
-        enable = true;
+      enable = true;
         package = pkgs.waybar;
         settings = [{
          # layer = "top";
          start_hidden = true;
+
+      modifier = "Super_L";
          hidden_state = "hide";
          modifier-reset = "press";
           position = "top";
