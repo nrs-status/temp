@@ -42,6 +42,10 @@ in {
           action = ":Telescope find_files<CR>";
           key = "<Leader>ff";
         }
+        {
+          action = ":Telescope live_grep<cr>";
+          key = "<leader>lg";
+        }
       ];
 
       opts = {
