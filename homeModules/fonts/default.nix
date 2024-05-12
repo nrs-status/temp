@@ -8,6 +8,7 @@ in {
     home.packages = with pkgs; [
       material-design-icons
       iosevka
+      nerdfonts
     ];
 
     fonts.fontconfig.enable = true;

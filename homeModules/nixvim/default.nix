@@ -78,6 +78,16 @@ in {
           key = "<leader>ca";
           mode = [ "n" ];
         }
+        {
+          action = "$";
+          key = "<leader>l";
+          mode = [ "n" ];
+        }
+        {
+          action = "0";
+          key = "<leader>h";
+          mode = [ "n" ];
+        }
 
       ];
 
