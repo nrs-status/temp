@@ -52,7 +52,7 @@ in {
           mode = [ "i" ];
         }
         {
-          action = ":neo-tree";
+          action = "<Cmd>Neotree toggle<CR>";
           key = "<leader>n";
         }
 
