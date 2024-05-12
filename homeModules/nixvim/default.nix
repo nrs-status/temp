@@ -36,7 +36,7 @@ in {
       keymaps = [
         {
           action = ":q<cr>";
-          key = "<Leader>q";
+          key = "<Leader>qq";
         }
         {
           action = ":wq<cr>";
@@ -48,7 +48,7 @@ in {
         }
         {
           action = ":w<cr>";
-          key = "<leader>w";
+          key = "<leader>ww";
         }
         {
           action = ":Telescope find_files<CR>";
@@ -61,7 +61,7 @@ in {
         {
           action = "<Esc>";
           key = "jk";
-          mode = [ "i" "n" ]; 
+          mode = [ "i" "n" "v" ]; 
         }
         {
           action = "<Cmd>Neotree toggle<CR>";

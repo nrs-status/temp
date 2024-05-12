@@ -7,7 +7,7 @@ in {
     programs.kitty = {
       enable = true;
       font = {
-        name = "Iosevka Term";
+        name = "Iosevka";
       };
       theme = "Gruvbox Dark";
       shellIntegration.enableFishIntegration = true;
