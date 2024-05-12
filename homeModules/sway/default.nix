@@ -224,9 +224,11 @@ in {
           "${modifier}+s" = "exec killall -SIGUSR1 .waybar-wrapped";
           "${modifier}+p" =
             "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
-            "Print" =
-              "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
-            };
+            "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/pictures/screenshots/$(date +%F-%T).png";
+            "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
+            "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
+            "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
+          };
 
         focus.followMouse = false;
         modifier = "Mod4";
