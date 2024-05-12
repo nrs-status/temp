@@ -51,6 +51,11 @@ in {
           key = "jk";
           mode = [ "i" ];
         }
+        {
+          action = ":neo-tree";
+          key = "<leader>n";
+        }
+
       ];
 
       opts = {
@@ -85,6 +90,8 @@ in {
         nix.enable = true;
         sleuth.enable = true;
         surround.enable = true;
+
+        neo-tree.enable = true;
 
         cmp = {
           enable = true;
