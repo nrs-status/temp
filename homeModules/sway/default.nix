@@ -122,7 +122,7 @@ in {
             };
             clock = {
               interval = 1;
-              format = "󰅐 {:%T}";
+              format = "󰅐{:%T}";
               tooltip-format = "{:%F}";
             };
           }
