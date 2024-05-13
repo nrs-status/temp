@@ -243,6 +243,7 @@ in {
         focus.followMouse = false;
         modifier = "Mod4";
         terminal = "${pkgs.kitty}/bin/kitty";
+        gaps.smartBorders = "no_gaps";
         window = {
           border = 1;
           titlebar = false;
