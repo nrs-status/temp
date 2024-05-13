@@ -236,7 +236,6 @@ in {
         startup = [
           { command = "exec swaymsg 'workspace 1; exec firefox' "; }
           { command = "exec swaymsg 'workspace 2; exec kitty' "; }
-          { command =  "exec killall -SIGUSR1 .waybar-wrapped"; }
         ];
 
         menu = "${pkgs.wofi}/bin/wofi --show drun";
