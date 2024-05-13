@@ -14,7 +14,6 @@ in {
         parallel
         ripgrep
         rmlint
-        tree
         xxHash
         yazi
         pb_cli
