@@ -46,7 +46,7 @@ in {
             modules-left = ["sway/workspaces" "sway/mode" "idle_inhibitor"];
             modules-right =
               ["backlight" "battery" "network"]
-              ++ lib.optional config.${osConfig.networking.hostName}.home.waybar.bluetoothModule.enable "bluetooth" #enabled through nixosModules/bluetooth.nix
+              ++ lib.optional config.${osConfig.networking.hostName}.home.waybar.bluetoothModule.enable "bluetooth" #enabled through zeus_olympia/bluetooth.nix
               ++ ["pulseaudio" "clock"];
             "sway/workspaces".numeric-first = true;
             pulseaudio = {

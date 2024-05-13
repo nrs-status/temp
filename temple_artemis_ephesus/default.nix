@@ -1,7 +1,7 @@
 { lib, ... }@inputs:
 let
-  utils = import ../utils inputs;
-  allNixFilesExceptFirstDefault = utils.recursivelyListNixFilesExceptThoseInIgnoreList {
+  lighthouse_alexandria = import ../lighthouse_alexandria inputs;
+  allNixFilesExceptFirstDefault = lighthouse_alexandria.recursivelyListNixFilesExceptThoseInIgnoreList {
     dir = ./.;
     ignore = [ ./default.nix ];
   };

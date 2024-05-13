@@ -24,10 +24,10 @@
 	nixvim,
     ...
   }: let
-    env = import envs/nineveh;
+    env = import hanging_gardens_babylon/nineveh;
     hostName = env.nixosVars.hostName;
 	mainUser = env.nixosVars.mainUser;
-    utils = import ./utils { lib = nixpkgs.lib; };
+    lighthouse_alexandria = import ./lighthouse_alexandria { lib = nixpkgs.lib; };
   in {
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
@@ -39,10 +39,10 @@
             networking.hostName = env.nixosVars.hostName;
             time.timeZone = env.nixosVars.timeZone;
           }
-          ./nixosModules
+          ./zeus_olympia
           {
-            options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize nixosModules/bluetooth.nix
-            config.${hostName}.system = utils.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
+            options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize zeus_olympia/bluetooth.nix
+            config.${hostName}.system = lighthouse_alexandria.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
           }
          # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
 
@@ -61,7 +61,7 @@
 extraSpecialArgs = env;
               users.${mainUser} = {
                 imports = [
-			 ./homeModules
+			 ./temple_artemis_ephesus
 			nixvim.homeManagerModules.nixvim
 		 ];
                 home = {
@@ -70,13 +70,13 @@ extraSpecialArgs = env;
                   stateVersion = "23.11";
                 };
                 programs.home-manager.enable = true;
-                ${hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets;
+                ${hostName}.home = lighthouse_alexandria.stringListToEnabledOptions env.homeVars.pkgSets;
               };
             };
           })
 	
 
-   #      home-manager.nixosModules.home-manager 
+   #      home-manager.zeus_olympia.home-manager 
    #      ({ config, lib, ... }:
    #      {
    #      home-manager = 
@@ -88,7 +88,7 @@ extraSpecialArgs = env;
    #           extraSpecialArgs = env;
    #           users.${mainUser} = {
    #             imports = [
-   #               ./homeModules
+   #               ./temple_artemis_ephesus
    #             ];
 
    #             home = {
@@ -97,7 +97,7 @@ extraSpecialArgs = env;
    #               stateVersion = "23.11";
    #             };
    #             programs.home-manager.enable = true;
-   #           ${hostName}.home = utils.stringListToEnabledOptions env.homeVars.pkgSets; #in charge of setting the homeModule options
+   #           ${hostName}.home = lighthouse_alexandria.stringListToEnabledOptions env.homeVars.pkgSets; #in charge of setting the homeModule options
    #           };
    #         };
    #       })

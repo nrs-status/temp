@@ -7,8 +7,8 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = let
-        utils = import ../../utils;
-        customPackagesPaths = utils.getNixFiles {
+        lighthouse_alexandria = import ../../lighthouse_alexandria;
+        customPackagesPaths = lighthouse_alexandria.getNixFiles {
           dir = ../customPackages;
           ignore = [];
         };

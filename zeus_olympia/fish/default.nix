@@ -21,10 +21,10 @@ in
         g = "git";
         gc = "git commit -m";
         
-        zhm = "cd /etc/nixos/homeModules";
+        zhm = "cd /etc/nixos/temple_artemis_ephesus";
         zn = "cd /etc/nixos";
-        znm = "cd /etc/nixos/nixosModules";
-        ze = "cd /etc/nixos/envs";
+        znm = "cd /etc/nixos/zeus_olympia";
+        ze = "cd /etc/nixos/hanging_gardens_babylon";
 
         tl = "trash-list";
 
