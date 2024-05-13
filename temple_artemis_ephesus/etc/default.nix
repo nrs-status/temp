@@ -7,9 +7,13 @@ in
   config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        transmission-qt
+        transmission-gtk
         distrobox
       ];
+    };
+
+    services.transmission.settings = {
+      download-dir = "/home/nineveh/mississippi_bus";
     };
   };
 }

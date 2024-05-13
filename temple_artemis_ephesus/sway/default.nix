@@ -225,9 +225,9 @@ in {
           "${modifier}+minus" = "splitv";
           "${modifier}+s" = "exec killall -SIGUSR1 .waybar-wrapped";
           "${modifier}+p" =
-            "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre1839/rockwelllcdcalc1972/$(date +%F-%T).png";
-            "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre1839/rockwelllcdcalc1972/$(date +%F-%T).png";
-            "Shift+Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre1839/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
+            "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
+            "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
+            "Shift+Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
             "F7" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
             "F6" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
             "F5" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";

@@ -30,7 +30,7 @@ in {
       };
 
       policies = {
-        DownloadDirectory = "/home/${nixosVars.mainUser}/mississippi1927";
+        DownloadDirectory = "/home/${nixosVars.mainUser}/mississippi_bus";
         #DefaultDownloadDirectory = "/home/sieyes/downloads";
 
         #find the extension ID in about:support
