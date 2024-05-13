@@ -9,7 +9,6 @@ in
     services.restic.backups.qinshihuang = {
       user = nixosVars.mainUser;
       repository = "rest:http://${nixosVars.backupHost}:${nixosVars.backupHostPort}/";
-      passwordFile = vault.resticRepoPasswordFile; #depending on how vault setup work, check whether it is not worthwhile using env vars instead. see restic.readthedocs.io for info about how env vars pass the password
       paths = [ 
         "${nixosVars.mainUserHomeDir}/taylor1911"
         "/etc/nixos"
@@ -23,6 +22,8 @@ in
         "--exclude-larger-than 15M" #see restic's readthedocs under 'backing up''
         "--compression max"
       ];
+
+      environmentFile = "${config.vault-secrets.secrets}/environment";
     };
 
   };

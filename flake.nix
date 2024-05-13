@@ -15,13 +15,19 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    vault-secrets = {
+      url = "github:serokell/vault-secrets/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
-	nixvim,
+    nixvim,
+    vault-secrets,
     ...
   }: let
     env = import hanging_gardens_babylon/nineveh;
@@ -40,6 +46,7 @@
             time.timeZone = env.nixosVars.timeZone;
           }
           ./zeus_olympia
+          vault-secrets.nixosModules.vault-secrets
           {
             options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize zeus_olympia/bluetooth.nix
             config.${hostName}.system = lighthouse_alexandria.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
@@ -62,7 +69,7 @@ extraSpecialArgs = env;
               users.${mainUser} = {
                 imports = [
 			 ./temple_artemis_ephesus
-			nixvim.homeManagerModules.nixvim
+                         nixvim.homeManagerModules.nixvim
 		 ];
                 home = {
                   username = mainUser;

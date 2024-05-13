@@ -1,10 +1,5 @@
-fix gamma 
-aliases
-nvim
 emacs
 git credentials
 vault secrets
-fix section in flake that calls for system modules, where we have the commented line "stringListToEnabledOptions env.nixosVars.modules.ToEnable"
-copy/pasting from nvim
-get aliases working
+setup restic rest server 
 automatically load openai api key

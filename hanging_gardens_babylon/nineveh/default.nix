@@ -1,7 +1,5 @@
 {
   homeVars = {
-    #	mainUser = "sieyes";
-    #	mainUserHomeDir = "/home/sieyes";
     pkgSets = [
       #the following configs from the temple_artemis_ephesus directory will be enabled; it uses the filename in temple_artemis_ephesus without the .nix suffix
       #"core"
@@ -29,6 +27,9 @@
     timeZone = "America/Argentina/Buenos_Aires";
     mainUser = "sieyes";
     mainUserHomeDir = "/home/sieyes";
+    vaultHost = "";
+    vaultHostPort = "";
+
 
     modulesToEnable = [
       "home-manager"
