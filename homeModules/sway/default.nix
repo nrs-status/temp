@@ -24,13 +24,6 @@ in {
     };
 
     programs = {
-      wofi = {
-        enable = true;
-        settings = {
-          location = "bottom-right";
-        };
-      };
-
       waybar = {
         #needs to be enabled in wayland.windowManager.sway.config.bars
         enable = true;
@@ -43,7 +36,7 @@ in {
             mode = "hide";
             modifier = "Mod4";
             hidden_state = "hide";
-            start_hidden = "true";
+            #start_hidden = "true";
             layer = "top";
             tray_output = "primary";
 
