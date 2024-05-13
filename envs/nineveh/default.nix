@@ -19,6 +19,7 @@
       "cloudwork"
       "gtk"
       #"custom_packages"
+      "wofi"
     ];
   };
   nixosVars = {
