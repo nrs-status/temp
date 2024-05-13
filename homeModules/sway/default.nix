@@ -245,7 +245,7 @@ in {
           { command = "exec swaymsg 'workspace 2; exec kitty' "; }
         ];
 
-        menu = "${pkgs.wofi} --show run";
+        menu = "${pkgs.wofi}/bin/wofi --show run";
 
         focus.followMouse = false;
         modifier = "Mod4";
