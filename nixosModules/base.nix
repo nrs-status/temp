@@ -64,6 +64,8 @@
       enable = true;
       shellAliases = {
 	tree2 = "eza --all --long --tree";
+	tree = "eza --all --long --tree";
+
       }; 
     };
   };
