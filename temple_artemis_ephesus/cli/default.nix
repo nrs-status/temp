@@ -65,6 +65,7 @@ in {
           no-file-allocation-limit = "8M";
           on-download-complete = "exit";
           split = 32;
+          dir = "/home/${nixosVars.mainUser}/mississippi_bus";
         };
       };
       atuin = {#shell history

@@ -12,8 +12,5 @@ in
       ];
     };
 
-    services.transmission.settings = {
-      download-dir = "/home/nineveh/mississippi_bus";
-    };
-  };
+ };
 }
