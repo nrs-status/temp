@@ -60,7 +60,12 @@
   hardware.opengl.enable = true; #needed for sway
 
   programs = {
-    fish.enable = true;
+    fish = {
+      enable = true;
+      shellAliases = {
+	tree2 = "eza --all --long --tree";
+      }; 
+    };
   };
 
   users.users.${nixosVars.mainUser} = {
