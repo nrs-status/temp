@@ -223,7 +223,7 @@ in {
         keybindings = lib.mkOptionDefault {
           "${modifier}+Shift+backslash" = "splith";
           "${modifier}+minus" = "splitv";
-          "${modifier}+s" = "exec killall -SIGUSR1 .waybar-wrapped";
+          "${modifier}+z" = "exec killall -SIGUSR1 .waybar-wrapped";
           "${modifier}+p" =
             "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
             "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
