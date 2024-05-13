@@ -245,6 +245,7 @@ in {
         terminal = "${pkgs.kitty}/bin/kitty";
         window = {
           border = 1;
+          titlebar = false;
           commands = [
             {
               criteria = {app_id = "kitty";};
