@@ -20,6 +20,7 @@
       "gtk"
       #"custom_packages"
       "wofi"
+      "anki"
     ];
   };
   nixosVars = {
