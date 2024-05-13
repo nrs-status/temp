@@ -135,6 +135,13 @@ in {
 
         friendly-snippets.enable = true;
 
+        efmls-configs = {
+          enable = true;
+          toolPackages = { 
+            shellcheck = pkgs.shellcheck;
+          }; 
+        };
+
         none-ls = { 
           enable = true;
           sources = {
@@ -145,10 +152,13 @@ in {
               shellharden.enable = true;
               sqlfluff.enable = true;
               yamlfmt.enable = true;
+              isort.enable = true;
+              terraform_fmt.enable = true;
             };
 
             diagnostics = {
               mypy.enable = true;
+              pylint.enable = true;
               cppcheck.enable = true;
               zsh.enable = true;
             }; 
@@ -189,6 +199,13 @@ in {
 
         neogit.enable = true;
 
+        dap = {
+          enable = true;
+          extensions = {
+            dap-python.enable = true;
+          };
+        };
+
         lsp = {
           enable = true;
 
@@ -200,8 +217,18 @@ in {
 
             dockerls.enable = true;
 
-            ruff-lsp.enable = true;
+            bashls.enable = true;
 
+
+            pylsp = {
+              enable = true;
+              settings = {
+                plugins = {
+                  flake8.enabled = true;
+                  ruff.enabled = true;
+                };
+              };
+            };
             terraformls.enable = true;
             nixd.enable = true;
             sqls.enable = true;
