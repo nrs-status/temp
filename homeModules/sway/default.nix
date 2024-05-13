@@ -43,7 +43,7 @@ in {
             mode = "hide";
             modifier = "Mod4";
             hidden_state = "hide";
-            #start_hidden = "true";
+            start_hidden = "true";
             layer = "top";
             tray_output = "primary";
 
@@ -245,7 +245,7 @@ in {
           { command = "exec swaymsg 'workspace 2; exec kitty' "; }
         ];
 
-        menu = "${pkgs.wofi}/bin/wofi --show run";
+        menu = "${pkgs.wofi}/bin/wofi --show drun";
 
         focus.followMouse = false;
         modifier = "Mod4";
