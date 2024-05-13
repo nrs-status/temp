@@ -6,7 +6,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.fish = {
       shellAliases =  {
-        tree = "eza --all --long --tree";
+        tree2 = "eza --all --long --tree";
       };
     };
     };
