@@ -8,6 +8,7 @@ in {
       packages = with pkgs; [
         google-cloud-sdk
         terraform
+        terragrunt
       ];
     };
   };
