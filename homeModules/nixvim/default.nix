@@ -130,6 +130,9 @@ in {
         nix.enable = true;
         sleuth.enable = true;
         surround.enable = true;
+      
+        auto-save.enable = true;
+        autoclose.enable = true;
 
         neo-tree.enable = true;
 
