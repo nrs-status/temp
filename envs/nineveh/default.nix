@@ -20,7 +20,6 @@
       "gtk"
       #"custom_packages"
       "wofi"
-      "fish"
     ];
   };
   nixosVars = {
@@ -34,6 +33,7 @@
       "home-manager"
       "keyRebindings"
       "bluetooth"
+      "fish"
     ];
   };
 }
