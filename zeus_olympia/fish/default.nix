@@ -8,6 +8,11 @@ in
   config = lib.mkIf cfg.enable { 
     programs.fish = {
       enable = true;
+
+      interactiveShellInit = ''
+      alias sudo='sudo '
+      '';
+
       shellAliases = {
         cp = "cp -riv";
         mv = "mv -iv";
@@ -15,7 +20,6 @@ in
         getpublicip = "curl https://api.ipify.org";
         rb = "sudo rb";
         se = "sudoedit";
-        sudo = "sudo ";
       };
 
       shellAbbrs = {
