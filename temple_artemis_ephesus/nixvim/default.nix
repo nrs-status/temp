@@ -87,13 +87,11 @@ in {
         }
         {
           action = "$";
-          key = "<leader>l";
-          mode = [ "n" ];
+          key = "<leader>ll";
         }
         {
           action = "0";
-          key = "<leader>h";
-          mode = [ "n" ];
+          key = "<leader>hh";
         }
 
       ];
