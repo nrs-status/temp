@@ -1,5 +1,4 @@
-
-add 'git commit --amend' to navi
+get zoxide working
 emacs
 git credentials
 vault secrets

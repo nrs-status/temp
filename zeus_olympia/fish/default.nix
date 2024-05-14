@@ -69,8 +69,8 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      fishPlugins.plugin-git.src
-      fishPlugins.bass.src
+     # fishPlugins.plugin-git.src
+     # fishPlugins.bass.src
     ];
   };
 }
