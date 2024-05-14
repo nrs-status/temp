@@ -8,6 +8,8 @@ in
     home = {
       packages = with pkgs; [
         distrobox
+        ventoy
+        vesktop
       ];
     };
 

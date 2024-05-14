@@ -16,14 +16,14 @@ in {
         rmlint
         xxHash
         yazi
-        pb_cli
         fzf
         jq
         trash-cli
         mods
         nix-output-monitor
-        nvd
+        nvd #nix diff tool
         eza #ls alternative
+        navi #make interactive cheatsheets
 
 
 	#Archives

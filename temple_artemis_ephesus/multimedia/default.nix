@@ -9,13 +9,17 @@ in {
         #ebooks
         okular
         calibre
+        pandoc 
 
-        #image
+        #image  -- imagemagick, imv, and feh are all meant for the same use. they are all enabled while i try them out
         imagemagick
         imv
+        feh
+        gimp
 
         #video
         streamlink
+        vlc
 
         #general
         ffmpeg-full
