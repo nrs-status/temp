@@ -8,7 +8,7 @@ in {
       packages = with pkgs; [
         navi
       ];
-      file."${nixosVars.mainUserHomeDir}/.local/share/navi/cheats".source = ./cheatsheets; 
+      file."${nixosVars.mainUserHomeDir}/.local/share/navi/cheats/test.cheat".source = ./cheatsheets/git.cheat; 
     };
   };
 }
