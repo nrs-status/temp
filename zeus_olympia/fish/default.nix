@@ -10,7 +10,6 @@ in
       enable = true;
 
       interactiveShellInit = ''
-
       #don't greet
       function fish_greeting; end
 
@@ -25,16 +24,16 @@ in
       #set the replace mode cursors to an underscore
       set fish_cursor_replace_one underscore
       set fish_cursor_replace underscore
+      
+      function sudo -d "sudo wrapper that handles aliases"
+        if functions -q -- $argv[1]
+          set -l new_args (string join ' ' -- (string escape -- $argv))
+          set argv fish -c "$new_args"
+        end
+
+        command sudo $argv
+      end
       '';
-#      function sudo -d "sudo wrapper that handles aliases"
-#        if functions -q -- $argv[1]
-#          set -l new_args (string join ' ' -- (string escape -- $argv))
-#          set argv fish -c "$new_args"
-#        end
-#
-#        command sudo $argv
-#      end
-#      '';
 
       shellAliases = {
         cp = "cp -riv";
