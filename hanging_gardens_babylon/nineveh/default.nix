@@ -29,6 +29,7 @@
     mainUserHomeDir = "/home/sieyes";
     vaultHost = "";
     vaultHostPort = "";
+    vaultStorageLoc = "/home/sieyes/baghdad_plane";
 
 
     modulesToEnable = [
