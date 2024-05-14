@@ -33,6 +33,7 @@ in {
 	atool
 
 	#Monitoring	
+        procs #modern ps
         acpi        
         duf
         ncdu
