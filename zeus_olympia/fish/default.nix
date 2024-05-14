@@ -15,7 +15,7 @@ in
         getpublicip = "curl https://api.ipify.org";
         rb = "sudo rb";
         se = "sudoedit";
-        sudo = "sudo";
+        sudo = "sudo ";
       };
 
       shellAbbrs = {
