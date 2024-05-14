@@ -8,11 +8,7 @@ in {
       packages = with pkgs; [
         navi
       ];
-      #file.".local/share/navi/cheats/test.cheat".source = ./cheatsheets/git.cheat; 
-      file.test1 = {
-        source = ./cheatsheets/git.cheat;
-        target = "test";
-      };
+      file."${nixosVars.mainUserHomeDir}/.local/share/navi/cheats/test.cheat".source = ./cheatsheets/git.cheat; 
     };
   };
 }

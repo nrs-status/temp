@@ -19,6 +19,7 @@
       #"custom_packages"
       "wofi"
       "anki"
+      "navi"
     ];
   };
   nixosVars = {
