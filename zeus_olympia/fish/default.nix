@@ -10,6 +10,22 @@ in
       enable = true;
 
       interactiveShellInit = ''
+
+      #don't greet
+      function fish_greeting; end
+
+      #use vi bindings
+      set -g fish_key_bindings fish_vi_key_bindings
+      #emulate vim's cursor shape behaviour
+      set -g fish_vi_force_cusor 1
+      #set the normal and visual mode cursors to a block
+      set fish_cursor_default block
+      #set the insert mode cursor to a line
+      set fish_cursor_insert line
+      #set the replace mode cursors to an underscore
+      set fish_cursor_replace_one underscore
+      set fish_cursor_replace underscore
+
       function sudo -d "sudo wrapper that handles aliases"
         if functions -q -- $argv[1]
           set -l new_args (string join ' ' -- (string escape -- $argv))
@@ -45,5 +61,10 @@ in
 
       };
     };
+
+    environment.systemPackages = with pkgs; [
+      fishPlugins.plugin-git.src
+      fishPlugins.bass.src
+    ];
   };
 }
