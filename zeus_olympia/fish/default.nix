@@ -43,6 +43,13 @@ in
         getpublicip = "curl https://api.ipify.org";
         rb = "sudo rb";
         se = "sudoedit";
+        mkdir = "mkdir -pv";
+
+        icat = "kitty +kitten icat";
+        py = "python";
+
+        c = "printf \"\\033c\"";
+        clear =  "printf \"\\033c\"";
       };
 
       shellAbbrs = {
@@ -56,7 +63,6 @@ in
 
         tl = "trash-list";
 
-        c = "clear";
         j = "yazi";
 
       };
