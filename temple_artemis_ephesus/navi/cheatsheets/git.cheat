@@ -1,0 +1,4 @@
+% git
+
+#Amend last git commit
+git commit --amend

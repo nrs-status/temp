@@ -1,4 +1,5 @@
-add 'git commit --ammend' to navi
+
+add 'git commit --amend' to navi
 emacs
 git credentials
 vault secrets
