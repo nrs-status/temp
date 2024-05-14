@@ -40,6 +40,7 @@ in {
         {
           action = ":q<cr>";
           key = "<Leader>qq";
+          mode = [ "i" "n" ];
         }
         {
           action = ":wq<cr>";
