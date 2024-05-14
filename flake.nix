@@ -20,6 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay/master";
+
 
   };
 
@@ -48,7 +50,7 @@
           ./zeus_olympia
           vault-secrets.nixosModules.vault-secrets
           {
-            options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager"; #todo: turn home-manager into an option to be able to modularize zeus_olympia/bluetooth.nix
+            options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager"; 
             config.${hostName}.system = lighthouse_alexandria.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
           }
          # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
