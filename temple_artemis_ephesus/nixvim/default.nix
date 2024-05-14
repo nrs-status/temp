@@ -44,6 +44,7 @@ in {
         {
           action = "<Esc>:q<cr>";
           key = "<leader>qq";
+          mode = [ "i" ];
         }
         {
           action = ":wq<cr>";
