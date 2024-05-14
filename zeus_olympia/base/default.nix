@@ -2,6 +2,7 @@
 
 {
 
+  system.nixos.label = "testing";
 
   boot = {
     loader.systemd-boot.enable = true;
