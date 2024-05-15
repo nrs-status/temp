@@ -13,7 +13,7 @@ $ var2: docker images --- --column 3 --header-lines 1 --delimiter '\s\s+'
 
 # test3
 echo <var3>
-$ var3: echo 'opt1 opt2' | tr ' ' '\n' --- --preview-window 'here\'s something to preview fucker'
+$ var3: echo 'opt1 opt2' | tr ' ' '\n' --- --preview-window 'heres something to preview fucker'
 
 ; test4
 # If you select "hello" for <x>, the possible values of <y> will be "hello foo" and "hello bar"
