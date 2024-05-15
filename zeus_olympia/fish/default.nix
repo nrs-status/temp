@@ -48,6 +48,8 @@ in
         se = "sudoedit";
         mkdir = "mkdir -pv";
 
+        nvi = "navi --fzf-overrides \"--height 40%\"";
+
         icat = "kitty +kitten icat";
         py = "python";
 
