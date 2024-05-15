@@ -1,0 +1,9 @@
+% fzf
+
+# start fzf in non-fullscreen mode, below the cursor
+fzf --height 40%
+
+# test
+echo <var>
+
+$ var: echo 'opt1 opt2' | tr ' ' '\n' --- --map "echo use navi here only as a reference, press tab to input the query that was typed" 
