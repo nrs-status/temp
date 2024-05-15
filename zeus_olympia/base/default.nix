@@ -60,17 +60,6 @@
 
   hardware.opengl.enable = true; #needed for sway
 
-  programs = {
-    fish = {
-      enable = true;
-      shellAliases = {
-	tree2 = "eza --all --long --tree";
-	tree = "eza --all --long --tree";
-
-      }; 
-    };
-  };
-
   users.users.${nixosVars.mainUser} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "networkmanager" "audio" "video"]; #wheel enables sudo for user; video allows controlling backlight

@@ -6,3 +6,5 @@ nix-store --query --roots <path>
 # delete specified generations
 nix-env --delete-generations <generations>
 
+# delete generations more than <days> days old
+nix-env --delete-generations <days>d
