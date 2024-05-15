@@ -6,4 +6,4 @@ nix-store --query --roots <path>
 # delete specified generations
 nix-env --delete-generations <generations>
 
-$ generations: echo 'generation_number old' | tr ' ' '\n' --- --map "rg \"(generation_number|old)\" && enter the argument and press tab instead of choosing one of the options and pressing enter || xargs echo"
+$ generations: echo 'generation_number old' | tr ' ' '\n' --- --map "rg \"(generation_number|old)\" && echo \"enter the argument and press tab instead of choosing one of the options and pressing enter \" || xargs echo"
