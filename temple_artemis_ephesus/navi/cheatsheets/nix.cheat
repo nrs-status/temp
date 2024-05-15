@@ -6,4 +6,5 @@ nix-store --query --roots <path>
 # delete specified generations
 nix-env --delete-generations <generations>
 
-$ generations: echo 'generation_number old' | tr ' ' '\n' --- --map "rg \"(generation_number|old)\" && echo \"enter the argument and press tab instead of choosing one of the options and pressing enter \" || xargs echo"
+; we run ripgrep here with the -q option because we're only interested in its exit status. if it succeeds, we echo that this is not the desired input
+$ generations: echo 'generation_number old' | tr ' ' '\n' --- --map "rg -q \"(generation_number|old)\" && echo \"enter the argument and press tab instead of choosing one of the options and pressing enter \" || xargs echo"
