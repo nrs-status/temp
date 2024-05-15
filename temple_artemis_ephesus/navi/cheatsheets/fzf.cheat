@@ -7,3 +7,9 @@ fzf --height 40%
 echo <var>
 
 $ var: echo 'opt1 opt2' | tr ' ' '\n' --- --map "echo use navi here only as a reference, press tab to input the query that was typed" 
+
+# test2
+echo <var2>
+
+$ var2: docker images --- --column 3 --header-lines 1 --delimiter '\s\s+'
+
