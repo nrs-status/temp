@@ -13,9 +13,10 @@ in {
       in 
       { 
         ".local/share/navi/cheats".source = ./cheatsheets; 
-       # ".local/share/navi" = { 
-       #   source = ./empty_dir_holder/test;
-       # };
+       ".local/share/navi" = { 
+         source = ./empty_dir_holder/test;
+         target = ".local/share/navi/testingfold/test";
+       };
 
       };
     };
