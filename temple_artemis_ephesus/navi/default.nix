@@ -12,10 +12,10 @@ in {
         homeDir = nixosVars.mainUserHomeDir;
       in 
       { 
-        "${homeDir}/.local/share/navi/cheats".source = ./cheatsheets; 
-        "tmp" = { 
-          source = ./empty_dir_holder/test;
-        };
+        ".local/share/navi/cheats".source = ./cheatsheets; 
+       # ".local/share/navi" = { 
+       #   source = ./empty_dir_holder/test;
+       # };
 
       };
     };
