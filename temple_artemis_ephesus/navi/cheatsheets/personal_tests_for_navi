@@ -1,7 +1,4 @@
-% fzf
-
-# start fzf in non-fullscreen mode, below the cursor
-fzf --height 40%
+% personal_tests
 
 # test
 echo <var>
