@@ -9,6 +9,7 @@ in {
         brogue
         crawl
         wine64
+        lutris
 
       ];
     };
