@@ -13,7 +13,7 @@ in {
       in 
       { 
         "${homeDir}/.local/share/navi/cheats".source = ./cheatsheets; 
-        "$/home/sieyes/.local/share/navi/cheats/tmp" = { 
+        "tmp" = { 
           source = ./empty_dir_holder/test;
         };
 
