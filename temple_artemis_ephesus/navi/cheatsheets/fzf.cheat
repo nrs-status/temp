@@ -1,0 +1,4 @@
+% fzf
+
+# instead of starting full screen, start under the cursor
+fzf --height 40%

@@ -8,7 +8,16 @@ in {
       packages = with pkgs; [
         navi
       ];
-      file."${nixosVars.mainUserHomeDir}/.local/share/navi/cheats".source = ./cheatsheets; 
+      file = let
+        homeDir = nixosVars.mainUserHomeDir;
+      in 
+      { 
+        "${homeDir}/.local/share/navi/cheats".source = ./cheatsheets; 
+        "$/home/sieyes/.local/share/navi/cheats/tmp" = { 
+          source = ./empty_dir_holder/test;
+        };
+
+      };
     };
   };
 }
