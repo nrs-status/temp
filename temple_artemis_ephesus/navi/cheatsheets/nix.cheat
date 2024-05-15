@@ -1,0 +1,4 @@
+% nix
+
+#Query a store path to determine what's keeping it alive
+nix-store --query --roots <path>
