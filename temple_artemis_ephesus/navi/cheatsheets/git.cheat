@@ -1,4 +1,4 @@
-% git
+% git, custom
 
 # amend last git commit
 git commit --amend
