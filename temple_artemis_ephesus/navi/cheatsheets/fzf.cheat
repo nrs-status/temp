@@ -25,3 +25,6 @@ echo <x> <y>
 $ x: echo "hello hi" | tr ' ' '\n'
 $ y: echo "$x foo;$x bar" | tr ';' '\n'
 
+#test5
+echo <var5>
+$ var5: echo 'opt1 opt2 opt3' | tr ' ' '\n'
