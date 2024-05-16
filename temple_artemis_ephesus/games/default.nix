@@ -10,6 +10,8 @@ in {
         crawl
         wine64
         lutris
+        bottles
+
 
       ];
     };
