@@ -25,7 +25,7 @@ in
       interactiveShellInit = ''
       #envvars
       set -gx t /tmp/file #for saving outputs
-      set PATH $PATH:$USER/alaric_kickdown_messi #dir for adding stuff to path
+      set PATH $PATH:$HOME/alaric_kickdown_messi #dir for adding stuff to path
 
       #don't greet
       function fish_greeting; end
