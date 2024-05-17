@@ -23,6 +23,9 @@ in
       end'';
 
       interactiveShellInit = ''
+      #envvars
+      set -gx t /tmp/file #for saving outputs
+
       #don't greet
       function fish_greeting; end
 
@@ -43,14 +46,16 @@ in
         cp = "cp -riv";
         mv = "mv -iv";
         rm = "trash";
-        getpublicip = "curl https://api.ipify.org";
         rb = "sudo rb";
         se = "sudoedit";
         mkdir = "mkdir -pv";
         ls = "eza";
         ll = "eza -l";
 
+        
         nvi = "navi --fzf-overrides \"--height 40%\" --fzf-overrides-var \"--height 40%\"";
+        nvipi = "nvi --print --prevent-interpolation";
+        navipi = "navi --print --prevent-interpolation";
 
         icat = "kitty +kitten icat";
         py = "python";
