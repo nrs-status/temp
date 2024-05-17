@@ -58,6 +58,7 @@ in
         nvit = "nvipi | tee /tmp/file";
         navipi = "navi --print --prevent-interpolation";
         navit = "navipi | tee /tmp/file";
+        t = "cat /tmp/file";
 
         icat = "kitty +kitten icat";
         py = "python";
