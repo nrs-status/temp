@@ -55,7 +55,9 @@ in
         
         nvi = "navi --fzf-overrides \"--height 40%\" --fzf-overrides-var \"--height 40%\"";
         nvipi = "nvi --print --prevent-interpolation";
+        nvit = "nvipi | tee /tmp/file";
         navipi = "navi --print --prevent-interpolation";
+        navit = "navipi | tee /tmp/file";
 
         icat = "kitty +kitten icat";
         py = "python";
