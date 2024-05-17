@@ -47,6 +47,8 @@ in
         rb = "sudo rb";
         se = "sudoedit";
         mkdir = "mkdir -pv";
+        ls = "eza";
+        ll = "eza -l";
 
         nvi = "navi --fzf-overrides \"--height 40%\" --fzf-overrides-var \"--height 40%\"";
 
