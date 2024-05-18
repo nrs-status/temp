@@ -3,11 +3,11 @@
 # query a store path to determine what's keeping it alive
 nix-store --query --roots <path>
 
-# delete specified generations
-nix-env --delete-generations <generations>
+# delete specified generations from the system profile
+nix-env --profile /nix/var/nix/profiles/system --delete-generations <generations>
 
-# delete generations more than <days> days old
-nix-env --delete-generations <days>d
+# delete generations more than <days> days old from the sysem profile 
+nix-env --profile /nix/var/nix/profiles/system --delete-generations <days>d
 
 # list generations for the system profile
 nix profile history --profile /nix/var/nix/profiles/system
