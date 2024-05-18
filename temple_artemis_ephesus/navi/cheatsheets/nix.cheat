@@ -8,3 +8,6 @@ nix-env --delete-generations <generations>
 
 # delete generations more than <days> days old
 nix-env --delete-generations <days>d
+
+# list generations for the system profile
+nix profile history --profile /nix/var/nix/profiles/system
