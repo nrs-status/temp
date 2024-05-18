@@ -56,9 +56,11 @@ in
         
         nvi = "navi --fzf-overrides \"--height 40%\" --fzf-overrides-var \"--height 40%\"";
         nvipi = "nvi --print --prevent-interpolation";
-        nvit = "nvipi | tee /tmp/file";
+        nvit = "nvipi | tot";
         navipi = "navi --print --prevent-interpolation";
-        navit = "navipi | tee /tmp/file";
+        navit = "navipi | tot";
+
+        tot = "tee /tmp/file";
         t = "cat /tmp/file";
 
 
