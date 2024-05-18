@@ -61,6 +61,7 @@ in
         navit = "navipi | tot";
 
         tt = "tee /tmp/file";
+        tot = "tee /tmp/file";
         t = "cat /tmp/file";
 
 
