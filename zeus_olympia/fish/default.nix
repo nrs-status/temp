@@ -60,7 +60,7 @@ in
         navipi = "navi --print --prevent-interpolation";
         navit = "navipi | tot";
 
-        tot = "tee /tmp/file";
+        tt = "tee /tmp/file";
         t = "cat /tmp/file";
 
 
