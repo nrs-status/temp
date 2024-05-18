@@ -42,7 +42,8 @@ in {
         cfspeedtest
 
         #scripts
-        (pkgs.writeShellScriptBin "rb" (builtins.readFile ./rebuild.sh))
+        (pkgs.writeShellScriptBin "rb" (builtins.readFile ./scripts/rebuild.sh))
+        (pkgs.writeShellScriptBin "optin" (builtins.readFile ./scripts/optin.sh)) 
       ];
 
      # sessionVariables = {
