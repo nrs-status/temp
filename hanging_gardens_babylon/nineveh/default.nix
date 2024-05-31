@@ -37,7 +37,7 @@
       "home-manager"
       "keyRebindings"
       "bluetooth"
-      "fish"
+    #  "fish"
       "vault-server"
     ];
   };

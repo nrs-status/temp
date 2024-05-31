@@ -2,3 +2,5 @@
 
 # get public ip
 curl https://api.ipify.org
+
+# 
