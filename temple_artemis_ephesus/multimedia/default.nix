@@ -20,6 +20,7 @@ in {
         #video
         streamlink
         vlc
+        yt-dlp
 
         #general
         ffmpeg-full
