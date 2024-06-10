@@ -8,8 +8,9 @@ in
     home = {
       packages = with pkgs; [
         distrobox
-        ventoy
-        vesktop
+        ventoy #bootable usb maker
+        vesktop #discord client
+        php
       ];
     };
 
