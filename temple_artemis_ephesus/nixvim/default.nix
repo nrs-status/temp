@@ -216,6 +216,7 @@ in {
           enable = true;
 
           servers = {
+            phpactor.enable = true;
             tsserver.enable = true;
             dagger.enable = true;
 
