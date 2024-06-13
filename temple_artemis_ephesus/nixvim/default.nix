@@ -139,6 +139,11 @@ in {
 
         neo-tree.enable = true;
 
+        neotest = {
+          enable = true;
+          adapters.phpunit.enable = true;
+        };
+
         friendly-snippets.enable = true;
 
         efmls-configs = {

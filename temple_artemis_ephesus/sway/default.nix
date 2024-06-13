@@ -76,6 +76,7 @@ in {
               on-click-right = "${pkgs.light}/bin/light -S 100";
               on-click-middle = "${pkgs.light}/bin/light -S 0";
             };
+            #"custom/keyboard-layout"
             network = {
               format-wifi = "{icon}";
               interval = 20;
