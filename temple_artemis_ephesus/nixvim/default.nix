@@ -3,7 +3,6 @@
   lib,
   pkgs,
   osConfig,
-  nixosVars,
   ...
 }: let
   cfg = config.${osConfig.networking.hostName}.home.nixvim;
@@ -141,7 +140,9 @@ in {
 
         neotest = {
           enable = true;
-          adapters.phpunit.enable = true;
+          adapters = {
+            phpunit.enable = true;
+          };
         };
 
         friendly-snippets.enable = true;
