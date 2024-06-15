@@ -142,8 +142,10 @@ in {
           enable = true;
           adapters = {
             phpunit.enable = true;
-          };
+            python.enable = true;
+
         };
+      };
 
         friendly-snippets.enable = true;
 

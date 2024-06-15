@@ -11,7 +11,9 @@ in
         ventoy #bootable usb maker
         vesktop #discord client
         php
-        jetbrains.phpstorm
+        jetbrains.phpstorm #php ide
+        anydesk
+
       ];
     };
 
