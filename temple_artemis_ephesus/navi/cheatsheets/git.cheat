@@ -1,4 +1,4 @@
-% git, custom
+% git, shintu
 
 # amend last git commit
 git commit --amend

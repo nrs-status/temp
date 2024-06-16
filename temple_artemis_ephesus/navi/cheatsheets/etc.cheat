@@ -1,6 +1,7 @@
-% custom, general
+% shintu, general
 
 # get public ip
 curl https://api.ipify.org
 
-# 
+# change file ownership
+sudo chown username:groupname filename
