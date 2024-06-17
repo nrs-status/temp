@@ -20,6 +20,7 @@
   sound.enable = true; 
   hardware.pulseaudio.enable = true;
 
+  boot.supportedFilesystems = [ "ntfs" ]; # to be able to use external hdd
   nix = {
     #automatic garbage collection
     gc = {
