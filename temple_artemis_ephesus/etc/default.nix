@@ -11,6 +11,7 @@ in
         ventoy #bootable usb maker
         vesktop #discord client
         anydesk #remote desk client
+        twilio-cli #for work with fede
       ];
     };
 
