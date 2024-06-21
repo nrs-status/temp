@@ -11,8 +11,8 @@ in
         ventoy #bootable usb maker
         vesktop #discord client
         php
-        jetbrains.phpstorm #php ide
-        anydesk
+        phpunit #unit testing for php
+        anydesk #remote desk client
 
       ];
     };
