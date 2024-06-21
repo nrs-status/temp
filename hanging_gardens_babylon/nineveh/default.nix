@@ -14,6 +14,7 @@
       "fonts"
       "etc"
       "php"
+      "javascript"
       "gammastep"
       "cloudwork"
       "gtk"
