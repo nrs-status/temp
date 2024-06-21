@@ -10,10 +10,7 @@ in
         distrobox
         ventoy #bootable usb maker
         vesktop #discord client
-        php
-        phpunit #unit testing for php
         anydesk #remote desk client
-
       ];
     };
 

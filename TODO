@@ -1,5 +1,5 @@
 add keyboard layout indicator to swaybar 
-make script that will show available keybindings in sway
+add the keybinding scripts in ~/alaric_kicks_messi to PATH
 remove "programs.fish.enable = true" from nixos config base and begin figuring out what causes the error. this came from trying to modularize fish
 to rb script: add automatic generations namer. make a script that takes the first few words from the commit message to make a generation name
 config to automatically refuse location requests in firefox:   https://kb.mozillazine.org/About:config_entries#Geo

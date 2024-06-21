@@ -13,6 +13,7 @@
       "kitty"
       "fonts"
       "etc"
+      "php"
       "gammastep"
       "cloudwork"
       "gtk"
