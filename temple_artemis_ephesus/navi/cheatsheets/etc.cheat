@@ -6,4 +6,6 @@ curl https://api.ipify.org
 # change file ownership
 sudo chown username:groupname filename
 
+# check open/listening tcp ports
+netstat -lnt
 

@@ -15,6 +15,8 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
+
     vault-secrets = {
       url = "github:serokell/vault-secrets/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,11 +32,11 @@
     home-manager,
     nixvim,
     vault-secrets,
+    nix-doom-emacs-unstraightened,
     ...
   }: let
     env = import hanging_gardens_babylon/nineveh;
     hostName = env.nixosVars.hostName;
-	mainUser = env.nixosVars.mainUser;
     lighthouse_alexandria = import ./lighthouse_alexandria { lib = nixpkgs.lib; };
   in {
     nixosConfigurations = {
@@ -72,6 +74,7 @@ extraSpecialArgs = env;
                 imports = [
 			 ./temple_artemis_ephesus
                          nixvim.homeManagerModules.nixvim
+                         nix-doom-emacs-unstraightened.hmModule
 		 ];
                 home = {
                   username = mainUser;
