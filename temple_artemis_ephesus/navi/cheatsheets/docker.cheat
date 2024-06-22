@@ -1,0 +1,19 @@
+% shintu, docker
+
+# start a container that will run bash
+docker run -it image:tag /bin/bash
+
+# start a container and keep it running in the background
+docker run -dit image:tag /bin/bash
+
+# start a container and map port 80 on container to host's port 80
+docker run -it -p 80:80 image:tag
+
+# attach to a running container and run bash
+docker exec -it CONTAINER_NAME /bin/bash
+
+# remove all stopped containers
+docker container prune
+
+# build an image from a docker file; Dockerfile
+docker built -t image-name -f /path/to/docker/file /path/to/context

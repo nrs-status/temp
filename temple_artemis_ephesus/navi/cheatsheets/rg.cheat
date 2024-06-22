@@ -1,0 +1,8 @@
+% shintu, ripgrep, rg
+
+# exclude multiple folders from ripgrep search
+rg -p -g "!folder1" -g "!folder2" "search_term"
+
+# match the '-' character
+rg '\-'
+
