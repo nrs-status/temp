@@ -6,6 +6,7 @@
       "cli"
       "git"
       "nixvim"
+# to fix     "doom-emacs"
       "firefox"
       "multimedia"
       "games"
