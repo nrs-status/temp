@@ -8,8 +8,8 @@ in
   config = lib.mkIf cfg.enable { 
     assertions = [
       {
-      assertion = config.${nixosVars.hostName}.system.docker.enable;
-      message = "vault-server option requires docker module to be enabled in order to start vault server container";
+      assertion = config.${nixosVars.hostName}.system.docker.enable || config.${nixosVars.hostName}.system.podman.enable;
+      message = "vault-server option requires either docker module or podman module to be enabled in order to start vault server container";
     }
     ];
     virtualisation = {
