@@ -6,3 +6,8 @@ rg -p -g "!folder1" -g "!folder2" "search_term"
 # match the '-' character
 rg '\-'
 
+# Also print out the surrounding n lines around/surrounding a match
+rg -C n "pattern"
+
+# search for a file and pipe it to bat or cat; pipe a match to bat
+eza | rg "pattern" | xargs bat

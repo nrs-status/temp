@@ -6,14 +6,13 @@ in
 {
   options.${nixosVars.hostName}.system.vault-server.enable = lib.mkEnableOption "vault server container";
   config = lib.mkIf cfg.enable { 
+    assertions = [
+      {
+      assertion = config.${nixosVars.hostName}.system.docker.enable;
+      message = "vault-server option requires docker to start vault server container";
+    }
+    ];
     virtualisation = {
-
-    docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-
-
     oci-containers = {
       backend = "docker";
       containers.vault = {

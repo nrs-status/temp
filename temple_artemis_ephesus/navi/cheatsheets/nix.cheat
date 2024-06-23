@@ -11,3 +11,5 @@ nix-env --profile /nix/var/nix/profiles/system --delete-generations <days>d
 
 # list generations for the system profile
 nix profile history --profile /nix/var/nix/profiles/system
+
+# introspect a flake
