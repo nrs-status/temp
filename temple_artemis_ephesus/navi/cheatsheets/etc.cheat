@@ -9,3 +9,5 @@ sudo chown username:groupname filename
 # check open/listening tcp ports
 netstat -lnt
 
+# create an ubuntu distrobox
+distrobox create --name ubuntu --init --image ubuntu:latest
