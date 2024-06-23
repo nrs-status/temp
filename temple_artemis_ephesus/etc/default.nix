@@ -12,6 +12,7 @@ in
         vesktop #discord client
         anydesk #remote desk client
         twilio-cli #for work with fede
+        dive #introspect container image layers
       ];
     };
 
