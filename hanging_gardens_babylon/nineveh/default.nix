@@ -41,7 +41,8 @@
       "keyRebindings"
       "bluetooth"
       #"fish"
-     #"vault-server"
+      "docker"
+#    "vault-server"
     ];
   };
 }
