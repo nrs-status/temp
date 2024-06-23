@@ -9,12 +9,12 @@ in
     assertions = [
       {
       assertion = config.${nixosVars.hostName}.system.docker.enable;
-      message = "vault-server option requires docker to start vault server container";
+      message = "vault-server option requires docker module to be enabled in order to start vault server container";
     }
     ];
     virtualisation = {
     oci-containers = {
-      backend = "docker";
+      #backend = "docker";
       containers.vault = {
         image = "hashicorp/vault";
         ports = [
