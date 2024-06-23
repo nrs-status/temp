@@ -33,6 +33,7 @@
     nixvim,
     vault-secrets,
     nix-doom-emacs-unstraightened,
+    emacs-overlay,
     ...
   }: let
     env = import hanging_gardens_babylon/nineveh;
@@ -48,6 +49,11 @@
           {
             networking.hostName = env.nixosVars.hostName;
             time.timeZone = env.nixosVars.timeZone;
+            nixpkgs.overlays = [
+                emacs-overlay.overlay
+                (final: prev: {
+                })
+              ];
           }
           ./zeus_olympia
           vault-secrets.nixosModules.vault-secrets
