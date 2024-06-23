@@ -17,6 +17,11 @@ in
      virtualisation.podman = {
       enable = true;
       dockerCompat = true; #alias 'docker' so podman can act as drop-in replacement
+      defaultNetwork.settings = {
+      dns_enabled = true;
+      ipv6_enabled = true;
+    };
+
     };
    };
 }

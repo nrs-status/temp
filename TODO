@@ -1,10 +1,10 @@
+doom-emacs: copying thiagokokada's config. setting up sessionVariables.EMACSDIR and sessionPath. What's left is to replicate his systemd.user.services.doom-sync and home.activation in his doom-emacs config
 add keyboard layout indicator to swaybar 
 add the keybinding scripts in ~/alaric_kicks_messi to PATH
 remove "programs.fish.enable = true" from nixos config base and begin figuring out what causes the error. this came from trying to modularize fish
 to rb script: add automatic generations namer. make a script that takes the first few words from the commit message to make a generation name
 config to automatically refuse location requests in firefox:   https://kb.mozillazine.org/About:config_entries#Geo
 get zoxide working
-emacs
 git credentials
 vault secrets
 setup restic rest server 

@@ -6,6 +6,9 @@ rg -p -g "!folder1" -g "!folder2" "search_term"
 # match the '-' character
 rg '\-'
 
+# return the file containing the match instead of the match
+rg -l "pattern"
+
 # Also print out the surrounding n lines around/surrounding a match
 rg -C n "pattern"
 

@@ -11,3 +11,6 @@ netstat -lnt
 
 # create an ubuntu distrobox
 distrobox create --name ubuntu --init --image ubuntu:latest
+
+# list files recursively with eza
+eza -R

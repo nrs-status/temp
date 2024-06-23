@@ -7,7 +7,7 @@
       "git"
       "nixvim"
 # to fix     "doom-emacs"
-      "emacs"
+      # "emacs"
       "firefox"
       "multimedia"
       "games"

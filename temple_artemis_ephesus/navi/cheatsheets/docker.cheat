@@ -16,4 +16,4 @@ docker exec -it CONTAINER_NAME /bin/bash
 docker container prune
 
 # build an image from a docker file; Dockerfile
-docker built -t image-name -f /path/to/docker/file /path/to/context
+docker build -t image-name -f /path/to/docker/file /path/to/context

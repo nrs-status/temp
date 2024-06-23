@@ -1,0 +1,7 @@
+% shintu, general
+
+# list files recursively with eza
+eza -R
+
+# display files with their absolute paths
+eza --absolute
