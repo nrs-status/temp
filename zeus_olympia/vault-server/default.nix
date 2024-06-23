@@ -14,7 +14,7 @@ in
     ];
     virtualisation = {
     oci-containers = {
-      #backend = "docker";
+      backend = if config.${nixosVars.hostName}.system.docker.enable then "docker" else "podman";
       containers.vault = {
         image = "hashicorp/vault";
         ports = [
