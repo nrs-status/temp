@@ -1,5 +1,11 @@
 { config, lib, pkgs, nixosVars, ... }:
 
+let 
+  mainUserConf = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" "networkmanager" "audio" "video"]; #wheel enables sudo for user; video allows controlling backlight
+  };
+in 
 {
 
   system.nixos.label = "testing";
@@ -17,6 +23,9 @@
   programs.light.enable = true;
 
   programs.fish.enable = true;
+  users.users.${nixosVars.mainUser} = if config.programs.fish.enable then mainUserConf // { shell = pkgs.fish; } else mainUserConf;
+
+
   sound.enable = true; 
   hardware.pulseaudio.enable = true;
 
@@ -62,11 +71,7 @@
 
   hardware.opengl.enable = true; #needed for sway
 
-  users.users.${nixosVars.mainUser} = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" "audio" "video"]; #wheel enables sudo for user; video allows controlling backlight
-    shell = pkgs.fish;
-  };
+
   services.openssh.enable = true;
   system.stateVersion = "23.11";
 }
