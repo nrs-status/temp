@@ -6,10 +6,11 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        google-cloud-sdk
+        google-cloud-sdk #adds gcloud
         terraform
         terragrunt
         pulumi
+        pulumiPackages.pulumi-language-nodejs
       ];
     };
   };
