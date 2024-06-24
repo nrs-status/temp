@@ -14,3 +14,9 @@ rg -C n "pattern"
 
 # search for a file and pipe it to bat or cat; pipe a match to bat
 eza | rg "pattern" | xargs bat
+
+# do a system-wide search in such a way that critical files will not be I/O'd
+rg --one-file-system "pattern" /
+
+# search for a pattern but omit matches from a particular directory and all files that end with .drv
+rg "pattern" -g "!/absolute/dir/path" -g "!*.drv"

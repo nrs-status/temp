@@ -91,8 +91,8 @@ in
           ".direnv/"
         ];
         lfs.enable = true;
-        userEmail = "ch.gpg@themaw.xyz";
-        userName = "lunik1";
+        userEmail = "sebaarsim@gmail.com";
+        userName = "nrs-status";
         extraConfig = {
           init.defaultBranch = "master";
           commit.verbose = true;
@@ -111,9 +111,7 @@ in
           };
           rebase.autosquash = true;
           rerere.enabled = true;
-          github.user = "lunik1";
-          gitlab.user = "lunik1";
-          "delta \"magit-delta\"".line-numbers = false;
+          github.user = "nrs-status";
           url = {
             "git@github.com:".pushInsteadOf = "https://github.com/";
             "git@gitlab.com:".pushInsteadOf = "https://gitlab.com/";
@@ -127,15 +125,6 @@ in
       gh = {
         enable = true;
         settings.git_protocol = "ssh";
-      };
-      zsh = {
-        envExtra = ''
-          [ -f "''${XDG_RUNTIME_DIR}/secrets/gh_token" ] \
-            && export GH_TOKEN=$(<"''${XDG_RUNTIME_DIR}/secrets/gh_token")
-
-          [ -f "''${XDG_RUNTIME_DIR}/secrets/gitlab_token" ] \
-            && export GITLAB_TOKEN=$(<"''${XDG_RUNTIME_DIR}/secrets/gitlab_token")
-        '';
       };
     };
   };
