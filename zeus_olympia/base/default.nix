@@ -22,7 +22,7 @@ in
 
   programs.light.enable = true;
 
-  programs.fish.enable = false;
+  programs.fish.enable = true;
   users.users.${nixosVars.mainUser} = if config.programs.fish.enable then mainUserConf // { shell = pkgs.fish; } else mainUserConf;
 
 
