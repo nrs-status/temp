@@ -37,6 +37,10 @@ in {
 
       keymaps = [
         {
+          action = ":noh<CR><Esc>";
+          key = "<Esc>";
+        }
+        {
           action = ":q<cr>";
           key = "<Leader>qq";
         }
