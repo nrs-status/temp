@@ -17,6 +17,7 @@
       "etc"
       "php"
       "javascript"
+      "typescript"
       "gammastep"
       "cloudwork"
       "gtk"
