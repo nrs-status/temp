@@ -9,6 +9,7 @@ in {
         google-cloud-sdk
         terraform
         terragrunt
+        pulumi
       ];
     };
   };
