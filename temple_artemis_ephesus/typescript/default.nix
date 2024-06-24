@@ -8,6 +8,7 @@ in
     home = {
       packages = with pkgs; [
         typescript
+        nodePackages_latest.ts-node
       ];
     };
 
