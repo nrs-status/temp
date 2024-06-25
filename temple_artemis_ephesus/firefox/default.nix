@@ -10,6 +10,8 @@
 in {
   options.${osConfig.networking.hostName}.home.firefox.enable = lib.mkEnableOption "Firefox";
   config = lib.mkIf cfg.enable {
+  #sometimes a specific page doesn't work on firefox; chrome is enabled here in order to determine whether it is a firefox-specific issue
+    home.packages = [ pkgs.google-chrome ];
     programs.firefox = {
       enable = true;
       profiles.nineveh = {
