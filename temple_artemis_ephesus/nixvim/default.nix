@@ -20,7 +20,7 @@ in {
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
-      
+
       viAlias = true;
       vimAlias = true;
 
@@ -107,7 +107,7 @@ in {
         function()
           require'hop'.hint_char1({
             direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-            current_line_only = true
+            current_line_only = false
           })
         end
       '';
