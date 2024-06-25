@@ -219,6 +219,12 @@ in {
 
         hardtime = {
           enable = true;
+          disabledKeys = {
+            "h" = [ "" "i" ];
+            "j" = [ "" "i" ];
+            "k" = [ "" "i" ];
+            "l" = [ "" "i" ];
+          };
         };
 
         neogit.enable = true;
