@@ -102,7 +102,7 @@ in {
           key = "<leader>hh";
         }
     {
-      key = "f";
+      key = "f"; #used to activate the hop plugin
       action.__raw = ''
         function()
           require'hop'.hint_char1({
@@ -143,7 +143,7 @@ in {
         
       };
       plugins = {
-        hop = {
+        hop = { #find-next-character motion
           enable = true;
         };
         telescope = { 
