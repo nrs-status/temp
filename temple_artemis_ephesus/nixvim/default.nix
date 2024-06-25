@@ -138,7 +138,9 @@ in {
         surround.enable = true;
       
         auto-save.enable = true;
-        autoclose.enable = true;
+        
+        #autoclose.enable = true;
+        nvim-autopairs.enable = true;
 
         neo-tree.enable = true;
 
@@ -215,6 +217,10 @@ in {
 
         lualine.enable = true;
 
+        hardtime = {
+          enable = true;
+        };
+
         neogit.enable = true;
 
         dap = {
@@ -270,6 +276,7 @@ in {
         treesitter = {
           enable = true;
           indent = true;
+          folding = true;
         };
       };
     };
