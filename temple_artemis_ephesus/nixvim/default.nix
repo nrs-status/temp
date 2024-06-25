@@ -290,7 +290,6 @@ in {
         treesitter = {
           enable = true;
           indent = true;
-          folding = true;
         };
       };
     };
