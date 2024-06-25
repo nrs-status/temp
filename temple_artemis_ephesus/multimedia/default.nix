@@ -24,6 +24,8 @@ in {
 
         #general
         ffmpeg-full
+
+        flameshot #screenshots
       ];
     };
   };
