@@ -217,48 +217,6 @@ in {
 
         lualine.enable = true;
 
-        hardtime = {
-          enable = true;
-          restrictedKeys = {
-  "+" = [
-    "n"
-    "x"
-  ];
-  "-" = [
-    "n"
-    "x"
-  ];
-  "<C-M>" = [
-    "n"
-    "x"
-  ];
-  "<C-N>" = [
-    "n"
-    "x"
-  ];
-  "<C-P>" = [
-    "n"
-    "x"
-  ];
-  "<CR>" = [
-    "n"
-    "x"
-  ];
-  gj = [
-    "n"
-    "x"
-  ];
-  gk = [
-    "n"
-    "x"
-  ];
-  h = [];
-  j = [];
-  k = [];
-  l = [];
-          };
-        };
-
         neogit.enable = true;
 
         dap = {
