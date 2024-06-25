@@ -101,6 +101,18 @@ in {
           action = "0";
           key = "<leader>hh";
         }
+    {
+      key = "f";
+      action.__raw = ''
+        function()
+          require'hop'.hint_char1({
+            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+            current_line_only = true
+          })
+        end
+      '';
+      options.remap = true;
+    }
 
       ];
 
@@ -111,7 +123,8 @@ in {
         mouse = "a"; # Enable mouse control
         mousemodel = "extend"; # Mouse right-click extends the current selection
 
-        shiftwidth = 2; # Tab width should be 2
+        shiftwidth = 4; 
+        tabstop = 4;
 
         swapfile = false; # Disable the swap file
         modeline = true; # Tags such as 'vim:ft=sh'
@@ -126,8 +139,13 @@ in {
         scrolloff = 8; # Number of screen lines to show around the cursor
         cursorline = true; # Highlight the screen line of the cursor
         cursorcolumn = true; # Highlight the screen column of the cursor
+
+        
       };
       plugins = {
+        hop = {
+          enable = true;
+        };
         telescope = { 
           enable = true;
           extensions.fzf-native.enable = true;
