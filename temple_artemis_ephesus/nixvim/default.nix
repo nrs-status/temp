@@ -141,8 +141,9 @@ in {
           action.__raw = ''
             function()
               return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
-              end
+            end
           '';
+          options.remap = true; 
           # options.expr = true;
         }
         {
