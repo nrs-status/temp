@@ -87,11 +87,6 @@ in {
           key = "<leader>lg";
         }
         {
-          action = "k";
-          key = "<C-k>";
-          mode = ["i"]; 
-        }
-        {
           action = "<Esc>";
           key = "jk";
           mode = ["i"];
@@ -134,6 +129,11 @@ in {
             end
           '';
           options.remap = true;
+        }
+        {
+          key = "<C-f>";
+          action = "leader>f '/'.getcharstr().'<cr><cmd>nohl<cr>'";
+          options.expr = true;
         }
         {
           key = "F";
