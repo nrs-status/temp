@@ -49,16 +49,16 @@ in {
           mode = ["i"];
         }
         {
-          action = "]]";
+          action = "<Esc>]]";
           key = "<leader>]]";
         }
         {
-          action = "]}";
+          action = "<Esc>]}";
           key = "<leader>]}";
           mode = ["i"];
         }
         {
-          action = "])";
+          action = "<Esc> ])";
           key = "<leader>])";
         }
         {
@@ -89,6 +89,11 @@ in {
         {
           action = "<Esc>";
           key = "jk";
+          mode = ["i"];
+        }
+        {
+          action = "<Esc>";
+          key = "kj";
           mode = ["i"];
         }
         {
@@ -132,7 +137,7 @@ in {
         }
         {
           key = "<C-f>";
-          action = "'/'.getcharstr().'<cmd>noh<cr>'";
+          action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
           options.expr = true;
         }
         {
