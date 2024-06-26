@@ -136,7 +136,7 @@ in {
           options.remap = true;
         }
         {
-          key = "<C-f>";
+          key = "t";
           #action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
           #    action.__raw = ''
           #      function()
@@ -145,9 +145,9 @@ in {
           #    '';
           # options.expr = true;
           action.__raw = ''
-          function ()
-            return "a"
-          end 
+            function ()
+              return "a"
+            end
           '';
         }
         {
