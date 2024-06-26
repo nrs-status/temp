@@ -135,11 +135,12 @@ in {
           '';
           options.remap = true;
         }
-        {
-          key = "<C-f>";
-          action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
-          options.expr = true;
-        }
+        #        {
+        #          key = "<C-f>";
+        #          #action = "'/'.getcharstr().'<cr><cmd>noh<cr>'"; does not call noh
+        #          action.__raw = "nnoremap <expr> <leader>f '/'.getcharstr().'<cr><cmd>nohl<cr>'";
+        #          #options.expr = true;
+        #        }
         {
           key = "F";
           action.__raw = ''
