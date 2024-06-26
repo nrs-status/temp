@@ -40,8 +40,29 @@ in {
           key = "<Esc>";
         }
         {
+          action = "/<key><cr>:noh";
+          key = "<C>f";
+        }
+        {
           action = ":q<cr>";
           key = "<Leader>qq";
+        }
+        {
+          action = "j";
+          key = "<leader>jj";
+          mode = ["i"];
+        }
+        {
+          action = "]]";
+          key = "<leader>]]";
+        }
+        {
+          action = "]}";
+          key = "<leader>]}";
+        }
+        {
+          action = "])";
+          key = "<leader>])";
         }
         {
           action = "<Esc>:q<cr>";
