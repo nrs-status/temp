@@ -132,7 +132,7 @@ in {
         }
         {
           key = "<C-f>";
-          action = "<leader>f '/'.getcharstr().'<cr><cmd>nohl<cr>'";
+          action = "'/'.getcharstr().'<cr><cmd>nohl<cr>'";
           options.expr = true;
         }
         {
