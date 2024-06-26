@@ -254,39 +254,59 @@ in {
         cmp = {
           enable = true;
           autoEnableSources = true;
-          settings.sources = [
-            {
-              name = "nvim_lsp";
-            }
-            {
-              name = "luasnip";
-            }
-            {
-              name = "path";
-            }
-            {
-              name = "nvim_lua";
-            }
-            {
-              name = "treesitter";
-            }
-            {
-              name = "zsh";
-            }
-            {
-              name = "cmdline";
-            }
-            {
-              name = "kitty";
-            }
-            {
-              name = "ctags";
-            }
-            {
-              name = "sql";
-            }
+          settings = {
+            mapping = {
+              __raw = ''
+                cmp.mapping.preset.insert({
+                ['<C-j>'] = cmp.mapping.select_next_item(),
+                ['<C-k>'] = cmp.mapping.select_prev_item(),
+                ['<C-c>'] = cmp.mapping.abort(),
 
-          ];
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+
+                 ['<C-w>'] = cmp.mapping.scroll_docs(4),
+
+                 ['<Tab>'] = cmp.mapping.complete(),
+
+                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
+
+                 ['<S-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                })
+              '';
+            };
+            sources = [
+              {
+                name = "nvim_lsp";
+              }
+              {
+                name = "luasnip";
+              }
+              {
+                name = "path";
+              }
+              {
+                name = "nvim_lua";
+              }
+              {
+                name = "treesitter";
+              }
+              {
+                name = "zsh";
+              }
+              {
+                name = "cmdline";
+              }
+              {
+                name = "kitty";
+              }
+              {
+                name = "ctags";
+              }
+              {
+                name = "sql";
+              }
+            ];
+          };
         };
 
         cmp-nvim-lsp.enable = true;
