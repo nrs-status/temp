@@ -137,11 +137,11 @@ in {
         }
         {
           key = "<C-f>";
-          action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
-          #            action.__raw = "vim.keymap.set(\"n\", \"<leader>f\", function()
-          #  return \"/\" .. vim.fn.getcharstr() .. \" <cr> <cmd> nohl <cr> \"
-          #end, { expr = true }) ";
-          options.expr = true;
+          #action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
+          action.__raw = "vim.keymap.set(\"n\", \"<leader>f\", function()
+            return \"/\" .. vim.fn.getcharstr() .. \" <cr> <cmd> nohl <cr> \"
+          end, { expr = true })";
+          # options.expr = true;
         }
         {
           key = "F";
