@@ -59,6 +59,7 @@ in {
         {
           action = "]}";
           key = "<leader>]}";
+          mode = ["i"];
         }
         {
           action = "])";
