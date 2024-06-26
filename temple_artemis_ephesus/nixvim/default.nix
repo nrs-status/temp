@@ -41,7 +41,7 @@ in {
         }
         {
           action = "/<key><cr>:noh";
-          key = "<C>f";
+          key = "<C-f >";
         }
         {
           action = ":q<cr>";
