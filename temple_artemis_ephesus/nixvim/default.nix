@@ -144,11 +144,7 @@ in {
           #      end
           #    '';
           # options.expr = true;
-          action.__raw = ''
-            function ()
-              return "a"
-            end
-          '';
+          action.__raw = "function() print('hello') end" ;
         }
         {
           key = "F";
