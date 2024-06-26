@@ -136,7 +136,7 @@ in {
           options.remap = true;
         }
         {
-          key = "t";
+          key = "<C-f>";
           action.__raw = ''
             function ()
               return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
