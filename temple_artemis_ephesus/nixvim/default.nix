@@ -141,9 +141,9 @@ in {
           #            #        return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
 
           action.__raw = ''
-              function()
-            return "/" .. vim.fn.getcharstr() .. vim.cmd("noh")
-              end
+            function()
+              return "normal w"
+            end
           '';
           # options.expr = true;
           #action.__raw = "vim.api.nvim_exec2(\"'/'.getcharstr().'<cr><cmd>noh<cr>'\", {})";
