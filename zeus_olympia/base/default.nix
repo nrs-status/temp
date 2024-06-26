@@ -1,13 +1,15 @@
-{ config, lib, pkgs, nixosVars, ... }:
-
-let 
+{
+  config,
+  lib,
+  pkgs,
+  nixosVars,
+  ...
+}: let
   mainUserConf = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" "audio" "video"]; #wheel enables sudo for user; video allows controlling backlight
+    extraGroups = ["wheel" "docker" "networkmanager" "audio" "video"]; #wheel enables sudo for user; video allows controlling backlight
   };
-in 
-{
-
+in {
   system.nixos.label = "testing";
 
   boot = {
@@ -22,14 +24,19 @@ in
 
   programs.light.enable = true;
 
+  environment.sessionVariables = {
+    OPENAI_API_KEY = "sk-proj-8TxI0dUhlU57e7A7n5QzT3BlbkFJWNzLYwBfb3uGKKSxhKzK";
+  };
   programs.fish.enable = true;
-  users.users.${nixosVars.mainUser} = if config.programs.fish.enable then mainUserConf // { shell = pkgs.fish; } else mainUserConf;
+  users.users.${nixosVars.mainUser} =
+    if config.programs.fish.enable
+    then mainUserConf // {shell = pkgs.fish;}
+    else mainUserConf;
 
-
-  sound.enable = true; 
+  sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  boot.supportedFilesystems = [ "ntfs" ]; # to be able to use external hdd
+  boot.supportedFilesystems = ["ntfs"]; # to be able to use external hdd
   nix = {
     #automatic garbage collection
     gc = {
@@ -48,7 +55,7 @@ in
       auto-optimise-store = true;
 
       substituters = [
-	"https://nix-community.cachix.org"
+        "https://nix-community.cachix.org"
       ];
     };
   };
@@ -66,11 +73,9 @@ in
       pulseaudio
       keyd
     ];
-
   };
 
   hardware.opengl.enable = true; #needed for sway
-
 
   services.openssh.enable = true;
   system.stateVersion = "23.11";

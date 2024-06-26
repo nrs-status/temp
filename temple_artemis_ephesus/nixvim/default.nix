@@ -16,7 +16,6 @@ in {
       ];
     };
 
-
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
@@ -28,7 +27,7 @@ in {
         mapleader = " ";
         maplocalleader = " ";
       };
-    
+
       clipboard = {
         register = "unnamedplus";
         providers.wl-copy.enable = true;
@@ -37,7 +36,7 @@ in {
 
       keymaps = [
         {
-          action = ":noh<CR><Esc>";
+          action = ":noh<CR><Esc>"; #unselect search match
           key = "<Esc>";
         }
         {
@@ -47,7 +46,7 @@ in {
         {
           action = "<Esc>:q<cr>";
           key = "<leader>qq";
-          mode = [ "i" ];
+          mode = ["i"];
         }
         {
           action = ":wq<cr>";
@@ -71,8 +70,8 @@ in {
         }
         {
           action = "<Esc>";
-          key = " jk";
-          mode = [ "i" ]; 
+          key = "jk";
+          #  mode = ["i"];
         }
         {
           action = "<Cmd>Neotree toggle<CR>";
@@ -80,18 +79,18 @@ in {
         }
         {
           action = "vim.lsp.buf.hover";
-          key  = "<leader>k";
-          mode = [ "n" ];
+          key = "<leader>k";
+          mode = ["n"];
         }
         {
           action = "vim.lsp.buf.definition";
           key = "<leader>gd";
-          mode = [ "n" ];
+          mode = ["n"];
         }
         {
           action = "vim.lsp.buf.code_action";
           key = "<leader>ca";
-          mode = [ "n" ];
+          mode = ["n"];
         }
         {
           action = "$";
@@ -101,30 +100,30 @@ in {
           action = "0";
           key = "<leader>hh";
         }
-    {
-      key = "f"; #used to activate the hop plugin
-      action.__raw = ''
-        function()
-          require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-            current_line_only = false
-          })
-        end
-      '';
-      options.remap = true;
-    }
-    {
-      key = "F";
-      action.__raw = ''
-        function()
-          require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-            current_line_only = true
-          })
-        end
-      '';
-      options.remap = true;
-    }
+        {
+          key = "f"; #used to activate the hop plugin
+          action.__raw = ''
+            function()
+              require'hop'.hint_char1({
+                direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+                current_line_only = false
+              })
+            end
+          '';
+          options.remap = true;
+        }
+        {
+          key = "F";
+          action.__raw = ''
+            function()
+              require'hop'.hint_char1({
+                direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+                current_line_only = true
+              })
+            end
+          '';
+          options.remap = true;
+        }
       ];
 
       opts = {
@@ -134,7 +133,7 @@ in {
         mouse = "a"; # Enable mouse control
         mousemodel = "extend"; # Mouse right-click extends the current selection
 
-        shiftwidth = 4; 
+        shiftwidth = 4;
         tabstop = 4;
 
         swapfile = false; # Disable the swap file
@@ -150,14 +149,13 @@ in {
         scrolloff = 8; # Number of screen lines to show around the cursor
         cursorline = true; # Highlight the screen line of the cursor
         cursorcolumn = true; # Highlight the screen column of the cursor
-
-        
       };
       plugins = {
-        hop = { #find-next-character motion
+        hop = {
+          #find-next-character motion
           enable = true;
         };
-        telescope = { 
+        telescope = {
           enable = true;
           extensions.fzf-native.enable = true;
         };
@@ -165,9 +163,9 @@ in {
         nix.enable = true;
         sleuth.enable = true;
         surround.enable = true;
-      
+
         auto-save.enable = true;
-        
+
         #autoclose.enable = true;
         nvim-autopairs.enable = true;
 
@@ -178,21 +176,20 @@ in {
           adapters = {
             phpunit.enable = true;
             python.enable = true;
-
+          };
         };
-      };
 
         friendly-snippets.enable = true;
 
         efmls-configs = {
           enable = true;
-          toolPackages = { 
+          toolPackages = {
             shellcheck = pkgs.shellcheck;
-          }; 
+          };
         };
 
         lsp-format.enable = true;
-        none-ls = { 
+        none-ls = {
           enable = true;
           enableLspFormat = true;
           sources = {
@@ -212,10 +209,11 @@ in {
               pylint.enable = true;
               cppcheck.enable = true;
               zsh.enable = true;
-            }; 
+            };
           };
         };
 
+        #cmp stands for completion; these are completion plugins
         cmp = {
           enable = true;
           autoEnableSources = true;
@@ -270,7 +268,6 @@ in {
             dockerls.enable = true;
 
             bashls.enable = true;
-
 
             pylsp = {
               enable = true;
