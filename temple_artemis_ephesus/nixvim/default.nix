@@ -137,17 +137,12 @@ in {
         }
         {
           key = "t";
-          #action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
-          #            #        return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
-
-          action.__raw = ''
-            function()
-              return ":normal w"
+          action = ''
+            function ()
+              return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
             end
           '';
-          # options.expr = true;
-          #action.__raw = "vim.api.nvim_exec2(\"'/'.getcharstr().'<cr><cmd>noh<cr>'\", {})";
-          #action.__raw = "    return "/" .. vim.fn.getcharstr() .. vim.cmd("nohl");
+          options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
         }
         {
           key = "F";
