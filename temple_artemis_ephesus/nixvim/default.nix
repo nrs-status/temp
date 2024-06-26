@@ -44,7 +44,7 @@ in {
           key = "<Leader>qq";
         }
         {
-          action = "j";
+          action = "<Esc>ja";
           key = "<leader>jj";
           mode = ["i"];
         }
@@ -132,7 +132,7 @@ in {
         }
         {
           key = "<C-f>";
-          action = "leader>f '/'.getcharstr().'<cr><cmd>nohl<cr>'";
+          action = "<leader>f '/'.getcharstr().'<cr><cmd>nohl<cr>'";
           options.expr = true;
         }
         {
