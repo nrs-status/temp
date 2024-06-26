@@ -137,7 +137,7 @@ in {
         }
         {
           key = "t";
-          action = ''
+          action.__raw = ''
             function ()
               return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
             end
