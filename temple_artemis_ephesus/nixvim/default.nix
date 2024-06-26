@@ -45,7 +45,7 @@ in {
         }
         {
           action = "<Esc>ja";
-          key = "<leader>jj";
+          key = "jj";
           mode = ["i"];
         }
         {
