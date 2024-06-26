@@ -40,10 +40,6 @@ in {
           key = "<Esc>";
         }
         {
-          action = "/<key><cr>:noh";
-          key = "<C-f >";
-        }
-        {
           action = ":q<cr>";
           key = "<Leader>qq";
         }
@@ -89,6 +85,11 @@ in {
         {
           action = ":Telescope live_grep<cr>";
           key = "<leader>lg";
+        }
+        {
+          action = "k";
+          key = "<C-k>";
+          mode = ["i"]; 
         }
         {
           action = "<Esc>";
