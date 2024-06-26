@@ -137,11 +137,12 @@ in {
         }
         {
           key = "<C-f>";
-          action.__raw = ''
-            function ()
-              return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
-            end
-          '';
+          #   action.__raw = ''
+          #     function ()
+          #       return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
+          #     end
+          #   '';
+                      action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
           options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
         }
         {
