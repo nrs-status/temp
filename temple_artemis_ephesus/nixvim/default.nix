@@ -142,7 +142,7 @@ in {
 
           action.__raw = ''
             function()
-              return "normal w"
+              return ":normal w"
             end
           '';
           # options.expr = true;
@@ -155,7 +155,7 @@ in {
             function()
               require'hop'.hint_char1({
                 direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-                current_line_only = true
+                current_line_only = false
               })
             end
           '';
