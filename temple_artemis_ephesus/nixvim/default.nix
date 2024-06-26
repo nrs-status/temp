@@ -138,13 +138,17 @@ in {
         {
           key = "<C-f>";
           #action = "'/'.getcharstr().'<cr><cmd>noh<cr>'";
-          action.__raw = ''
-            function()
-              return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
-            end
-          '';
-          options.remap = true; 
+          #    action.__raw = ''
+          #      function()
+          #        return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
+          #      end
+          #    '';
           # options.expr = true;
+          action.__raw = ''
+          function ()
+            return "a"
+          end 
+          '';
         }
         {
           key = "F";
