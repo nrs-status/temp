@@ -254,6 +254,39 @@ in {
         cmp = {
           enable = true;
           autoEnableSources = true;
+          settings.sources = [
+            {
+              name = "nvim_lsp";
+            }
+            {
+              name = "luasnip";
+            }
+            {
+              name = "path";
+            }
+            {
+              name = "nvim_lua";
+            }
+            {
+              name = "treesitter";
+            }
+            {
+              name = "zsh";
+            }
+            {
+              name = "cmdline";
+            }
+            {
+              name = "kitty";
+            }
+            {
+              name = "ctags";
+            }
+            {
+              name = "sql";
+            }
+
+          ];
         };
 
         cmp-nvim-lsp.enable = true;
