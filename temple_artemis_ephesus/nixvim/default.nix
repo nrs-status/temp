@@ -49,6 +49,11 @@ in {
           mode = ["i"];
         }
         {
+          action = "<Esc>ka";
+          key = "kk";
+          mode = ["i"];
+        }
+        {
           action = "<Esc>]]";
           key = "<leader>]]";
         }
