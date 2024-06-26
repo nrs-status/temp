@@ -87,7 +87,7 @@ in {
           key = "<leader>lg";
         }
         {
-          action = "<Esc>";
+          action = "<Esc>l";
           key = "jk";
           mode = ["i"];
         }
@@ -137,12 +137,11 @@ in {
         }
         {
           key = "<C-f>";
-          #   action.__raw = ''
-          #     function ()
-          #       return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
-          #     end
-          #   '';
-          action = "'/'.getcharstr().'<cr> | <cmd>noh<cr>'";
+          action.__raw = ''
+            function ()
+              return "/" .. vim.fn.getcharstr() .. "<cr><cmd>nohl<cr>"
+            end
+          '';
           options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
         }
         {
