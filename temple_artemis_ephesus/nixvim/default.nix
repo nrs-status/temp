@@ -144,7 +144,8 @@ in {
           #      end
           #    '';
           # options.expr = true;
-          action.__raw = "vim.api.nvim_exec2(\"'/'.getcharstr().'<cr><cmd>noh<cr>'\", {})";
+          #action.__raw = "vim.api.nvim_exec2(\"'/'.getcharstr().'<cr><cmd>noh<cr>'\", {})";
+          action.__raw = "function() print('a') end";
         }
         {
           key = "F";
