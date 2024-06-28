@@ -18,6 +18,7 @@ in {
         twilio-cli #for work with fede
         dive #introspect container image layers
         sqlite
+        nix-ld #run dynamically linked libraries
       ];
     };
   };

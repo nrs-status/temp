@@ -14,3 +14,7 @@ distrobox create --name ubuntu --init --image ubuntu:latest
 
 # extract the contents of a .tar.gz file
 tar -xzvf filename.tar.gz
+
+# cat/copy something to clipboard
+cat file | wl-copy
+
