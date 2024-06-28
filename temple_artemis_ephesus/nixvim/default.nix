@@ -313,7 +313,7 @@ in {
 
         comment.enable = true;
 
-        lspkind.enable = true;
+        lspkind.enable = true; #adds pictograms to lsp
 
         gitsigns.enable = true;
 
@@ -343,7 +343,7 @@ in {
 
           servers = {
             phpactor.enable = true;
-            tsserver.enable = true;
+            tsserver.enable = false;
             dagger.enable = true;
 
             clangd.enable = true;
