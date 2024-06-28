@@ -220,7 +220,7 @@ in {
 
         lsp-format.enable = true;
         none-ls = {
-          enable = false;
+          enable = true;
           enableLspFormat = true;
           sources = {
             formatting = {
@@ -343,7 +343,7 @@ in {
 
           servers = {
             phpactor.enable = true;
-            tsserver.enable = false;
+            tsserver.enable = true;
             dagger.enable = true;
 
             clangd.enable = true;
