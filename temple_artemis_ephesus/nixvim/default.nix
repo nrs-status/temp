@@ -341,6 +341,23 @@ in {
         lsp = {
           enable = true;
 
+          keymaps = {
+            diagnostic = {
+              "<leader>cd" = {
+                action = "open_float";
+                desc = "Line Diagnostics";
+              };
+              "<leader>j" = {
+                action = "goto_next";
+                desc = "Next Diagnostic";
+              };
+              "<leader>k" = {
+                action = "goto_prev";
+                desc = "Previous Diagnostic";
+              };
+            };
+          };
+
           servers = {
             phpactor.enable = true;
             tsserver.enable = true;
