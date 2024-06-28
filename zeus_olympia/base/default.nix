@@ -24,9 +24,6 @@ in {
 
   programs.light.enable = true;
 
-  environment.sessionVariables = {
-    OPENAI_API_KEY = "sk-proj-8TxI0dUhlU57e7A7n5QzT3BlbkFJWNzLYwBfb3uGKKSxhKzK";
-  };
   programs.fish.enable = true;
   users.users.${nixosVars.mainUser} =
     if config.programs.fish.enable

@@ -1,7 +1,10 @@
-% shintu, general
+% shintu, eza
 
 # list files recursively with eza
 eza -R
 
 # display files with their absolute paths
 eza --absolute
+
+# display only directories
+eza -D; eza --only-dirs
