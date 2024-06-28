@@ -30,6 +30,10 @@ in {
     then mainUserConf // {shell = pkgs.fish;}
     else mainUserConf;
 
+  environment.sessionVariables = {
+    PATH = "/home/sieyes/alaric_kicksdown_messi/";
+  };
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
