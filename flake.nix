@@ -85,6 +85,7 @@
                   username = mainUser;
                   homeDirectory = "/home/${mainUser}";
                   stateVersion = "23.11";
+                  sessionPath = ["/home/sieyes/alaric_kicksdown_messi/"];
                 };
                 programs.home-manager.enable = true;
                 ${hostName}.home = lighthouse_alexandria.stringListToEnabledOptions env.homeVars.pkgSets;
