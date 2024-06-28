@@ -218,16 +218,9 @@ in {
 
         friendly-snippets.enable = true;
 
-        efmls-configs = {
-          enable = true;
-          toolPackages = {
-            shellcheck = pkgs.shellcheck;
-          };
-        };
-
         lsp-format.enable = true;
         none-ls = {
-          enable = true;
+          enable = false;
           enableLspFormat = true;
           sources = {
             formatting = {
