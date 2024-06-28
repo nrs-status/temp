@@ -6,7 +6,7 @@
       "cli"
       "git"
       "nixvim"
-# to fix     "doom-emacs"
+      # to fix     "doom-emacs"
       # "emacs"
       "firefox"
       "multimedia"
@@ -15,9 +15,13 @@
       "kitty"
       "fonts"
       "etc"
+
+      #programming languages
       "php"
       "javascript"
       "typescript"
+      "python"
+      
       "gammastep"
       "cloudwork"
       "gtk"
@@ -37,18 +41,17 @@
     vaultHostPort = "";
     vaultStorageLoc = "/home/sieyes/baghdad_plane";
 
-
     modulesToEnable = [
       "home-manager"
       "keyRebindings"
       "bluetooth"
       #"fish"
-     
+
       #enable only one of the following at a time
-     #"podman"
+      #"podman"
       "docker"
 
-    "vault-server"
+      "vault-server"
     ];
   };
 }
