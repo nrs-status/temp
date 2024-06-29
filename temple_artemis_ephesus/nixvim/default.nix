@@ -307,7 +307,7 @@ in {
         cmp-rg.enable = true;
         cmp-treesitter.enable = true;
         cmp-zsh.enable = true;
-        cmp-cmdline.enable = true;
+        #cmp-cmdline.enable = true;
         cmp-path.enable = true;
         cmp_luasnip.enable = true;
 
