@@ -1,7 +1,19 @@
 % nix, shintu
 
+# determine what is making a store path depend on another; figure out specific dependencies between store paths
+nix why-depends --precise store_path_that_depends_on store_path_that_is_depended_on
+
 # query a store path to determine what's keeping it alive
 nix-store --query --roots <path>
+
+# query a store path to determine its runtime dependencies
+nix-store -q --references `which PROGRAM` or give store path explicitly
+
+# query a store path to determine its reverse dependencies
+nix-store -q --referrers `which PROGRAM` or give store path explicitly
+
+# query a store path and list its dependencies recursively, so as to list absolutely everything necessary to use that derivation
+nix-store -qR `which PROGRAM` or PATH; alternatively: nix-store -q --tree PATH
 
 # delete specified generations from the system profile
 nix-env --profile /nix/var/nix/profiles/system --delete-generations <generations>
@@ -12,4 +24,11 @@ nix-env --profile /nix/var/nix/profiles/system --delete-generations <days>d
 # list generations for the system profile
 nix profile history --profile /nix/var/nix/profiles/system
 
-# introspect a flake
+# list a profile's generation (in this example: nixOS generations)
+nix-env --list-generations --profile /nix/var/nix/profiles/system
+
+# list currently existing generations
+nix-env --list-generations
+
+# switch to a profile or create a new profile
+nix-env --switch-profile <profile_path>
