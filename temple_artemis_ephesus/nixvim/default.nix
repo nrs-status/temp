@@ -107,12 +107,22 @@ in {
         }
         {
           action = "vim.lsp.buf.hover";
-          key = "<leader>k";
+          key = "<leader>gk";
           mode = ["n"];
         }
         {
           action = "vim.lsp.buf.definition";
           key = "<leader>gd";
+          mode = ["n"];
+        }
+        {
+          action = "vim.lsp.buf.type_definition";
+          key = "<leader>gy";
+          mode = ["n"];
+        }
+        {
+          action = "vim.lsp.buf.implementation";
+          key = "<leader>gi";
           mode = ["n"];
         }
         {
