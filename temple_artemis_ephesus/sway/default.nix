@@ -21,6 +21,7 @@ in {
         mako # notification system developed by swaywm maintainer
         wev #xev analogue
         remontoire #list keybindings
+        wmfocus #focus windows by pressing a temporary label that pops up
       ];
     };
 
