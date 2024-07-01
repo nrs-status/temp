@@ -1,7 +1,7 @@
 % nix, shintu
 
 # determine what is making a store path depend on another; figure out specific dependencies between store paths
-nix why-depends --precise store_path_that_depends_on store_path_that_is_depended_on
+nix why-depends --precise PACKAGE DEPENDENCY 
 
 # query a store path to determine what's keeping it alive
 nix-store --query --roots <path>

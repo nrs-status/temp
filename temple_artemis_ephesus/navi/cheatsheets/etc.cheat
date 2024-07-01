@@ -18,3 +18,6 @@ tar -xzvf filename.tar.gz
 # cat/copy something to clipboard
 cat file | wl-copy
 
+# determine how much weight/size/disk usage a particular directory has
+du -sh DIRECTORY
+
