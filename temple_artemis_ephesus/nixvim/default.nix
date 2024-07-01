@@ -148,6 +148,7 @@ in {
             end
           '';
           options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
+          mode = ["i" "n"];
         }
         {
           key = "F";
