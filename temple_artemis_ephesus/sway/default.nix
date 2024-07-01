@@ -15,11 +15,12 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        grim #screenshot tool 
+        grim #screenshot tool
         slurp #allows selecting a piece of screen for screenshot
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         mako # notification system developed by swaywm maintainer
         wev #xev analogue
+        remontoire #list keybindings
       ];
     };
 
@@ -39,7 +40,6 @@ in {
             #start_hidden = "true";
             layer = "top";
             tray_output = "primary";
-
 
             position = "top";
             height = 35;
@@ -226,19 +226,18 @@ in {
           "${modifier}+Shift+backslash" = "splith";
           "${modifier}+minus" = "splitv";
           "${modifier}+z" = "exec killall -SIGUSR1 .waybar-wrapped";
-          "${modifier}+p" =
-            "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
-            "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
-            "Print+Shift_L" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(slurp)\" ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
-            "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
-            "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
-            "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
-            "${modifier}+plus" = "scratchpad show";
+          "${modifier}+p" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
+          "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
+          "Print+Shift_L" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(slurp)\" ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
+          "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
+          "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
+          "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
+          "${modifier}+plus" = "scratchpad show";
         };
 
         startup = [
-          { command = "exec swaymsg 'workspace 1; exec firefox' "; }
-          { command = "exec swaymsg 'workspace 2; exec kitty' "; }
+          {command = "exec swaymsg 'workspace 1; exec firefox' ";}
+          {command = "exec swaymsg 'workspace 2; exec kitty' ";}
         ];
 
         menu = "${pkgs.wofi}/bin/wofi --show drun";
