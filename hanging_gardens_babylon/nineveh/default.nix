@@ -46,7 +46,7 @@
       "home-manager"
       "keyRebindings"
       "bluetooth"
-      "fish"
+     # "fish"
 
       #enable only one of the following at a time
       #"podman"
