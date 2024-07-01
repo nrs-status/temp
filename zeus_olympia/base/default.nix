@@ -24,11 +24,13 @@ in {
 
   programs.light.enable = true;
 
-  programs.fish.enable = true;
-  users.users.${nixosVars.mainUser} =
-    if config.programs.fish.enable
-    then mainUserConf // {shell = pkgs.fish;}
-    else mainUserConf;
+  #  programs.fish.enable = true;
+  #  users.users.${nixosVars.mainUser} =
+  #    if config.programs.fish.enable
+  #    then mainUserConf // {shell = pkgs.fish;}
+  #    else mainUserConf;
+
+  users.users.${nixosVars.mainUser} = mainUserConf;
 
   environment.sessionVariables = {
     PATH = "/home/sieyes/alaric_kicksdown_messi/";
