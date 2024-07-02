@@ -29,8 +29,6 @@ in {
 
         #general
         ffmpeg-full
-
-        satty #screenshots
       ];
     };
   };

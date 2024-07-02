@@ -5,3 +5,6 @@ git commit --amend
 
 # clone a repository only keeping the latest commit and with the selected branch
 git clone --depth 1 --branch <branch-name> <repository-url>
+
+# nice git commit history log
+git log --graph --oneline --decorate
