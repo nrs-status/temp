@@ -228,7 +228,7 @@ in {
           "${modifier}+z" = "exec killall -SIGUSR1 .waybar-wrapped";
           "${modifier}+p" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
           "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
-          "${modifier}+Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(slurp)\" ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
+          "${modifier}+Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(slurp)\" ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png && wl-copy < ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
           "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
