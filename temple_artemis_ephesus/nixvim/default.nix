@@ -109,6 +109,7 @@ in {
           action = "vim.lsp.buf.hover";
           key = "<leader>gk";
           mode = ["n"];
+          options.remap = true;
         }
         {
           action = "vim.lsp.buf.definition";
