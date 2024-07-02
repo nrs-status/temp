@@ -13,6 +13,8 @@ in {
       packages = with pkgs; [
         ghc #compiler
         cabal-install #package management
+
+        haskellPackages.aeson #json library for haskell
       ];
     };
   };

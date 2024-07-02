@@ -163,7 +163,7 @@ in {
           options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
           mode = ["i" "n"];
         }
-        {
+        { 
           key = "F";
           action.__raw = ''
             function()
@@ -259,7 +259,7 @@ in {
 
         #cmp stands for completion; these are completion plugins
         cmp = {
-          enable = false;
+          enable = true;
           autoEnableSources = true;
           settings = {
             mapping = {
