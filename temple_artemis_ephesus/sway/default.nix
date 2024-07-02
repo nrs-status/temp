@@ -228,7 +228,7 @@ in {
           "${modifier}+z" = "exec killall -SIGUSR1 .waybar-wrapped";
           "${modifier}+p" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
           "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim ~/daguerre_brick/rockwelllcdcalc1972/$(date +%F-%T).png";
-          "Print+Shift_L" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(slurp)\" ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
+          "${modifier}+Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(slurp)\" ~/daguerre_brick/rockwelllcdcalc1972/snippet_$(date +%F-%T).png";
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
           "XF86AudioMute" = "exec --no-startup-id ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
@@ -239,9 +239,6 @@ in {
         startup = [
           {command = "exec swaymsg 'workspace 1; exec firefox' ";}
           {command = "exec swaymsg 'workspace 2; exec kitty' ";}
-          # next two required for flameshot
-          {command = "exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
-          {command = "exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
         ];
 
         menu = "${pkgs.wofi}/bin/wofi --show drun";

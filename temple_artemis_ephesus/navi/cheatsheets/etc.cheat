@@ -21,3 +21,5 @@ cat file | wl-copy
 # determine how much weight/size/disk usage a particular directory has
 du -sh DIRECTORY
 
+# remove everything in this directory except files containing a certain word
+rm !(*WORD*)
