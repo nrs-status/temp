@@ -12,7 +12,7 @@ in {
     home = {
       packages = with pkgs; [
         ghc #compiler
-        haskellPackages.Cabal_3_12_0_0 #package management
+        cabal-install #package manager
 
         haskellPackages.aeson #json library for haskell
       ];

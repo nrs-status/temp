@@ -3,4 +3,5 @@
 # amend last git commit
 git commit --amend
 
-#
+# clone a repository only keeping the latest commit and with the selected branch
+git clone --depth 1 --branch <branch-name> <repository-url>

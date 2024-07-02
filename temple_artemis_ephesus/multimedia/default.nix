@@ -1,6 +1,11 @@
-{ config, lib, pkgs, osConfig, ... }:
-
-let cfg = config.${osConfig.networking.hostName}.home.multimedia;
+{
+  config,
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}: let
+  cfg = config.${osConfig.networking.hostName}.home.multimedia;
 in {
   options.${osConfig.networking.hostName}.home.multimedia.enable = lib.mkEnableOption "Multimedia";
   config = lib.mkIf cfg.enable {
@@ -9,7 +14,7 @@ in {
         #ebooks
         okular
         calibre
-        pandoc 
+        pandoc
 
         #image  -- imagemagick, imv, and feh are all meant for the same use. they are all enabled while i try them out
         imagemagick
@@ -27,6 +32,26 @@ in {
 
         flameshot #screenshots
       ];
+    };
+    services.flameshot = {
+      enable = true;
+
+      settings = {
+        General = {
+          drawColor = "#ff0000";
+          drawFontSize = 23;
+          drawThickness = 3;
+
+          savePath = "/home/gaetan/downloads";
+          savePathFixed = false;
+
+          disabledTrayIcon = true;
+          showDesktopNotification = false;
+          showHelp = false;
+
+          uiColor = "#ffffff";
+        };
+      };
     };
   };
 }
