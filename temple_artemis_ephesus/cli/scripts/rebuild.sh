@@ -9,5 +9,5 @@ fi
 LOC=$(pwd)
 cd /etc/nixos
 git add -A
-nixos-rebuild switch && git commit -am "successful nixos-rebuild; ${COMMIT_MSG}"
+nixos-rebuild switch | tee $HOME/baghdad_plane/temp_rebuildlogs/ && git commit -am "successful nixos-rebuild; ${COMMIT_MSG}"
 cd $LOC
