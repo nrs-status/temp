@@ -112,22 +112,22 @@ in {
           options.remap = true;
         }
         {
-          action = "vim.lsp.buf.definition";
+          action = "<Cmd>lua vim.lsp.buf.definition()<cr>";
           key = "<leader>gd";
           mode = ["n"];
         }
         {
-          action = "vim.lsp.buf.type_definition";
+          action = "<Cmd>vim.lsp.buf.type_definition()<cr>";
           key = "<leader>gy";
           mode = ["n"];
         }
         {
-          action = "vim.lsp.buf.implementation";
+          action = "<cmd>vim.lsp.buf.implementation()<cr>";
           key = "<leader>gi";
           mode = ["n"];
         }
         {
-          action = "vim.lsp.buf.code_action";
+          action = "<cmd>vim.lsp.buf.code_action()<cr>";
           key = "<leader>ca";
           mode = ["n"];
         }
