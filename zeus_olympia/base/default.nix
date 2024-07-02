@@ -76,7 +76,7 @@ in {
     ];
   };
 
-  hardware.opengl.enable = true; #needed for sway
+  hardware.graphics.enable = true; #needed for sway
 
   services.openssh.enable = true;
   system.stateVersion = "23.11";

@@ -30,29 +30,8 @@ in {
         #general
         ffmpeg-full
 
-        flameshot #screenshots
+        satty #screenshots
       ];
     };
-    services.flameshot = {
-        enable = true;
-
-        settings = {
-          General = {
-            drawColor = "#ff0000";
-            drawFontSize = 23;
-            drawThickness = 3;
-
-            savePath = "/var/log/nixos-rebuild/";
-            savePathFixed = false;
-
-            disabledTrayIcon = true;
-            showDesktopNotification = false;
-            showHelp = false;
-
-            uiColor = "#ffffff";
-          };
-        };
-      };
-
   };
 }

@@ -239,6 +239,9 @@ in {
         startup = [
           {command = "exec swaymsg 'workspace 1; exec firefox' ";}
           {command = "exec swaymsg 'workspace 2; exec kitty' ";}
+          # next two required for flameshot
+          {command = "exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
+          {command = "exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
         ];
 
         menu = "${pkgs.wofi}/bin/wofi --show drun";

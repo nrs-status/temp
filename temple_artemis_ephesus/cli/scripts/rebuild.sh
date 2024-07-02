@@ -1,13 +1,15 @@
-#!/bin/bash
+#!/bin/sh
+
+DATE=$(date "+%Y-%m-%d_%H-%M-%S")
 
 if [ "$#" -eq 0 ]; then
-	COMMIT_MSG="autocommit $(date)"
+	COMMIT_MSG="autocommit $DATE"
 else
 	COMMIT_MSG=$1
 fi
 
-LOC=$(pwd)
+LOC=$PWD
 cd /etc/nixos
 git add -A
-nixos-rebuild switch | tee $HOME/baghdad_plane/temp_rebuildlogs/ && git commit -am "successful nixos-rebuild; ${COMMIT_MSG}"
-cd $LOC
+nixos-rebuild switch |& tee /var/log/nixos-rebuild/"$DATE" && git commit -am "successful nixos-rebuild; $COMMIT_MSG"
+cd "$LOC"
