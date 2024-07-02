@@ -106,7 +106,7 @@ in {
           key = "<leader>n";
         }
         {
-          action = "vim.lsp.buf.hover";
+          action = "<Cmd>lua vim.lsp.buf.hover()<cr>";
           key = "<leader>gk";
           mode = ["n"];
           options.remap = true;
@@ -134,10 +134,12 @@ in {
         {
           action = "$";
           key = "<leader>ll";
+          mode = ["n" "i"];
         }
         {
           action = "0";
           key = "<leader>hh";
+          mode = ["n" "i"];
         }
         {
           key = "f"; #used to activate the hop plugin
