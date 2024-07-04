@@ -262,15 +262,10 @@ in {
             -- Get the current line
             local line = vim.api.nvim_get_current_line()
 
-            -- Check if the cursor is at the beginning of the line
-            if col == 0 then
-                return " "
-            end
-
             -- Check if there's whitespace before the cursor
             local char_before_cursor = line:sub(col, col)
-            if char_before_cursor:match("%s") then
-                return " "
+            if char_before_cursor:match("%s") or col == 0 then
+                return vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
             end
 
             -- If neither condition is met, return <Esc>la
