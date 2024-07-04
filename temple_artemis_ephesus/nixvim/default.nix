@@ -254,19 +254,42 @@ in {
       extraPlugins = with pkgs.vimPlugins; [nvim-surround];
 
       extraConfigLua = ''
-        local set= function(name) -- defines a function called 'set' that will automatically configure packages such that set "package" is equivalent to require('package').setup()
-          local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
-          if ok then
-            p.setup()
-          end
-        end
+                local set= function(name) -- defines a function called 'set' that will automatically configure packages such that set "package" is equivalent to require('package').setup()
+                  local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
+                  if ok then
+                    p.setup()
+                  end
+                end
 
-        require'nvim-surround'.setup({
-          aliases = {
-            ["c"] = "}",
-            ["p"] = ")",
-          },
-        })
+                require'nvim-surround'.setup({
+                  aliases = {
+                    ["c"] = "}",
+                    ["p"] = ")",
+                  },
+                })
+
+                function check_and_insert_space()
+            -- Get the current cursor position
+            local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+            -- Get the current line
+            local line = vim.api.nvim_get_current_line()
+
+            -- Check if the cursor is at the beginning of the line
+            if col == 0 then
+                return " "
+            end
+
+            -- Check if there's whitespace before the cursor
+            local char_before_cursor = line:sub(col, col)
+            if char_before_cursor:match("%s") then
+                return " "
+            end
+
+            -- If neither condition is met, return <Esc>ll
+            return vim.api.nvim_replace_termcodes("<Esc>ll", true, false, true)
+        end
+        vim.api.nvim_set_keymap('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true, noremap = true})
 
       '';
       plugins = {
