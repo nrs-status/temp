@@ -257,7 +257,7 @@ in {
         };
         none-ls = {
           enable = true;
-          enableLspFormat = true;
+          enableLspFormat = false; #disabled while testing conform-nvim
           sources = {
             formatting = {
               alejandra.enable = true;
