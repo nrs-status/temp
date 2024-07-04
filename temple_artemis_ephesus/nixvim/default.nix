@@ -416,6 +416,14 @@ in {
         cmp-path.enable = true;
         cmp_luasnip.enable = true;
 
+        luasnip = {
+          enable = true;
+          fromSnipmate = [
+            {}
+            {paths = ./snippets;}
+          ];
+        };
+
         comment.enable = true;
 
         lspkind.enable = true; #adds pictograms to lsp
