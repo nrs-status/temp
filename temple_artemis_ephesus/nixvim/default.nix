@@ -238,6 +238,8 @@ in {
         cursorline = true; # Highlight the screen line of the cursor
         cursorcolumn = true; # Highlight the screen column of the cursor
       };
+      extraPlugins = with pkgs.vimPlugins; [nvim-surround tabout-nvim];
+
       extraConfigLua = ''
         local set= function(name) -- defines a function called 'set' that will automatically configure packages such that set "package" is equivalent to require('package').setup()
           local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
@@ -251,8 +253,9 @@ in {
             ["c"] = "}",
           },
         })
+
+        set "tabout-nvim"
       '';
-      extraPlugins = with pkgs.vimPlugins; [nvim-surround];
       plugins = {
         hop = {
           #find-next-character motion
@@ -272,14 +275,6 @@ in {
         #autoclose.enable = true;
         nvim-autopairs = {
           enable = true;
-          extraConfigLua = ''
-            require('nvim-autopairs').add_rules({
-              Rule("%", "%", "lua")
-                :with_pair(ts_conds.is_ts_node({'string','comment'})),
-              Rule("$", "$", "lua")
-                :with_pair(ts_conds.is_not_ts_node({'function'}))
-            })
-          '';
         };
 
         neo-tree.enable = true;
