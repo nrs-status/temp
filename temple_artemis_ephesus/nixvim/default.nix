@@ -42,7 +42,7 @@ in {
           mode = ["i"];
         }
         {
-          action = "<cmd>call feedkeys(\"(\", \"t\")";
+          action = "<cmd>call feedkeys(\"(\", \"t\")<cr>";
           key = "99";
           mode = ["i"];
         }
