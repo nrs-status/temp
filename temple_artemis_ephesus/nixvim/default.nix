@@ -45,7 +45,7 @@ in {
           action = "<Tab>";
           key = "<C-t>";
           mode = ["i"];
-          remap = false;
+          options.remap = false;
         }
 
         #shift subs
