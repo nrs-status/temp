@@ -35,6 +35,22 @@ in {
       colorschemes.gruvbox.enable = true;
 
       keymaps = [
+        #fine-grained undo
+        {
+          action = "<c-g>u<bs>";
+          key = "<bs>";
+          mode = ["i"];
+        }
+        {
+          action = "<c-g>u<cr>";
+          key = "<cr>";
+          mode = ["i"];
+        }
+        {
+          action = "<c-g>u<spc>";
+          key = "<spc>";
+          mode = ["i"];
+        }
         {
           action = ":noh<CR><Esc>"; #unselect search match
           key = "<Esc>";
@@ -201,17 +217,16 @@ in {
         cursorline = true; # Highlight the screen line of the cursor
         cursorcolumn = true; # Highlight the screen column of the cursor
       };
-      # the following lines have been commented while I test out conform-nvim
-      #     extraConfigLua = ''
-      #       local set= function(name) -- defines a function called 'set'
-      #         local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
-      #         if ok then
-      #           p.setup()
-      #         end
-      #       end
-      #       set "nvim-surround" -- will attempt to require nvim-surround and then call .setup() on it
-      #     '';
-      #     extraPlugins = with pkgs.vimPlugins; [nvim-surround];
+      extraConfigLua = ''
+        local set= function(name) -- defines a function called 'set'
+          local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
+          if ok then
+            p.setup()
+          end
+        end
+        set "nvim-surround" -- will attempt to require nvim-surround and then call .setup() on it
+      '';
+      extraPlugins = with pkgs.vimPlugins; [nvim-surround];
       plugins = {
         hop = {
           #find-next-character motion
@@ -224,7 +239,7 @@ in {
         rainbow-delimiters.enable = true;
         nix.enable = true;
         sleuth.enable = true;
-        surround.enable = true;
+        surround.enable = false;
 
         auto-save.enable = true;
 
@@ -249,6 +264,15 @@ in {
           enable = true;
           formattersByFt = {
             haskell = ["ormolu"];
+            javascript = [["prettierd" "prettier"]];
+            javascriptreact = [["prettierd" "prettier"]];
+            typescript = [["prettierd" "prettier"]];
+            typescriptreact = [["prettierd" "prettier"]];
+            java = ["google-java-format"];
+            python = ["black"];
+            lua = ["stylua"];
+            markdown = [["prettierd" "prettier"]];
+            rust = ["rustfmt"];
           };
           formatOnSave = {
             lspFallback = true;
