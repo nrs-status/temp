@@ -272,8 +272,8 @@ in {
         #autoclose.enable = true;
         nvim-autopairs = {
           enable = true;
-          __raw = ''
-            add_rules({
+          extraConfigLua = ''
+            require('nvim-autopairs').add_rules({
               Rule("%", "%", "lua")
                 :with_pair(ts_conds.is_ts_node({'string','comment'})),
               Rule("$", "$", "lua")
