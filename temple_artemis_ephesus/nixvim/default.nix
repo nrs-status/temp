@@ -37,11 +37,6 @@ in {
       keymaps = [
         #shift subs
         {
-          action = "<cmd>call feedkeys(\"<\", \"t\")<cr>";
-          key = ",,";
-          mode = ["i"];
-        }
-        {
           action = "<cmd>call feedkeys(\"{\", \"t\")<cr>";
           key = "[[";
           mode = ["i"];
