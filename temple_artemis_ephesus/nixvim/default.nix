@@ -35,6 +35,17 @@ in {
       colorschemes.gruvbox.enable = true;
 
       keymaps = [
+        #shift subs
+        {
+          action = "{";
+          key = "[[";
+          mode = ["i"];
+        }
+        {
+          action = "(";
+          key = "99";
+          mode = ["i"];
+        }
         #fine-grained undo
         {
           action = "<c-g>u,";
