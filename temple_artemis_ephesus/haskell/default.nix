@@ -13,6 +13,7 @@ in {
       packages = with pkgs; [
         ghc #compiler
         cabal-install #package manager
+        ormolu #formatter, required for conform-nvim
 
         haskellPackages.aeson #json library for haskell
       ];

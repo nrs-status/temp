@@ -218,12 +218,13 @@ in {
         cursorcolumn = true; # Highlight the screen column of the cursor
       };
       extraConfigLua = ''
-        local set= function(name) -- defines a function called 'set'
+        local set= function(name) -- defines a function called 'set' that will automatically configure packages such that set "package" is equivalent to require('package').setup()
           local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
           if ok then
             p.setup()
           end
         end
+
         require'nvim-surround'.setup({
           aliases = {
             ["c"] = "}",
@@ -268,15 +269,13 @@ in {
           enable = true;
           formattersByFt = {
             haskell = ["ormolu"];
-            javascript = [["prettierd" "prettier"]];
-            javascriptreact = [["prettierd" "prettier"]];
-            typescript = [["prettierd" "prettier"]];
-            typescriptreact = [["prettierd" "prettier"]];
-            java = ["google-java-format"];
+            javascript = ["prettierd"];
+            javascriptreact = ["prettierd"];
+            typescript = ["prettierd"];
+            typescriptreact = ["prettierd"];
             python = ["black"];
             lua = ["stylua"];
-            markdown = [["prettierd" "prettier"]];
-            rust = ["rustfmt"];
+            markdown = ["prettierd"];
           };
           formatOnSave = {
             lspFallback = true;
