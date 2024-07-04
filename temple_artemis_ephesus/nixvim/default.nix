@@ -163,7 +163,7 @@ in {
           options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
           mode = ["i" "n"];
         }
-        { 
+        {
           key = "F";
           action.__raw = ''
             function()
@@ -201,6 +201,17 @@ in {
         cursorline = true; # Highlight the screen line of the cursor
         cursorcolumn = true; # Highlight the screen column of the cursor
       };
+      # the following lines have been commented while I test out conform-nvim
+      #     extraConfigLua = ''
+      #       local set= function(name) -- defines a function called 'set'
+      #         local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
+      #         if ok then
+      #           p.setup()
+      #         end
+      #       end
+      #       set "nvim-surround" -- will attempt to require nvim-surround and then call .setup() on it
+      #     '';
+      #     extraPlugins = with pkgs.vimPlugins; [nvim-surround];
       plugins = {
         hop = {
           #find-next-character motion
@@ -232,7 +243,18 @@ in {
 
         friendly-snippets.enable = true;
 
-        lsp-format.enable = true;
+        lspsaga.enable = true;
+        lsp-format.enable = false; #disabled while testing conform-nvim
+        conform-nvim = {
+          enable = true;
+          formattersByFt = {
+            haskell = ["ormolu"];
+          };
+          formatOnSave = {
+            lspFallback = true;
+            timeoutMs = 2000;
+          };
+        };
         none-ls = {
           enable = true;
           enableLspFormat = true;
@@ -401,7 +423,9 @@ in {
             gopls.enable = true;
 
             helm-ls.enable = true;
-            hls.enable = true;
+            hls = {
+              enable = true;
+            };
             java-language-server.enable = true;
 
             lua-ls = {
