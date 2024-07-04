@@ -251,10 +251,11 @@ in {
                 require'nvim-surround'.setup({
                   aliases = {
                     ["c"] = "}",
+                    ["p"] = ")",
                   },
                 })
 
-                require('tabout').setup {
+        require('tabout').setup({
             tabkey = '<Tab>', -- key to trigger tabout, set to an empty string to disable
             backwards_tabkey = '<S-Tab>', -- key to trigger backwards tabout, set to an empty string to disable
             act_as_tab = true, -- shift content if tab out is not possible
@@ -273,7 +274,7 @@ in {
             },
             ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
             exclude = {} -- tabout will ignore these filetypes
-        }
+        })
 
       '';
       plugins = {
