@@ -268,7 +268,7 @@ in {
                   },
                 })
 
-                function check_and_insert_space()
+        function check_and_insert_space()
             -- Get the current cursor position
             local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 
@@ -286,8 +286,8 @@ in {
                 return " "
             end
 
-            -- If neither condition is met, return <Esc>ll
-            return vim.api.nvim_replace_termcodes("<Esc>ll", true, false, true)
+            -- If neither condition is met, return <Esc>la
+            return vim.api.nvim_replace_termcodes("<Esc>la", true, false, true)
         end
         vim.api.nvim_set_keymap('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true, noremap = true})
 
