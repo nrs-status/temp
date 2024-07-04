@@ -35,6 +35,24 @@ in {
       colorschemes.gruvbox.enable = true;
 
       keymaps = [
+        #luasnip
+        {
+          action.__raw = ''
+            function()
+                  if require("luasnip").expand_or_jumpable() then
+                    return "<Plug>luasnip-expand-or-jump"
+                  else
+                    return "<Tab>"
+                  end
+            end
+          '';
+          options = {
+            silent = true;
+            expr = true;
+          };
+          key = "<Tab>";
+          mode = ["i"];
+        }
         #shift subs
         {
           action = "<cmd>call feedkeys(\"{\", \"t\")<cr>";
@@ -198,7 +216,7 @@ in {
             end
           '';
           options.expr = true; #makes it such that what is evaluated is the return value of the entire expression
-          mode = ["i" "n"];
+          mode = ["i" "n" "v"];
         }
         {
           key = "F";
