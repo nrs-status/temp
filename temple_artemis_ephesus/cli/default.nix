@@ -1,6 +1,12 @@
-{ config, lib, pkgs,nixosVars, osConfig, ... }:
-
-let cfg = config.${osConfig.networking.hostName}.home.cli;
+{
+  config,
+  lib,
+  pkgs,
+  nixosVars,
+  osConfig,
+  ...
+}: let
+  cfg = config.${osConfig.networking.hostName}.home.cli;
 in {
   options.${osConfig.networking.hostName}.home.cli.enable = lib.mkEnableOption "CLI programs";
 
@@ -21,43 +27,43 @@ in {
         trash-cli
         mods
         nix-output-monitor
+        nh #nix helper tool
         nvd #nix diff tool
         eza #ls alternative
         navi #make interactive cheatsheets
 
-
-	#Archives
-	#currently test driving atool, previous stack is commented out
+        #Archives
+        #currently test driving atool, previous stack is commented out
         unzip
         unrar
-	atool
+        atool
 
-	#Monitoring	
+        #Monitoring
         procs #modern ps
-        acpi        
+        acpi
         duf
         ncdu
-	psmisc
+        psmisc
         smartmontools
         cfspeedtest
 
         #scripts
         (pkgs.writeShellScriptBin "rb" (builtins.readFile ./scripts/rebuild.sh))
-        (pkgs.writeShellScriptBin "optin" (builtins.readFile ./scripts/optin.sh)) 
+        (pkgs.writeShellScriptBin "optin" (builtins.readFile ./scripts/optin.sh))
       ];
 
-     # sessionVariables = {
+      # sessionVariables = {
       #  ET_NO_TELEMETRY = "1";
-     #   CARGO_REGISTRIES_CRATES_IO_PROTOCO = "sparse";
-     #   RSYNC_CHECKSUM_LIST = "xxh3 xxh128 xxh64 sha1 md5 md4 none";
-     #   RSYNC_COMPRESS_LIST = "lz4 zstd zlibx zlib none";
-     #   MANWIDTH = 80;
-     # };
+      #   CARGO_REGISTRIES_CRATES_IO_PROTOCO = "sparse";
+      #   RSYNC_CHECKSUM_LIST = "xxh3 xxh128 xxh64 sha1 md5 md4 none";
+      #   RSYNC_COMPRESS_LIST = "lz4 zstd zlibx zlib none";
+      #   MANWIDTH = 80;
+      # };
     };
 
-
     programs = {
-      aria2 = {#download manager
+      aria2 = {
+        #download manager
         enable = true;
         settings = {
           continue = true;
@@ -70,13 +76,14 @@ in {
           dir = "/home/${nixosVars.mainUser}/mississippi_bus";
         };
       };
-      atuin = {#shell history
+      atuin = {
+        #shell history
         enable = true;
         settings = {
           dialect = "uk";
           update_check = false;
-        #  sync_address = "https://atuin.lunik.one:443";
-        #  sync_frequency = "15m";
+          #  sync_address = "https://atuin.lunik.one:443";
+          #  sync_frequency = "15m";
           style = "compact";
           show_preview = true;
           exit_mode = "return-query";
@@ -99,8 +106,7 @@ in {
           theme_background = true;
           truecolor = true;
           force_tty = false;
-          presets =
-            "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
+          presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
           rounded_corners = true;
           graph_symbol = "braille";
           graph_symbol_cpu = "default";
@@ -160,7 +166,7 @@ in {
       };
       direnv = {
         enable = true;
-        nix-direnv = { enable = true; };
+        nix-direnv = {enable = true;};
       };
       lesspipe.enable = true;
       nix-index = {
@@ -173,12 +179,13 @@ in {
           auto_update_interval_hours = 24;
         };
       };
-      tmux = import ./tmux.nix { inherit (pkgs) tmuxPlugins; };
+      tmux = import ./tmux.nix {inherit (pkgs) tmuxPlugins;};
       fzf = rec {
         enable = true;
         enableFishIntegration = true;
       };
-      yt-dlp = {#audio/video downloder
+      yt-dlp = {
+        #audio/video downloder
         enable = true;
         settings = {
           embed-thumbnail = true;
@@ -198,5 +205,5 @@ in {
         ];
       };
     };
-};
+  };
 }
