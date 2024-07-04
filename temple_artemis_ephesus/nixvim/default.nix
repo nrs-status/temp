@@ -355,7 +355,7 @@ in {
 
         #cmp stands for completion; these are completion plugins
         cmp = {
-          enable = true;
+          enable = false;
           autoEnableSources = true;
           settings = {
             mapping = {
