@@ -224,7 +224,11 @@ in {
             p.setup()
           end
         end
-        set "nvim-surround" -- will attempt to require nvim-surround and then call .setup() on it
+        require'nvim-surround'.setup({
+          aliases = {
+            ["c"] = "}",
+          },
+        })
       '';
       extraPlugins = with pkgs.vimPlugins; [nvim-surround];
       plugins = {
