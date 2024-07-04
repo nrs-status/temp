@@ -37,6 +37,16 @@ in {
       keymaps = [
         #fine-grained undo
         {
+          action = "<c-g>u,";
+          key = ",";
+          mode = ["i"];
+        }
+        {
+          action = "<c-g>u;";
+          key = ";";
+          mode = ["i"];
+        }
+        {
           action = "<c-g>u<bs>";
           key = "<bs>";
           mode = ["i"];
