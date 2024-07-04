@@ -32,3 +32,6 @@ nix-env --list-generations
 
 # switch to a profile or create a new profile
 nix-env --switch-profile <profile_path>
+
+# run a package without keeping it alive next garbage collection
+nix run nixpkgs#PACKAGE_NAME -- ARGUMENT 

@@ -14,6 +14,7 @@ in {
         ghc #compiler
         cabal-install #package manager
         ormolu #formatter, required for conform-nvim
+        haskellPackages.hoogle #search function definitions
 
         haskellPackages.aeson #json library for haskell
       ];
