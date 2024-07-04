@@ -270,7 +270,17 @@ in {
         auto-save.enable = true;
 
         #autoclose.enable = true;
-        nvim-autopairs.enable = true;
+        nvim-autopairs = {
+          enable = true;
+          __raw = ''
+            add_rules({
+              Rule("%", "%", "lua")
+                :with_pair(ts_conds.is_ts_node({'string','comment'})),
+              Rule("$", "$", "lua")
+                :with_pair(ts_conds.is_not_ts_node({'function'}))
+            })
+          '';
+        };
 
         neo-tree.enable = true;
 
