@@ -35,6 +35,19 @@ in {
       colorschemes.gruvbox.enable = true;
 
       keymaps = [
+        #tabout analog
+        {
+          action = "<Esc>la";
+          key = "<Tab>";
+          mode = ["i"];
+        }
+        {
+          action = "<Tab>";
+          key = "<C-t>";
+          mode = ["i"];
+          remap = false;
+        }
+
         #shift subs
         {
           action = "<cmd>call feedkeys(\"{\", \"t\")<cr>";
