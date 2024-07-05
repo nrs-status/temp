@@ -22,8 +22,8 @@ in {
                 rightcontrol = "layer(custom)";
                 rightalt = "#";
                 capslock = "leftcontrol";
-                "f" = "overloadt(shift, f, 20)";
-                "h" = "overloadt(shift, h, 20)";
+                "f" = "overloadt(shift, f, 50)";
+                "h" = "overloadt(shift, h, 50)";
               };
               "custom:S" = {
                 #see man keyd for explanation
