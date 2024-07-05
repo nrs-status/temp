@@ -25,10 +25,14 @@ in {
                 "f" = "overloadt(shift, f, 100)";
                 "h" = "overloadt(shift, h, 100)";
                 "d" = "overloadt(meta, d, 100)";
+                "r" = "overloadt(numlayer, t, 100)";
               };
               "custom:S" = {
                 #see man keyd for explanation
                 rightalt = "$";
+              };
+              "numlayer" = {
+                down = "2";
               };
             };
           };
