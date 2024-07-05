@@ -36,23 +36,23 @@ in {
 
       keymaps = [
         #luasnip
-        {
-          action.__raw = ''
-            function()
-                  if require("luasnip").expand_or_jumpable() then
-                    return "<Plug>luasnip-expand-or-jump"
-                  else
-                    return "<Tab>"
-                  end
-            end
-          '';
-          options = {
-            silent = true;
-            expr = true;
-          };
-          key = "<Tab>";
-          mode = ["i"];
-        }
+        #        {
+        #          action.__raw = ''
+        #            function()
+        #                  if require("luasnip").expand_or_jumpable() then
+        #                    return "<Plug>luasnip-expand-or-jump"
+        #                  else
+        #                    return "<Tab>"
+        #                  end
+        #            end
+        #          '';
+        #          options = {
+        #            silent = true;
+        #            expr = true;
+        #          };
+        #          key = "<Tab>";
+        #          mode = ["i"];
+        #        }
         #shift subs
         {
           action = "<cmd>call feedkeys(\"{\", \"t\")<cr>";
@@ -285,12 +285,13 @@ in {
             if char_before_cursor:match("%s") or col == 0 then
                 return vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
             end
-
-            -- If neither condition is met, return <Esc>la
+            local ls = require("luasnip")
+            if ls.expand_or_jumpable() then
+              return "<Plug>luasnip-expand-or-jump"
+            end
             return vim.api.nvim_replace_termcodes("<Esc>la", true, false, true)
         end
         vim.keymap.set('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true, remap = true})
-
       '';
       plugins = {
         hop = {
