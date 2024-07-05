@@ -289,7 +289,7 @@ in {
             -- If neither condition is met, return <Esc>la
             return vim.api.nvim_replace_termcodes("<Esc>la", true, false, true)
         end
-        vim.api.nvim_set_keymap('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true, noremap = true})
+        vim.keymap.set('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true})
 
       '';
       plugins = {
