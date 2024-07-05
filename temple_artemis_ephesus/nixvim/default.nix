@@ -424,7 +424,7 @@ in {
           ];
           fromSnipmate = [
             {}
-            {paths = [./snippets ./snippets/_.snippets];}
+            {paths = ./snippets;}
           ];
         };
 
