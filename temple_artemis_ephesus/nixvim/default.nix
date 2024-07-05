@@ -419,6 +419,9 @@ in {
 
         luasnip = {
           enable = true;
+          fromLua = [
+            {paths = ./snippets/luasnippets.lua;}
+          ];
           fromSnipmate = [
             {}
             {paths = [./snippets ./snippets/_.snippets];}
