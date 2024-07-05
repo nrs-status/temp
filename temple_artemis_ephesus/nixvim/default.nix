@@ -35,24 +35,6 @@ in {
       colorschemes.gruvbox.enable = true;
 
       keymaps = [
-        #luasnip
-        #        {
-        #          action.__raw = ''
-        #            function()
-        #                  if require("luasnip").expand_or_jumpable() then
-        #                    return "<Plug>luasnip-expand-or-jump"
-        #                  else
-        #                    return "<Tab>"
-        #                  end
-        #            end
-        #          '';
-        #          options = {
-        #            silent = true;
-        #            expr = true;
-        #          };
-        #          key = "<Tab>";
-        #          mode = ["i"];
-        #        }
         #shift subs
         {
           action = "<cmd>call feedkeys(\"{\", \"t\")<cr>";
