@@ -420,7 +420,7 @@ in {
         luasnip = {
           enable = true;
           fromLua = [
-            {paths = ./snippets/luasnippets.lua;}
+            {paths = ./snippets;}
           ];
           fromSnipmate = [
             {}
