@@ -22,9 +22,9 @@ in {
                 rightcontrol = "layer(custom)";
                 rightalt = "#";
                 capslock = "leftcontrol";
-                "f" = "overloadt(shift, f, 100)";
-                "h" = "overloadt(shift, h, 100)";
-                "d" = "overloadt(meta, d, 100)";
+                "f" = "overloadt(shift, f, 150)";
+                "h" = "overloadt(shift, h, 150)";
+                "d" = "overloadt(meta, d, 150)";
               };
               "custom:S" = {
                 #see man keyd for explanation
