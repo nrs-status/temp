@@ -21,5 +21,8 @@ cat file | wl-copy
 # determine how much weight/size/disk usage a particular directory has
 du -sh DIRECTORY
 
-# remove everything in this directory except files containing a certain word
+# delete/remove everything in this directory except files containing a certain word
 rm !(*WORD*)
+
+# delete/remove all instances of a character a string. Passing more arguments will not remove a word, it will instead delete all passed characters
+tr -d 'X'

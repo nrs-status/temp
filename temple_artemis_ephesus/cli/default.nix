@@ -32,6 +32,7 @@ in {
         eza #ls alternative
         navi #make interactive cheatsheets
         direnv #load environment on entering a directory
+        grex #helps generating regex
 
         #Archives
         #currently test driving atool, previous stack is commented out

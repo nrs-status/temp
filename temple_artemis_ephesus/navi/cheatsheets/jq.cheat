@@ -1,0 +1,10 @@
+% jq, shintu
+
+# Return only objects that have the 'type' field set to 'match'
+jq 'select(.type=="match")'
+
+# Get the '.lines.text and '.data.path.text' fields of each json object and make a two member json array out of each of these objects using these two fields
+jq '[.lines.text, .data.path.text]'
+
+# If the output is just a list of arrays, retrieve the first element of each o these
+jq '.[0]'

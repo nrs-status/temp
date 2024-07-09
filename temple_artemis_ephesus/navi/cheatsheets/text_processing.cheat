@@ -1,0 +1,7 @@
+% shintu, text
+
+# delete/remove all instances of a character a string. Passing more arguments will not remove a word, it will instead delete all passed characters
+tr -d 'X'
+
+# remove leading whitespace from a string
+sed '/^[ \t]*//'
