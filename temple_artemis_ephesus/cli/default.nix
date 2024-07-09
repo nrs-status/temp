@@ -31,6 +31,7 @@ in {
         nvd #nix diff tool
         eza #ls alternative
         navi #make interactive cheatsheets
+        direnv #load environment on entering a directory
 
         #Archives
         #currently test driving atool, previous stack is commented out

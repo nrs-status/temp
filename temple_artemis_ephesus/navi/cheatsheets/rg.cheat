@@ -20,3 +20,6 @@ rg --one-file-system "pattern" /
 
 # search for a pattern but omit matches from a particular directory and all files that end with .drv
 rg "pattern" -g "!/absolute/dir/path" -g "!*.drv"
+
+# exclude/omit lines matching the pattern
+rg -v "pattern" file

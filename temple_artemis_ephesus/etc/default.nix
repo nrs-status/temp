@@ -19,6 +19,7 @@ in {
         dive #introspect container image layers
         sqlite
         vscode
+        docker-compose
       ];
     };
   };
