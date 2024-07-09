@@ -52,7 +52,7 @@
       #"podman"
       "docker"
 
-      "vault-server"
+      #"vault-server"
     ];
   };
 }
