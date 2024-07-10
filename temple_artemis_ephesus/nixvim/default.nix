@@ -564,10 +564,11 @@ in {
             end
           '';
         };
-      };
 
-      ts-autotag = {
-        enable = true;
+        #automatically close html tags and rename them using treesitter
+        ts-autotag = {
+          enable = true;
+        };
       };
     };
   };
