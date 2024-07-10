@@ -12,7 +12,7 @@ in {
     home = {
       sessionVariables.EDITOR = "nvim";
       packages = with pkgs; [
-        alejandra #for formatting nix
+        #alejandra #for formatting nix. disabled to check whether there are plugins already managing the format
       ];
     };
 
@@ -35,17 +35,6 @@ in {
       colorschemes.gruvbox.enable = true;
 
       keymaps = [
-        #shift subs
-        {
-          action = "<cmd>call feedkeys(\"{\", \"t\")<cr>";
-          key = "[[";
-          mode = ["i"];
-        }
-        {
-          action = "<cmd>call feedkeys(\"(\", \"t\")<cr>";
-          key = "99";
-          mode = ["i"];
-        }
         #fine-grained undo
         {
           action = "<c-g>u,";
@@ -237,7 +226,14 @@ in {
         scrolloff = 8; # Number of screen lines to show around the cursor
         cursorline = true; # Highlight the screen line of the cursor
         cursorcolumn = true; # Highlight the screen column of the cursor
+
+        #the following are config'd according to nvim-ufo recommendations
+        foldcolumn = "0";
+        foldlevel = 99;
+        foldlevelstart = 99;
+        foldenable = true;
       };
+
       extraPlugins = with pkgs.vimPlugins; [nvim-surround];
 
       extraConfigLua = ''
@@ -327,6 +323,7 @@ in {
         lspsaga.enable = true;
 
         lsp-format.enable = false; #disabled while testing conform-nvim
+
         conform-nvim = {
           enable = true;
           formattersByFt = {
@@ -505,6 +502,7 @@ in {
           servers = {
             phpactor.enable = true;
             tsserver.enable = true;
+            eslint.enable = true;
             dagger.enable = true;
 
             clangd.enable = true;
@@ -566,6 +564,10 @@ in {
             end
           '';
         };
+      };
+
+      ts-autotag = {
+        enable = true;
       };
     };
   };
