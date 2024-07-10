@@ -33,8 +33,13 @@ in {
         providers.wl-copy.enable = true;
       };
       colorschemes.gruvbox.enable = true;
-
       keymaps = [
+        #recursively unfold in current foldable
+        {
+          action = "zczA";
+          key = "zO";
+          mode = ["n"];
+        }
         #fine-grained undo
         {
           action = "<c-g>u,";
@@ -108,10 +113,6 @@ in {
         {
           action = ":w<cr>";
           key = "<leader>ww";
-        }
-        {
-          action = ":Telescope find_files<CR>";
-          key = "<Leader>ff";
         }
         {
           action = ":Telescope live_grep<cr>";
@@ -233,6 +234,14 @@ in {
         foldlevelstart = 99;
         foldenable = true;
       };
+
+      extraConfigVim = ''
+        augroup remember_folds
+          autocmd!
+          autocmd BufWinLeave * mkview
+          autocmd BufWinEnter * silent! loadview
+        augroup END
+      '';
 
       extraPlugins = with pkgs.vimPlugins; [nvim-surround];
 

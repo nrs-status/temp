@@ -23,3 +23,6 @@ rg "pattern" -g "!/absolute/dir/path" -g "!*.drv"
 
 # exclude/omit lines matching the pattern
 rg -v "pattern" file
+
+# limit the number of columns/matched characters in the matched line; maximum characters; string length
+rg -M N_COLUMNS "pattern"
