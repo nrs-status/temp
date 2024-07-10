@@ -1,6 +1,6 @@
 % shintu, eza
 
-# list files recursively with eza
+# list files recursively
 eza -R
 
 # display files with their absolute paths
@@ -8,3 +8,18 @@ eza --absolute
 
 # display only directories
 eza -D; eza --only-dirs
+
+# display files sorted by field
+eza -s name|size|created|accessed|modified=date=time=newest|oldest
+
+# display files with desired timestamp
+eza -lt modified|changed|accessed|create
+
+# display files with the accessed timestamp field
+eza -lu or eza -l --accessed
+
+# display files with the created timestamp field
+eza -l or eza -l --created
+
+# display files with the changed timestamp field
+eza -l --changed

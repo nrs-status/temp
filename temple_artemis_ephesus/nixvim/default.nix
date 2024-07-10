@@ -255,7 +255,7 @@ in {
                   },
                 })
 
-        function check_and_insert_space()
+        function check_and_insert_space() -- function for <Tab> key
             -- Get the current cursor position
             local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 
@@ -276,26 +276,42 @@ in {
         vim.keymap.set('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true, remap = true})
       '';
       plugins = {
+        #find-next-character motion
         hop = {
-          #find-next-character motion
           enable = true;
         };
+
         telescope = {
           enable = true;
           extensions.fzf-native.enable = true;
         };
+
+        #colored brackets, parentheses, etc.
         rainbow-delimiters.enable = true;
+
+        #automatic nix indentation, filetype detection for .nix files, syntax highlighting for nix
         nix.enable = true;
+
+        #automatically set expandtab (enables spaces instead of tabs) and shiftwidth (amount of whitespace to add or remove when an indentation command is called) automatically
         sleuth.enable = true;
+
+        #commands to add/remove/replace brackets, parenthesis, etc. in combination with motion commands
         surround.enable = false;
 
         auto-save.enable = true;
 
-        #autoclose.enable = true;
-        nvim-autopairs.enable = true;
+        #automatically close brackets, parentheses, etc.
+        nvim-autopairs = {
+          enable = true;
+          settings = {
+            map_cr = true; #behaviour of <cr> when cursor is in the following position: {|}
+          };
+        };
 
+        #file browser
         neo-tree.enable = true;
 
+        #unit testing
         neotest = {
           enable = true;
           adapters = {
@@ -304,9 +320,12 @@ in {
           };
         };
 
+        #pre-existing snippets collection
         friendly-snippets.enable = true;
 
+        #lsp improvements and prettification
         lspsaga.enable = true;
+
         lsp-format.enable = false; #disabled while testing conform-nvim
         conform-nvim = {
           enable = true;
@@ -413,10 +432,10 @@ in {
         cmp-rg.enable = true;
         cmp-treesitter.enable = true;
         cmp-zsh.enable = true;
-        #cmp-cmdline.enable = true;
         cmp-path.enable = true;
         cmp_luasnip.enable = true;
 
+        #snippets engine
         luasnip = {
           enable = true;
           fromLua = [
@@ -428,12 +447,16 @@ in {
           ];
         };
 
+        #bindings to automatically comment line/block
         comment.enable = true;
 
-        lspkind.enable = true; #adds pictograms to lsp
+        #adds pictograms to lsp
+        lspkind.enable = true;
 
+        # git integrations
         gitsigns.enable = true;
 
+        #add indentation guides
         indent-blankline = {
           enable = true;
           settings = {
@@ -444,10 +467,13 @@ in {
           };
         };
 
+        #status line
         lualine.enable = true;
 
+        #magit-like git interface
         neogit.enable = true;
 
+        #debug adapter protocol client
         dap = {
           enable = true;
           extensions = {
@@ -455,6 +481,7 @@ in {
           };
         };
 
+        #lsp servers and keymaps related to them
         lsp = {
           enable = true;
 
@@ -520,11 +547,24 @@ in {
           enable = true;
           indent = true;
         };
+
+        #add context at the top of the window, wherever you are
         treesitter-context = {
           enable = true;
           settings = {
             max_lines = 5;
           };
+        };
+
+        #folding
+        nvim-ufo = {
+          enable = true;
+          openFoldHlTimeout = 0;
+          providerSelector = ''
+            function()
+              return { "lsp", "indent" }
+            end
+          '';
         };
       };
     };
