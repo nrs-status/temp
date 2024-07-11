@@ -33,8 +33,9 @@ in {
         providers.wl-copy.enable = true;
       };
       colorschemes.gruvbox.enable = true;
+
       keymaps = [
-        #recursively unfold in current foldable
+        #recursive unfold in current foldable
         {
           action = "zczA";
           key = "zO";
@@ -143,16 +144,21 @@ in {
           key = "<leader>gd";
           mode = ["n"];
         }
+        #currently not working, at least with ts and python 
         {
           action = "<Cmd>vim.lsp.buf.type_definition()<cr>";
           key = "<leader>gy";
           mode = ["n"];
         }
+                #currently not working, at least with ts and python 
+
         {
           action = "<cmd>vim.lsp.buf.implementation()<cr>";
           key = "<leader>gi";
           mode = ["n"];
         }
+                #currently not working, at least with ts and python 
+
         {
           action = "<cmd>vim.lsp.buf.code_action()<cr>";
           key = "<leader>ca";
@@ -234,14 +240,6 @@ in {
         foldlevelstart = 99;
         foldenable = true;
       };
-
-      extraConfigVim = ''
-        augroup remember_folds
-          autocmd!
-          autocmd BufWinLeave * mkview
-          autocmd BufWinEnter * silent! loadview
-        augroup END
-      '';
 
       extraPlugins = with pkgs.vimPlugins; [nvim-surround];
 
@@ -344,6 +342,7 @@ in {
             python = ["black"];
             lua = ["stylua"];
             markdown = ["prettierd"];
+            nix = ["alejandra"];
           };
           formatOnSave = {
             lspFallback = true;
@@ -570,6 +569,18 @@ in {
           providerSelector = ''
             function()
               return { "lsp", "indent" }
+            end
+          '';
+        };
+
+        #automatically close html tags and rename them using treesitter
+        ts-autotag = {
+          enable = true;
+        };
+      };
+    };
+  };
+}
             end
           '';
         };
