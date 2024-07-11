@@ -144,20 +144,20 @@ in {
           key = "<leader>gd";
           mode = ["n"];
         }
-        #currently not working, at least with ts and python 
+        #currently not working, at least with ts and python
         {
           action = "<Cmd>vim.lsp.buf.type_definition()<cr>";
           key = "<leader>gy";
           mode = ["n"];
         }
-                #currently not working, at least with ts and python 
+        #currently not working, at least with ts and python
 
         {
           action = "<cmd>vim.lsp.buf.implementation()<cr>";
           key = "<leader>gi";
           mode = ["n"];
         }
-                #currently not working, at least with ts and python 
+        #currently not working, at least with ts and python
 
         {
           action = "<cmd>vim.lsp.buf.code_action()<cr>";
@@ -569,18 +569,6 @@ in {
           providerSelector = ''
             function()
               return { "lsp", "indent" }
-            end
-          '';
-        };
-
-        #automatically close html tags and rename them using treesitter
-        ts-autotag = {
-          enable = true;
-        };
-      };
-    };
-  };
-}
             end
           '';
         };
