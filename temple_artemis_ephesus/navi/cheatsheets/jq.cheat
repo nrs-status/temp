@@ -8,3 +8,9 @@ jq '[.lines.text, .data.path.text]'
 
 # If the output is just a list of arrays, retrieve the first element of each o these
 jq '.[0]'
+
+# Create a newjson object using the fields 'field1' and 'field2' without renaming them
+jq '{ field1, field2 }'
+
+# Create a new json object using the fields 'field1' and 'field2', and rename them
+jq '{ new_field1: .field1, newfield2: .field2 }'
