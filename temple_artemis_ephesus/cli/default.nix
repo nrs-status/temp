@@ -14,7 +14,7 @@ in {
     home = {
       packages = with pkgs; [
         bat-extras.batgrep
-        croc
+        croc #send files between two computers
         fd
         nix-tree
         parallel
