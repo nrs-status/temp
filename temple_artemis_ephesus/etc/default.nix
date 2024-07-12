@@ -20,7 +20,6 @@ in {
         sqlite
         vscode
         docker-compose
-        wine
       ];
     };
   };
