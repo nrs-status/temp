@@ -1,0 +1,10 @@
+% shintu, node
+
+# setup typescript project
+npm i -D typescript && npx tsc --init
+
+# compile typescript project
+npx tsc
+
+# activate watch mode for the typescript compiler so it automatically compiles each time a file is saved
+npx tsc -w

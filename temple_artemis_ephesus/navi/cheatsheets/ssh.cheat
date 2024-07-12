@@ -1,11 +1,10 @@
 % ssh, shintu
 
-# 
-jq '{ new_field1: .field1, newfield2: .field2 }'
-
 # Connect to a remote server with a specific identity (private key) at a specific port:
 ssh -i path/to/key_file -p PORT username@remote_host
 
-# Recursively copy the contents of a directory from a remote host to a local directory:
-scp -i path/to/key_file -r remote_host:path/to/remote_directory path/to/local_directory
+# Copy the contents of a directory from a remote host to a local directory:
+scp -i path/to/key_file -r username@remproductionote_host:path/to/remote_directory path/to/local_directory (or inverse arguments to change direction)
 
+# Generate a key interactively:
+ssh-keygen
