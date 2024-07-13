@@ -13,6 +13,7 @@ in {
       packages = with pkgs; [
         brogue
         crawl
+        dwarfs #read-only fs
         #wine64
         wineWowPackages.waylandFull
         lutris
