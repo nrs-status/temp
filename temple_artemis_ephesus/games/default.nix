@@ -14,6 +14,7 @@ in {
         brogue
         crawl
         dwarfs #read-only fs
+        fuse-overlayfs
         #wine64
         wineWowPackages.waylandFull
         lutris
