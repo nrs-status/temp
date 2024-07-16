@@ -20,9 +20,6 @@ in {
         sqlite
         vscode
         docker-compose
-        android-studio
-        genymotion #android emul
-        waydroid #android emul
       ];
     };
   };

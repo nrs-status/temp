@@ -23,6 +23,8 @@
       "python"
       "haskell"
 
+      "androidDev"
+
       "gammastep"
       "cloudwork"
       "gtk"
