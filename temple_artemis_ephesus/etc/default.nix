@@ -21,6 +21,8 @@ in {
         vscode
         docker-compose
         android-studio
+        genymotion #android emul
+        waydroid #android emul
       ];
     };
   };
