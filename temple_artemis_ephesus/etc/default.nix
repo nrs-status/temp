@@ -20,6 +20,7 @@ in {
         sqlite
         vscode
         docker-compose
+        android-studio
       ];
     };
   };
