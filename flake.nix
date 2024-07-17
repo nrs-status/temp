@@ -46,8 +46,8 @@
         inherit pkgs;
         inherit system;
         lib = pkgs.lib;
-      }
-      // inputs; #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
+        nixvim = inputs.nixvim;
+      } #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
   in {
     overlays.default = final: prev: helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
     nixosConfigurations = let
