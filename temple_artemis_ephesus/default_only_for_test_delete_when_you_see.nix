@@ -10,5 +10,7 @@
 in
   # @NOTE: Additional modules must be at least staged in git
   {
-    imports = filteringKeepingTopLevelDefaultFiles;
+    inherit allNixFilesExceptFirstDefault;
+    inherit filteringKeepingDefaultDotNixFiles;
+    inherit filteringKeepingTopLevelDefaultFiles;
   }
