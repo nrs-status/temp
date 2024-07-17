@@ -1,2 +1,8 @@
+How to use:
 1. modify profiles in nix/hanging_gardens_babylon to add or remove package sets 
 2. change the active profile using the 'env' variable in flake.nix
+
+temple_artemis_ephesus:
+Contains configSets, which are a pair made out of (1) a default.nix containing purely home-manager related config, and (2) everything else, which is minimally a pkg.nix that creates a package derivation and the material needed to configure this package. 
+
+In a temple_artemis_ephesus configSet, the default.nix file is in charge of importing the package produced by pkg.nix; the flake is responsible for using pkg.nix to overlay nixpkgs before it can be imported by default.nix

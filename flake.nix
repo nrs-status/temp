@@ -2,7 +2,6 @@
   description = "NixOS configuration";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -26,6 +25,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     home-manager,
     nixvim,
@@ -35,12 +35,20 @@
     ...
   }: let
     env = import hanging_gardens_babylon/nineveh;
+    pkgs = import nixpkgs {
+      system = env.nixosVars.system;
+      config.allowUnfree = true;
+    };
     hostName = env.nixosVars.hostName;
-    lighthouse_alexandria = import ./lighthouse_alexandria {lib = nixpkgs.lib;};
+    helpers = import ./lighthouse_alexandria {lib = pkgs.lib;};
   in {
+    overlays.default = let
+      pkgDotNixDerivationsAttrs = helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
+    in
+      final: prev: builtins.mapAttrs (name: value: prev.pkgs.callPackage value {}) pkgDotNixDerivationsAttrs;
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
-      ${hostName} = nixpkgs.lib.nixosSystem {
+      ${hostName} = pkgs.lib.nixosSystem {
         system = env.nixosVars.system;
         specialArgs = env;
         modules = [
@@ -58,8 +66,8 @@
           #furthermore, it ends with `.vault-secrets`, an attribute of nixosModules, because it is possible to have a flake that publishes multiple nixosModules
           vault-secrets.nixosModules.vault-secrets
           {
-            options.nineveh.system.home-manager.enable = nixpkgs.lib.mkEnableOption "home manager";
-            config.${hostName}.system = lighthouse_alexandria.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
+            options.nineveh.system.home-manager.enable = pkgs.lib.mkEnableOption "home manager";
+            config.${hostName}.system = helpers.stringListToEnabledOptions env.nixosVars.modulesToEnable; #in charge of setting the nixosModule options
           }
           # make home-manager as a module of nixos so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
@@ -73,10 +81,14 @@
             mainUser = env.nixosVars.mainUser;
           in {
             home-manager = lib.mkIf config.${hostName}.system.home-manager.enable {
-              useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = env;
               users.${mainUser} = {
+                nixpkgs = import nixpkgs {
+                  system = env.nixosVars.system;
+                  config.allowUnfree = true;
+                  overlays = [self.overlays.default];
+                };
                 imports = [
                   ./temple_artemis_ephesus
                   nixvim.homeManagerModules.nixvim
@@ -88,36 +100,10 @@
                   stateVersion = "23.11";
                 };
                 programs.home-manager.enable = true;
-                ${hostName}.home = lighthouse_alexandria.stringListToEnabledOptions env.homeVars.pkgSets;
+                ${hostName}.home = helpers.stringListToEnabledOptions env.homeVars.pkgSets;
               };
             };
           })
-
-          #      home-manager.zeus_olympia.home-manager
-          #      ({ config, lib, ... }:
-          #      {
-          #      home-manager =
-          #      let
-          #        mainUser = env.nixosVars.mainUser;
-          #      in nixpkgs.lib.mkIf (config.networking.hostName.homeManager.enable == "true") {
-          #           useGlobalPkgs = true;
-          #           useUserPackages = true;
-          #           extraSpecialArgs = env;
-          #           users.${mainUser} = {
-          #             imports = [
-          #               ./temple_artemis_ephesus
-          #             ];
-
-          #             home = {
-          #               username = mainUser;
-          #               homeDirectory = "/home/${mainUser}";
-          #               stateVersion = "23.11";
-          #             };
-          #             programs.home-manager.enable = true;
-          #           ${hostName}.home = lighthouse_alexandria.stringListToEnabledOptions env.homeVars.pkgSets; #in charge of setting the homeModule options
-          #           };
-          #         };
-          #       })
         ];
       };
     };
