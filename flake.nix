@@ -46,7 +46,13 @@
       pkgDotNixDerivationsAttrs = helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
     in
       final: prev: builtins.mapAttrs (name: value: prev.pkgs.callPackage value {}) pkgDotNixDerivationsAttrs;
-    nixosConfigurations = {
+    nixosConfigurations = let
+      pkgs = import nixpkgs {
+        system = env.nixosVars.system;
+        config.allowUnfree = true;
+        overlays = [self.overlays.default];
+      };
+    in {
       #the following variable name must be the current host's variable name, otherwise will raise an error
       ${hostName} = pkgs.lib.nixosSystem {
         system = env.nixosVars.system;
@@ -81,6 +87,7 @@
             mainUser = env.nixosVars.mainUser;
           in {
             home-manager = lib.mkIf config.${hostName}.system.home-manager.enable {
+              nixpkgs.pkgs = pkgs;
               useUserPackages = true;
               extraSpecialArgs = env;
               users.${mainUser} = {
