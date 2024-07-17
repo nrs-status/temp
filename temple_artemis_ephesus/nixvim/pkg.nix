@@ -1,10 +1,10 @@
 {
   pkgs,
   nixvim,
-  systemType,
+  system,
   ...
 }:
-nixvim.legacyPackages.${systemType}.makeNixvimWithModule {
+nixvim.legacyPackages.${system}.makeNixvimWithModule {
   inherit pkgs;
   module = {
     globals = {

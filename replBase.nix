@@ -1,9 +1,6 @@
 #helper file used for initializing the repl. use :a import ./replBase.nix inputs
 flakeInputs: rec {
-  pkgs = import flakeInputs.nixpkgs {
-    system = "x86_64-linux";
-    config.allowUnfree = true;
-  };
+  pkgs = import flakeInputs.nixpkgs {config.allowUnfree = true;};
   lib = pkgs.lib;
   helpers = import ./lighthouse_alexandria {
     inherit pkgs;
@@ -11,10 +8,15 @@ flakeInputs: rec {
     nixvim = flakeInputs.nixvim;
     systemType = "x86_64-linux";
   };
-  topass = {
-    inherit pkgs;
-    nixvim = flakeInputs.nixvim;
-    systemType = "x86_64-linux";
+  pkgDotNixDerivationsAttrs = helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
+
+  overlay = final: prev: builtins.mapAttrs (name: value: prev.pkgs.callPackage value {}) pkgDotNixDerivationsAttrs;
+  pkgs2 = import flakeInputs.nixpkgs {
+    overlays = [overlay];
   };
-  r = helpers.recursivelyImportAllFilesNamedPkgDotNix ./temple_artemis_ephesus;
+  overlay2 = final: prev: pkgDotNixDerivationsAttrs;
+  pkgs3 = import flakeInputs.nixpkgs {
+    overlays = [overlay2];
+  };
+  wanted = pkgs2.nixvim;
 }

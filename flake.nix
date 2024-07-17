@@ -35,17 +35,21 @@
     ...
   }: let
     env = import hanging_gardens_babylon/nineveh;
+    system = env.nixosVars.system;
     pkgs = import nixpkgs {
-      system = env.nixosVars.system;
+      inherit system;
       config.allowUnfree = true;
     };
     hostName = env.nixosVars.hostName;
-    helpers = import ./lighthouse_alexandria {lib = pkgs.lib;};
+    helpers =
+      import ./lighthouse_alexandria {
+        inherit pkgs;
+        inherit system;
+        lib = pkgs.lib;
+      }
+      // inputs; #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
   in {
-    overlays.default = let
-      pkgDotNixDerivationsAttrs = helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
-    in
-      final: prev: builtins.mapAttrs (name: value: prev.pkgs.callPackage value {}) pkgDotNixDerivationsAttrs;
+    overlays.default = final: prev: helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
     nixosConfigurations = let
       pkgs = import nixpkgs {
         system = env.nixosVars.system;
