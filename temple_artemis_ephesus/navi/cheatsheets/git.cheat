@@ -8,3 +8,9 @@ git clone --depth 1 --branch <branch-name> <repository-url>
 
 # nice git commit history log
 git log --graph --oneline --decorate
+
+# switch to/check/observe/return/return to a previous commit; find commit hashes with git log
+git checkout HASH
+
+# return to top of list of commits while detached/observing/checking
+git checkout master

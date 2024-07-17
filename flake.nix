@@ -54,7 +54,7 @@
       };
     in {
       #the following variable name must be the current host's variable name, otherwise will raise an error
-      ${hostName} = pkgs.lib.nixosSystem {
+      ${hostName} = nixpkgs.lib.nixosSystem {
         system = env.nixosVars.system;
         specialArgs = env;
         modules = [
