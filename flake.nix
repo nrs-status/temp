@@ -65,7 +65,7 @@
               emacs-overlay.overlay
               (final: prev: {
               })
-              #     self.overlays.default
+              self.overlays.default
             ];
           }
           ./zeus_olympia
@@ -92,11 +92,6 @@
               useUserPackages = true;
               extraSpecialArgs = env;
               users.${mainUser} = {
-                nixpkgs = import nixpkgs {
-                  system = env.nixosVars.system;
-                  config.allowUnfree = true;
-                  overlays = [self.overlays.default];
-                };
                 imports = [
                   ./temple_artemis_ephesus
                   nixvim.homeManagerModules.nixvim
