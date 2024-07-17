@@ -65,7 +65,7 @@
               emacs-overlay.overlay
               (final: prev: {
               })
-              self.overlays.default
+              #     self.overlays.default
             ];
           }
           ./zeus_olympia
