@@ -46,6 +46,7 @@
         inherit pkgs;
         inherit system;
         lib = pkgs.lib;
+        nixvim = inputs.nixvim;
       }
       // inputs; #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
   in {
