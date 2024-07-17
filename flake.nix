@@ -65,6 +65,7 @@
               emacs-overlay.overlay
               (final: prev: {
               })
+              self.overlays.default
             ];
           }
           ./zeus_olympia
@@ -87,7 +88,7 @@
             mainUser = env.nixosVars.mainUser;
           in {
             home-manager = lib.mkIf config.${hostName}.system.home-manager.enable {
-              nixpkgs.pkgs = pkgs;
+              useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = env;
               users.${mainUser} = {
