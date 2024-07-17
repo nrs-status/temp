@@ -13,6 +13,7 @@ in {
       sessionVariables.EDITOR = "nvim";
       packages = with pkgs; [
         #alejandra #for formatting nix. disabled to check whether there are plugins already managing the format
+        nixvim
       ];
     };
 

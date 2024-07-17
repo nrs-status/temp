@@ -55,7 +55,6 @@
     in {
       #the following variable name must be the current host's variable name, otherwise will raise an error
       ${hostName} = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
         system = env.nixosVars.system;
         specialArgs = env;
         modules = [
