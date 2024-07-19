@@ -26,7 +26,7 @@ in {
         enable = true;
         package = pkgs.gitSVN;
         delta = {
-          enable = false;
+          enable = true;
           options = {
             syntax-theme = "gruvbox-dark";
             features = "line-numbers";
