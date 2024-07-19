@@ -17,3 +17,6 @@ git checkout master
 
 # restore the state of a file to the state it was in the last commit
 git restore FILE
+
+# precisely determine what changed between a commit and the previous state of the repository
+git diff <commit-hash> <commit-hash>~1

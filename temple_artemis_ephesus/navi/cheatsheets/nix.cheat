@@ -35,3 +35,21 @@ nix-env --switch-profile <profile_path>
 
 # run a package without keeping it alive next garbage collection
 nix run nixpkgs#PACKAGE_NAME -- ARGUMENT 
+
+# find which binaries are provided by a package; 
+ls "$(nix build FLAKE#PACKAGE --print-out-paths --no-link)/bin" where FLAKE can be nixpkgs
+
+# access a previous/past/historical nixpkgs from command line; history
+nix build github:nixos/nixpkgs/nixos-23.11#hello
+
+# access a previous/past/historical nixpkgs from command line; history
+nix build 'github:NixOS/nixpkgs?rev=336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3'#haskell.packages.ghc963.haskell-language-server
+
+# unpin flake/update flake lock file
+nix flake update
+
+# import the nixpkgs flake from the repl
+:lf github:NixOS/nixpkgs
+
+# delete store path if it is garbage collectable
+nix store delete /nix/store/<rest of path>

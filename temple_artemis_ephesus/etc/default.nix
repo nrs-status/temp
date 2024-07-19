@@ -20,6 +20,9 @@ in {
         sqlite
         vscode
         docker-compose
+
+        alacritty
+        xterm
       ];
     };
   };
