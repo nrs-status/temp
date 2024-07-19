@@ -1,20 +1,24 @@
-{ config, lib, pkgs, osConfig, ... }:
-
-let cfg = config.${osConfig.networking.hostName}.home.git;
-in
 {
+  config,
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}: let
+  cfg = config.${osConfig.networking.hostName}.home.git;
+in {
   options.${osConfig.networking.hostName}.home.git.enable = lib.mkEnableOption "git";
 
   config = lib.mkIf cfg.enable {
     home = {
-      packages = with pkgs; [ 
+      packages = with pkgs; [
         git-crypt
         delta
-        glab 
-        pre-commit 
+        glab
+        pre-commit
       ];
 
-      sessionVariables = { PRE_COMMIT_ALLOW_NO_CONFIG = "1"; };
+      sessionVariables = {PRE_COMMIT_ALLOW_NO_CONFIG = "1";};
     };
 
     programs = {
@@ -101,10 +105,10 @@ in
             default = "current";
             followtags = true;
           };
-          diff = {
-            algorithm = "histogram";
-            colorMoved = "default";
-          };
+          # diff = {
+          #   algorithm = "histogram";
+          #   colorMoved = "default";
+          # };
           merge = {
             conflictstyle = "zdiff3";
             keepbackup = false;
