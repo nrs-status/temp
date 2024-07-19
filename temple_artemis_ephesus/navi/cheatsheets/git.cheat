@@ -20,3 +20,6 @@ git restore FILE
 
 # precisely determine what changed between a commit and the previous state of the repository
 git diff <commit-hash> <commit-hash>~1
+
+# find which files changed between two commits
+git diff --name-only <first-commit-hash> <second-commit-hash>

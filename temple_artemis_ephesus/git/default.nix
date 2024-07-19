@@ -26,7 +26,7 @@ in {
         enable = true;
         package = pkgs.gitSVN;
         delta = {
-          enable = true;
+          enable = false;
           options = {
             syntax-theme = "gruvbox-dark";
             features = "line-numbers";
@@ -105,13 +105,13 @@ in {
             default = "current";
             followtags = true;
           };
-          # diff = {
-          #   algorithm = "histogram";
-          #   colorMoved = "default";
-          # };
+          diff = {
+            algorithm = "histogram";
+            colorMoved = "default";
+          };
           merge = {
             conflictstyle = "zdiff3";
-            keepbackup = false;
+            keepbackup = true;
           };
           rebase.autosquash = true;
           rerere.enabled = true;
