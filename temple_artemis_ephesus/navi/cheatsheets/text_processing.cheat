@@ -8,3 +8,6 @@ sed '/^[ \t]*//'
 
 # get lines 100 through 120 of a text file; extract lines between two line numbers
 cat <file> | set -n '100,120p'
+
+# obtain how many lines a file contains
+wc -l <filename>

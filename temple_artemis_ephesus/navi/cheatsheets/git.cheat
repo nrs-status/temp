@@ -23,3 +23,16 @@ git diff <commit-hash> <commit-hash>~1
 
 # find which files changed between two commits
 git diff --name-only <first-commit-hash> <second-commit-hash>
+
+# git diff wrt a specific directory
+git diff <first-commit-hash> <second-commit-hash> -- <directory-name>
+
+# obtain git logs for commits only by a particular author; filter by author
+git log --author=<author>
+
+# obtain git logs for only those commits that modify a particular directory
+git log -- <dir-path>
+
+# find commits where a specific file/directory does not contain a regexp pattern
+git grep -L '<pattern>' $(git rev-list --all) -- <filepath>
+
