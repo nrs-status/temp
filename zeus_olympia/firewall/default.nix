@@ -7,7 +7,7 @@
 }: let
   cfg = config.${nixosVars.hostName}.system.firewall;
 in {
-  options.${nixosVars.hostName}.system.bluetooth.enable = lib.mkEnableOption "firewall";
+  options.${nixosVars.hostName}.system.firewall.enable = lib.mkEnableOption "firewall";
 
   config = lib.mkIf cfg.enable {
     networking = {
