@@ -49,6 +49,7 @@
       "keyRebindings"
       "bluetooth"
       # "fish"
+      "firewall"
 
       #enable only one of the following at a time
       #"podman"
