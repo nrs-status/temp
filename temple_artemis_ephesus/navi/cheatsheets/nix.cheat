@@ -42,7 +42,7 @@ ls "$(nix build FLAKE#PACKAGE --print-out-paths --no-link)/bin" where FLAKE can 
 # access a previous/past/historical nixpkgs from command line; history
 nix build github:nixos/nixpkgs/nixos-23.11#hello
 
-# access a previous/past/historical nixpkgs from command line; history
+# access a previous/past/historical nixpkgs from command line; history; history
 nix build 'github:NixOS/nixpkgs?rev=336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3'#haskell.packages.ghc963.haskell-language-server
 
 # unpin flake/update flake lock file

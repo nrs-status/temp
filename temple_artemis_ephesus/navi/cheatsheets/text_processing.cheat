@@ -11,3 +11,9 @@ cat <file> | set -n '100,120p'
 
 # obtain how many lines a file contains
 wc -l <filename>
+
+# obtain the first part of a string, the part after a given character 
+cut -d'<character>' -f1
+
+# obtain the second part of a string, the part after a given character
+cud -d'<character>' -f2

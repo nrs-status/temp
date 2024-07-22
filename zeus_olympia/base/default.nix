@@ -17,10 +17,10 @@ in {
     loader.efi.canTouchEfiVariables = true;
   };
 
-  networking = {
-    networkmanager.enable = true;
-    firewall.enable = true;
-  };
+  # networking = {
+  #   networkmanager.enable = true;
+  #   firewall.enable = true;
+  # };
 
   programs.light.enable = true;
 
