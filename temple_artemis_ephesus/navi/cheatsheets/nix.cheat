@@ -53,3 +53,9 @@ nix flake update
 
 # delete store path if it is garbage collectable
 nix store delete /nix/store/<rest of path>
+
+# build system without switching to it. useful to test builds when debugging, or to find what combination of builds will successfully run
+nixos-rebuild build --flake <flakeref>?rev=<flake commit>
+
+# build system without switching to it example
+nixos-rebuild build --flake path:/etc/nixos\?rev=03a70d10805e1b87dd098d053186a371a8a03f5d
