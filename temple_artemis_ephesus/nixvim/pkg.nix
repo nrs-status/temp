@@ -98,7 +98,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
       vim.api.nvim_create_autocmd(
         "BufWinLeave",
         {
-          group = "rememberFolds",
+          group = rememberFolds,
           pattern = "*",
           command = "mkview"
         }
@@ -106,7 +106,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
       vim.api.nvim_create_autocmd(
         "BufWinEnter",
         {
-          group = "rememberFolds",
+          group = rememberFolds,
           pattern = "*",
           command = "silent! loadview"
         }
