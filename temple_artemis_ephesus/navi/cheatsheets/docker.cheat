@@ -17,3 +17,6 @@ docker container prune
 
 # build an image from a docker file; Dockerfile
 docker build -t image-name -f /path/to/docker/file /path/to/context
+
+# delete all images
+docker rmi $(docker images -q)
