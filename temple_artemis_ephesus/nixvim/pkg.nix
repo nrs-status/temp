@@ -89,6 +89,25 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           return vim.api.nvim_replace_termcodes("<Esc>la", true, false, true)
       end
       vim.keymap.set('i', '<Tab>', [[v:lua.check_and_insert_space()]], {expr = true, remap = true})
+
+
+
+      -- https://vi.stackexchange.com/questions/39596/neovim-augroup-and-autocommand-in-lua-relative-line-numbering
+      --  https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save
+      local rememberFolds = vim.api.nvim_create_augroup("rememberFolds", {clear = true})
+      vim.api.nvim_create_autocmd(
+        "BufWinLeave",
+        {
+          group = "rememberFolds",
+          pattern = "*",
+          command = "mkview"
+        }
+      )
+      vim.api.nvim_create_autocmd(
+        group = "rememberFolds",
+        pattern = "*",
+        command = "silent! loadview"
+      )
     '';
   };
 }
