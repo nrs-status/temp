@@ -96,7 +96,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
       --  https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save
       local rememberFolds = vim.api.nvim_create_augroup("rememberFolds", {clear = true})
       vim.api.nvim_create_autocmd(
-        "BufWinLeave",
+        { "BufWinLeave"},
         {
           group = rememberFolds,
           pattern = "*",
@@ -104,7 +104,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
         }
       )
       vim.api.nvim_create_autocmd(
-        "BufWinEnter",
+        {"BufWinEnter"},
         {
           group = rememberFolds,
           pattern = "*",
