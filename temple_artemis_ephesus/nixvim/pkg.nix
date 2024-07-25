@@ -82,8 +82,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
 
              print("hello world")
              local cmp = require'cmp'
-             cmp.complete()
-      --       print(cmp.visible())
+             print(cmp.visible())
       --       if cmp.visible() then
       --           cmp.close()
       --           -- cmp.confirm({select = true})
