@@ -14,11 +14,12 @@
 
            ['<C-w>'] = cmp.mapping.scroll_docs(4),
 
-           ['<C-Space>'] = cmp.mapping.complete(),
 
-           ['<CR>'] = cmp.mapping.confirm({ select = true }),
+           ['<C-Space>'] = cmp.mapping.complete(), --invokes completion
 
-           ['<S-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+           ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+
+           ['<C-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
           })
         '';
       };
