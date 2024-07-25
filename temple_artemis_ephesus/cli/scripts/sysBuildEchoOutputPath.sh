@@ -5,8 +5,12 @@ currentPath=$PWD
 
 cd /tmp
 mkdir tmpBuildDir
+cd tmpBuildDir
 nixos-rebuild build --flake path:/etc/nixos?rev="$1"
 outputPath=$(readlink -f result)
+rm result
+cd ..
+rm -r tmpBuildDir
 cd "$currentPath"
 
 echo "$outputPath"

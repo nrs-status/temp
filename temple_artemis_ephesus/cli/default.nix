@@ -52,6 +52,7 @@ in {
         #scripts
         (pkgs.writeShellScriptBin "rb" (builtins.readFile ./scripts/rebuild.sh))
         (pkgs.writeShellScriptBin "optin" (builtins.readFile ./scripts/optin.sh))
+        (pkgs.writeShellScriptBin "sysbuild" (builtins.readFile ./scripts/sysBuildEchoOutputPath.sh))
       ];
 
       # sessionVariables = {
