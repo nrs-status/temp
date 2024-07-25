@@ -84,7 +84,10 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
              local cmp = require'cmp'
              return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
 
-             return vim.api.nvim_replace_termcodes("hahahah<CR>", true, false, true)
+              if cmp.visible() then
+                return vim.api.nvim_replace_termcodes("<Tab><Tab><Tab>", true, false, true)
+              end
+
 
       --       if cmp.visible() then
       --           cmp.close()
