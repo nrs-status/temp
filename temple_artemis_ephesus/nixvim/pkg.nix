@@ -82,7 +82,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
 
           local menuIsOpen = require'cmp'.visible()
           if menuIsOpen then
-              cmp.confirm({select = true})
+              cmp.mapping.confirm({select = true})
           end
 
           -- Check if there's whitespace before the cursor
