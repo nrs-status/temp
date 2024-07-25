@@ -70,12 +70,12 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
                 },
               })
 
-       function feedkeys_int(keys)
+       local function feedkeys_int(keys)
          local feedable_keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
          vim.api.nvim_feedkeys(feedable_keys, 'n', true)
        end
 
-      function check_and_insert_space() -- function for <Tab> key
+       local function check_and_insert_space() -- function for <Tab> key
           -- Get the current cursor position
           local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 
@@ -108,8 +108,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           end
           return vim.api.nvim_replace_termcodes("<Esc>la", true, false, true)
       end
-      vim.keymap.set('i', '<Tab>', check_and_insert_space(), {remap = true})
-
+      vim.keymap.set('i', '<Tab>', check_and_insert_space, {remap = true})
 
 
       -- https://vi.stackexchange.com/questions/39596/neovim-augroup-and-autocommand-in-lua-relative-line-numbering
