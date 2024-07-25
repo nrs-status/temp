@@ -89,13 +89,8 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           local cmp = require'cmp'
           -- return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
 
-           if cmp.visible() then
-             print("loc1")
+          feedkeys_int("<Cmd>lua require('cmp').complete()<CR>")
 
-             feedkeys_int("<Cmd>lua require('cmp').close()<CR>")
-             return
-           end
-           print("loc2")
 
           -- Check if there's whitespace before the cursor
           local char_before_cursor = line:sub(col, col)
