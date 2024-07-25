@@ -27,33 +27,33 @@
         {
           name = "nvim_lsp";
         }
-        {
-          name = "luasnip";
-        }
-        {
-          name = "path";
-        }
-        {
-          name = "nvim_lua";
-        }
-        {
-          name = "treesitter";
-        }
-        {
-          name = "zsh";
-        }
-        {
-          name = "cmdline";
-        }
-        {
-          name = "kitty";
-        }
-        {
-          name = "ctags";
-        }
-        {
-          name = "sql";
-        }
+        # {
+        #   name = "luasnip";
+        # }
+        # {
+        #   name = "path";
+        # }
+        # {
+        #   name = "nvim_lua";
+        # }
+        # {
+        #   name = "treesitter";
+        # }
+        # {
+        #   name = "zsh";
+        # }
+        # {
+        #   name = "cmdline";
+        # }
+        # {
+        #   name = "kitty";
+        # }
+        # {
+        #   name = "ctags";
+        # }
+        # {
+        #   name = "sql";
+        # }
       ];
     };
   };
