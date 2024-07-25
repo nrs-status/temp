@@ -89,9 +89,9 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           local cmp = require'cmp'
           -- return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
 
-          feedkeys_int("<Cmd>lua require('cmp').complete()<CR>")
+          -- feedkeys_int("<Cmd>lua require('cmp').complete()<CR>")
           if cmp.visible() then
-              feedkeys_int("<Cmd>lua require('cmp').confirm({select = true})")
+              feedkeys_int("<Cmd>lua require('cmp').confirm({select = true})<CR>")
           end
 
 
