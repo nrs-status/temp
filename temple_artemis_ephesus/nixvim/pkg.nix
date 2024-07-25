@@ -87,7 +87,8 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
               if cmp.visible() then
                 print("loc1")
 
-                return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').close()<CR>", true, false, true)
+                -- return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').close()<CR>", true, false, true)
+                return "iaaaaaa"
               end
               print("loc2")
 
