@@ -1,4 +1,4 @@
-{
+1
   config,
   lib,
   pkgs,
@@ -18,7 +18,7 @@ in {
         stylelint #css formatter
         rubyPackages.htmlbeautifier #html formatter
 
-        cabal_fmt #cabal formatter
+        haskellPackages.cabal-fmt #cabal formatter
         fixjson #json formatter
         yamlfmt #yaml formatter
 
