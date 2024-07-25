@@ -22,4 +22,4 @@ cud -d'<character>' -f2
 head -n <number>
 
 # get a specific/determinate line from an incoming string
-sed -n '<n>p'; e.g. sed -n '7p'
+sed -n '#p'; e.g. sed -n '7p'

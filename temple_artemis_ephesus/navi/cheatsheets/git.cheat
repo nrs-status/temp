@@ -38,3 +38,6 @@ git grep -L '<pattern>' $(git rev-list --all) -- <filepath>
 
 # get the current commit hash
 git rev-parse HEAD
+
+# get the commit hash of a commit n numbers behind HEAD
+git rev-parse HEAD~n
