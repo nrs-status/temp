@@ -12,8 +12,17 @@ in {
     home = {
       sessionVariables.EDITOR = "nvim";
       packages = with pkgs; [
-        #alejandra #for formatting nix. disabled to check whether there are plugins already managing the format
         nixvim
+
+        rustywind #tailwind formatter
+        stylelint #css formatter
+        htmlbeautifier #html formatter
+
+        cabal_fmt #cabal formatter
+        fixjson #json formatter
+        yamlfmt #yaml formatter
+
+        beautysh #bash formatter
       ];
     };
   };
