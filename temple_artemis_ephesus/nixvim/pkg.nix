@@ -84,6 +84,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           local cmp = require'cmp'
           print(cmp.visible())
           if cmp.visible() then
+              cmp.close()
               cmp.confirm({select = true})
           end
 
