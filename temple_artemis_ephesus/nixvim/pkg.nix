@@ -90,6 +90,10 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           -- return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
 
           feedkeys_int("<Cmd>lua require('cmp').complete()<CR>")
+          if cmp.visible() then
+              feedkeys_int("<Cmd>lua require('cmp').confirm({select = true})")
+          end
+
 
 
           -- Check if there's whitespace before the cursor
