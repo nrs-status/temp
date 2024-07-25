@@ -8,6 +8,7 @@
   cfg = config.${osConfig.networking.hostName}.home.nixvim;
 in {
   options.${osConfig.networking.hostName}.home.nixvim.enable = lib.mkEnableOption "nixvim";
+  #tempcomment remove when you see this
   config = lib.mkIf cfg.enable {
     home = {
       sessionVariables.EDITOR = "nvim";
