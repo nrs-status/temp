@@ -20,7 +20,9 @@ in {
         sqlite
         vscode
         docker-compose
+        d2 #scripting language for diagrams
 
+        #other terminals for debugging purposes
         alacritty
         xterm
       ];
