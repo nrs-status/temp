@@ -86,7 +86,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
 
               if cmp.visible() then
                 print("loc1")
-                return vim.api.nvim_replace_termcodes("iaaaaaaa", true, false, true)
+                return ""
               end
               print("loc2")
 
