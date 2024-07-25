@@ -93,6 +93,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
              print("loc1")
 
              feedkeys_int("<Cmd>lua require('cmp').close()<CR>")
+             return
            end
            print("loc2")
 
