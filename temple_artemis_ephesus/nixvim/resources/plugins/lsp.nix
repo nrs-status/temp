@@ -16,6 +16,12 @@
       lua = ["stylua"];
       markdown = ["prettierd"];
       nix = ["alejandra"];
+      html = ["rustywind" "stylelint" "htmlbeautifier"];
+      css = ["stylelint"];
+      bash = ["beautysh"];
+      cabal = ["cabal_fmt"];
+      json = ["fixjson"];
+      yaml = ["yamlfmt"];
     };
     formatOnSave = {
       lspFallback = true;
@@ -71,16 +77,20 @@
     };
 
     servers = {
+      tailwindcss.enable = true;
+      cssls.enable = true;
+      html.enable = true;
+
       phpactor.enable = true;
       tsserver.enable = true;
       eslint.enable = true;
+
       dagger.enable = true;
+      dockerls.enable = true;
+      jsonls.enable = true;
+      bashls.enable = true;
 
       clangd.enable = true;
-
-      dockerls.enable = true;
-
-      bashls.enable = true;
 
       pylsp = {
         enable = true;

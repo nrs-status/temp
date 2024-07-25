@@ -101,4 +101,12 @@
   ts-autotag = {
     enable = true;
   };
+
+  nvim-colorizer = {
+    enable = true;
+    userDefaultOptions = {
+      css = true;
+      tailwind = true;
+    };
+  };
 }
