@@ -17,7 +17,6 @@
 
            ['<C-Space>'] = cmp.mapping.complete(), --invokes completion
 
-           ['<Tab>'] = cmp.mapping.confirm({ select = true }),
 
            ['<C-CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
           })

@@ -77,6 +77,14 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           -- Get the current line
           local line = vim.api.nvim_get_current_line()
 
+          -- Check if completion menu is currently open. If it is, call the completion behaviour
+          --            ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+
+          local menuIsOpen = require'cmp'.visible()
+          if menuIsOpen then
+              cmp.confirm({select = true})
+          end
+
           -- Check if there's whitespace before the cursor
           local char_before_cursor = line:sub(col, col)
           if char_before_cursor:match("%s") or col == 0 then
