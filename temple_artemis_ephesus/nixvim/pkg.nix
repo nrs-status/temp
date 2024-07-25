@@ -80,9 +80,10 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           -- Check if completion menu is currently open. If it is, call the completion behaviour
           --            ['<Tab>'] = cmp.mapping.confirm({ select = true }),
 
+          print("hello world")
           local cmp = require'cmp'
-          local menuIsOpen = cmp.visible()
-          if menuIsOpen then
+          print(cmp.visible())
+          if cmp.visible() then
               cmp.confirm({select = true})
           end
 
