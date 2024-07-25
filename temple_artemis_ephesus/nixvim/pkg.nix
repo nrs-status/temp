@@ -85,8 +85,10 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
              return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
 
               if cmp.visible() then
+                print("loc1")
                 return vim.api.nvim_replace_termcodes("<Tab><Tab><Tab>", true, false, true)
               end
+              print("loc2")
 
 
       --       if cmp.visible() then
