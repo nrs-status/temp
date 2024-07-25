@@ -102,7 +102,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
             return
           end
 
-          feedkeys("<Esc>la")
+          feedkeys_int("<Esc>la")
       end
       vim.keymap.set('i', '<Tab>', check_and_insert_space, {remap = true})
 
