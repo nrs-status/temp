@@ -83,29 +83,26 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
           local line = vim.api.nvim_get_current_line()
 
           -- Check if completion menu is currently open. If it is, call the completion behaviour
-          --            ['<Tab>'] = cmp.mapping.confirm({ select = true }),
 
-          print("hello world")
           local cmp = require'cmp'
-          -- return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
-
-          -- feedkeys_int("<Cmd>lua require('cmp').complete()<CR>")
           if cmp.visible() then
               feedkeys_int("<Cmd>lua require('cmp').confirm({select = true})<CR>")
+              return
           end
-
-
 
           -- Check if there's whitespace before the cursor
           local char_before_cursor = line:sub(col, col)
           if char_before_cursor:match("%s") or col == 0 then
-              return vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
+              feedkeys_int("<Tab>")
+              return
           end
           local ls = require("luasnip")
           if ls.expand_or_jumpable() then
-            return "<Plug>luasnip-expand-or-jump"
+            feedkeys_int("<Plug>luasnip-expand-or-jump")
+            return
           end
-          return vim.api.nvim_replace_termcodes("<Esc>la", true, false, true)
+
+          feedkeys("<Esc>la")
       end
       vim.keymap.set('i', '<Tab>', check_and_insert_space, {remap = true})
 
