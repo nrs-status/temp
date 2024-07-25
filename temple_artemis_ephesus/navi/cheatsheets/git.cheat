@@ -36,3 +36,5 @@ git log -- <dir-path>
 # find commits where a specific file/directory does not contain a regexp pattern
 git grep -L '<pattern>' $(git rev-list --all) -- <filepath>
 
+# print the current commit hash
+git rev-parse HEAD
