@@ -27,9 +27,6 @@ nix profile history --profile /nix/var/nix/profiles/system
 # list a profile's generation (in this example: nixOS generations)
 nix-env --list-generations --profile /nix/var/nix/profiles/system
 
-# list currently existing generations
-nix-env --list-generations
-
 # switch to a profile or create a new profile
 nix-env --switch-profile <profile_path>
 
