@@ -83,6 +83,9 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
              print("hello world")
              local cmp = require'cmp'
              return vim.api.nvim_replace_termcodes("<Cmd>lua require('cmp').complete()<CR>", true, false, true)
+
+             return vim.api.nvim_replace_termcodes("hahahah<CR>", true, false, true)
+
       --       if cmp.visible() then
       --           cmp.close()
       --           -- cmp.confirm({select = true})
