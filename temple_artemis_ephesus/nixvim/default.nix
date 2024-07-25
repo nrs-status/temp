@@ -16,7 +16,7 @@ in {
 
         rustywind #tailwind formatter
         stylelint #css formatter
-        htmlbeautifier #html formatter
+        rubyPackages.htmlbeautifier #html formatter
 
         cabal_fmt #cabal formatter
         fixjson #json formatter
