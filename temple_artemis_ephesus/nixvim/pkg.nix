@@ -86,6 +86,7 @@ nixvim.legacyPackages.${system}.makeNixvimWithModule {
 
               if cmp.visible() then
                 print("loc1")
+                cmp.close()
                 return ""
               end
               print("loc2")
