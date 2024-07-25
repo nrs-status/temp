@@ -17,3 +17,9 @@ cut -d'<character>' -f1
 
 # obtain the second part of a string, the part after a given character
 cud -d'<character>' -f2
+
+# keep only x/a number of the top lines of an incoming/piped string
+head -n <number>
+
+# get a specific/determinate line from an incoming string
+sed -n '<n>p'; e.g. sed -n '7p'
