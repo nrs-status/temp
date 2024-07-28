@@ -18,11 +18,11 @@ in {
         fd
         nix-tree
         parallel
-        ripgrep
+        ripgrep #faster grep
         rmlint
         xxHash
-        yazi
-        fzf
+        yazi #file explorer
+        fzf #fuzzy finder
         jq
         trash-cli
         mods
@@ -32,7 +32,12 @@ in {
         eza #ls alternative
         navi #make interactive cheatsheets
         direnv #load environment on entering a directory
+        httpie #curl alternative
+
+        #text_processing
         grex #helps generating regex
+        choose #cut alternative
+        sd #sed alternative
 
         #Archives
         #currently test driving atool, previous stack is commented out

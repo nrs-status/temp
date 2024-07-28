@@ -109,4 +109,13 @@
       tailwind = true;
     };
   };
+
+  ccc = {
+    enable = true;
+    settings = {
+      highligher = {
+        auto_enable = false;
+      };
+    };
+  };
 }
