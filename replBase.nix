@@ -6,17 +6,7 @@ flakeInputs: rec {
     inherit pkgs;
     inherit lib;
     nixvim = flakeInputs.nixvim;
-    systemType = "x86_64-linux";
+    system = "x86_64-linux";
   };
   pkgDotNixDerivationsAttrs = helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
-
-  overlay = final: prev: builtins.mapAttrs (name: value: prev.pkgs.callPackage value {}) pkgDotNixDerivationsAttrs;
-  pkgs2 = import flakeInputs.nixpkgs {
-    overlays = [overlay];
-  };
-  overlay2 = final: prev: pkgDotNixDerivationsAttrs;
-  pkgs3 = import flakeInputs.nixpkgs {
-    overlays = [overlay2];
-  };
-  wanted = pkgs2.nixvim;
 }

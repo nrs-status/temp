@@ -1,8 +1,4 @@
-{
-  pkgs,
-  system,
-  ...
-}:
+{pkgs, ...}:
 pkgs.stdenv.mkDerivation {
   name = "swayrst";
   version = "5a73abb";
