@@ -4,7 +4,7 @@
   system,
   ...
 }:
-pkgs.stdenv.MkDerivation {
+pkgs.stdenv.mkDerivation {
   name = "swayrst";
   version = "5a73abb";
   src = pkgs.fetchurl {
