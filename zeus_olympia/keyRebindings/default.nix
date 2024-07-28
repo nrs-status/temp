@@ -22,6 +22,7 @@ in {
                 rightcontrol = "layer(custom)";
                 rightalt = "#";
                 capslock = "leftcontrol";
+                meta = "";
                 "f" = "overloadt(shift, f, 130)";
                 "h" = "overloadt(shift, h, 130)";
                 "j" = "overloadt(meta, j, 130)";
