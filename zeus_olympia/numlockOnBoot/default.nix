@@ -11,9 +11,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     boot.initrd.preLVMCommands = ''
-  ${pkgs.kbd}/bin/setleds +num
-'';
+      ${pkgs.kbd}/bin/setleds +num
+      '';
       };
     };
-  };
 }
