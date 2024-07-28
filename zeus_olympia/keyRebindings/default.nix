@@ -24,6 +24,7 @@ in {
                 capslock = "leftcontrol";
                 "f" = "overloadt(shift, f, 130)";
                 "h" = "overloadt(shift, h, 130)";
+                "j" = "overloadt(meta, j, 130)";
                 "d" = "overloadt(meta, d, 130)";
               };
               "custom:S" = {
