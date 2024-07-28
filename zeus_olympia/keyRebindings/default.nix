@@ -22,7 +22,7 @@ in {
                 rightcontrol = "layer(custom)";
                 rightalt = "#";
                 capslock = "leftcontrol";
-                meta = "";
+                meta = "layer(custom2)";
                 "f" = "overloadt(shift, f, 130)";
                 "h" = "overloadt(shift, h, 130)";
                 "j" = "overloadt(meta, j, 130)";
@@ -31,6 +31,9 @@ in {
               "custom:S" = {
                 #see man keyd for explanation
                 rightalt = "$";
+              };
+              "custom2:211" = {
+                1 = "KP_1";
               };
             };
           };
