@@ -5,7 +5,6 @@
   ...
 }:
 pkgs.stdenv.mkDerivation {
-  inherit pkgs;
   name = "swayrst";
   version = "5a73abb";
   src = pkgs.fetchurl {
