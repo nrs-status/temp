@@ -22,7 +22,7 @@ in {
         wev #xev analogue
         remontoire #list keybindings
 
-        swayrst #custom package to save workspaces
+        #swayrst #custom package to save workspaces
       ];
     };
 
