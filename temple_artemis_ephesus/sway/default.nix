@@ -21,6 +21,8 @@ in {
         mako # notification system developed by swaywm maintainer
         wev #xev analogue
         remontoire #list keybindings
+
+        swayrst #custom package to save workspaces
       ];
     };
 
