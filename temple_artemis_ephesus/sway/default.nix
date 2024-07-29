@@ -218,7 +218,7 @@ in {
 
         input = {
           "*" = {
-            xkb_numlock = "enabled";
+            xkb_numlock = "disabled";
             xkb_layout = "us,ca(fr),es";
             xkb_options = "grp:alt_space_toggle";
           };

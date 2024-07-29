@@ -50,7 +50,6 @@
       "bluetooth"
       # "fish"
       "firewall"
-      "numlockOnBoot"
 
       #enable only one of the following at a time
       #"podman"
