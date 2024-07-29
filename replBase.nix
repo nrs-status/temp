@@ -8,5 +8,5 @@ flakeInputs: rec {
     nixvim = flakeInputs.nixvim;
     system = "x86_64-linux";
   };
-  pkgDotNixDerivationsAttrs = helpers.createAttrsFromPkgDotNixFiles ./temple_artemis_ephesus;
+  pkgDotNixDerivationsAttrs = helpers.createAttrsFromCustomPackagingFiles ./temple_artemis_ephesus;
 }

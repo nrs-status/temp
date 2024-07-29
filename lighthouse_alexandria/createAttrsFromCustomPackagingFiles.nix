@@ -7,10 +7,9 @@ in
       ignore = [];
     };
     filteringLeavingOnlyFilesNamedPkgDotNix = lib.filter (filePath: lib.hasSuffix "customPackaging.nix" filePath) allNixFilesGatheredRecursively;
-    listOfParentDirs = map (x: baseNameOf (builtins.dirOf x)) filteringLeavingOnlyFilesNamedPkgDotNix;
-    attrsFromParentDirNPkgFilePairs = helpers.zipListsIntoAttrs listOfParentDirs filteringLeavingOnlyFilesNamedPkgDotNix;
+    unpackASetsContainedInCustomPackagingFiles = map (x: import x inputs) filteringLeavingOnlyFilesNamedPkgDotNix;
   in
-    builtins.mapAttrs (name: value: import value inputs) attrsFromParentDirNPkgFilePairs
+    lib.foldl (a: b: a // b) {} unpackASetsContainedInCustomPackagingFiles
 # debug version
 # {lib, ...} @ inputs: let
 #   helpers = import ./. {inherit lib;};
