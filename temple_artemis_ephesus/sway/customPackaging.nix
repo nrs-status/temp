@@ -8,9 +8,9 @@
     #phases must be explicitly declared otherwise will run an unpack phase that will attempt to extract the source
     phases = ["installPhase" "fixupPhase"];
 
-    #autoPatchelHook is used to patch link dependencies that the executable requires in order to run
     nativeBuildInputs = [
-      pkgs.autoPatchelfHook
+      pkgs.autoPatchelfHook #autoPatchelHook is used to patch link dependencies that the executable requires in order to run
+      pkgs.makeBinaryWrapper # used by wrapProgram
     ];
 
     #links to be patched go here; use ldd and objectdump -x to figure out which ones should come here
@@ -28,6 +28,11 @@
       chmod +x $out/bin/swayrst
 
       runHook postInstall
+    '';
+
+    postBuild = ''
+      wrapProgram $out/bin/swayrst \
+        --set PATH ${pkgs.lib.makeBinPath [pkgs.libnotify]}
     '';
   };
 }

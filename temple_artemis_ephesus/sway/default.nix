@@ -23,7 +23,6 @@ in {
         remontoire #list keybindings
 
         swayrst #custom package to save workspaces
-        libnotify
       ];
     };
 
