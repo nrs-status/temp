@@ -6,7 +6,7 @@
     src = ./resources/packages/swayrst;
 
     #phases must be explicitly declared otherwise will run an unpack phase that will attempt to extract the source
-    phases = ["installPhase" "fixupPhase"];
+    phases = ["installPhase" "fixupPhase" "postBuild"];
 
     nativeBuildInputs = [
       pkgs.autoPatchelfHook #autoPatchelHook is used to patch link dependencies that the executable requires in order to run
