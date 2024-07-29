@@ -68,3 +68,9 @@ sudo $buildOutput/bin/switch-to-configuration
 
 # add system configuration/build that has been built but not switched to (using command nixos-rebuild build) as a generation and t obootloader
 nix-env --profile /nix/var/nix/profiles/system --set $buildOutput
+
+# run nix-build on a file and pass it a nixpkgs
+nix-build --expr 'let pkgs = import <nixpkgs> {}; in import ./pkgToBuild.nix { inherit pkgs; }'
+
+# run nix-build on a file and pass it a nixpkgs or some arguments
+nix-build pkgToBuild.nix --arg pkgs 'import <nixpkgs> {}'

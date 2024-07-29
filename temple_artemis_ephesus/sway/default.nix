@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: let
-  gruvbox = import ./gruvboxColors.nix;
+  gruvbox = import ./resources/configExtensions/gruvboxColors.nix;
   cfg = config.${osConfig.networking.hostName}.home.sway;
 in {
   options.${osConfig.networking.hostName}.home = {
@@ -22,7 +22,7 @@ in {
         wev #xev analogue
         remontoire #list keybindings
 
-        #swayrst #custom package to save workspaces
+        swayrst #custom package to save workspaces
       ];
     };
 
@@ -125,7 +125,7 @@ in {
             };
           }
         ];
-        style = import ./waybarStyle.nix;
+        style = import ./resources/configExtensions/waybarStyle.nix;
       };
     };
 
