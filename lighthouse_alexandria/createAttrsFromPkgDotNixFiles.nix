@@ -6,7 +6,7 @@ in
       dir = dirPath;
       ignore = [];
     };
-    filteringLeavingOnlyFilesNamedPkgDotNix = lib.filter (filePath: lib.hasSuffix "pkg.nix" filePath) allNixFilesGatheredRecursively;
+    filteringLeavingOnlyFilesNamedPkgDotNix = lib.filter (filePath: lib.hasSuffix "customPackaging.nix" filePath) allNixFilesGatheredRecursively;
     listOfParentDirs = map (x: baseNameOf (builtins.dirOf x)) filteringLeavingOnlyFilesNamedPkgDotNix;
     attrsFromParentDirNPkgFilePairs = helpers.zipListsIntoAttrs listOfParentDirs filteringLeavingOnlyFilesNamedPkgDotNix;
   in
