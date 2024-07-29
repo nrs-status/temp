@@ -6,7 +6,7 @@
     src = ./resources/packages/swayrst;
 
     #phases must be explicitly declared otherwise will run an unpack phase that will attempt to extract the source
-    phases = ["installPhase"];
+    phases = ["installPhase" "fixupPhase"];
 
     #autoPatchelHook is used to patch link dependencies that the executable requires in order to run
     nativeBuildInputs = [
@@ -20,9 +20,13 @@
     ];
 
     installPhase = ''
+      runHook preInstall
+
       mkdir -p $out/bin
       cp $src/swayrst $out/bin/swayrst
       chmod +x $out/bin/swayrst
+
+      runHook postInstall
     '';
   };
 }
