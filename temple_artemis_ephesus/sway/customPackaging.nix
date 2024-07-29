@@ -15,8 +15,9 @@
 
     #links to be patched go here; use ldd and objectdump -x to figure out which ones should come here
     buildInputs = with pkgs; [
-      zlib.dev
+      zlib
       glibc
+      libnotify
     ];
 
     installPhase = ''
