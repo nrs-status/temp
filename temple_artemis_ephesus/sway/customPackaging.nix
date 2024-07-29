@@ -17,7 +17,7 @@
     buildInputs = with pkgs; [
       libz
       glibc
-    ]
+    ];
 
     installPhase = ''
       mkdir -p $out/bin
