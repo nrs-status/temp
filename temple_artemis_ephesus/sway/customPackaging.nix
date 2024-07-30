@@ -20,6 +20,7 @@
       libnotify
     ];
 
+    #simply copies the executable out of the folder and makes it executable. given this declaration, the executable will become available to path if passed as a package to install
     installPhase = ''
       runHook preInstall
 
@@ -30,6 +31,7 @@
       runHook postInstall
     '';
 
+    #makes available the `libnotify` command `send-notify` in PATH during `swayrst` runtime
     postBuild = ''
       wrapProgram $out/bin/swayrst \
         --set PATH ${pkgs.lib.makeBinPath [pkgs.libnotify]}

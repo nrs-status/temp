@@ -26,3 +26,6 @@ rm !(*WORD*)
 
 # check whether a file exists; returns 0 if it exists and 1 otherwise
 test -f <filepath>
+
+# have mkdir automatically create the nested directories in the path if they don't exist
+mkdir -p <path>
