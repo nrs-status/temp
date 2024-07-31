@@ -52,7 +52,6 @@ in {
         cp = "cp -riv";
         mv = "mv -iv";
         rm = "trash";
-        rb = "sudo rb";
         se = "sudoedit";
         mkdir = "mkdir -pv";
         ls = "eza";
@@ -73,7 +72,7 @@ in {
         c = "printf \"\\033c\"";
         clear = "printf \"\\033c\"";
 
-        rb = "/etc/nixos/temple_artemis_ephesus/cli/scripts/rebuild.sh"
+        rb = "sudo /etc/nixos/temple_artemis_ephesus/cli/scripts/rebuild.sh";
       };
 
       shellAbbrs = {
