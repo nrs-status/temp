@@ -1,4 +1,4 @@
-
+{
   config,
   lib,
   pkgs,
@@ -13,6 +13,7 @@ in {
       packages = with pkgs; [
         clojure
         babashka
+        leinigen
       ];
     };
   };
