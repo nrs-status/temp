@@ -12,8 +12,9 @@ in {
     home = {
       packages = with pkgs; [
         clojure
+        cljstyle #formatter
         babashka
-        leiningen
+        rlwrap #for history in bb cli
       ];
     };
   };
