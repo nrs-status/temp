@@ -22,6 +22,7 @@
       "typescript"
       "python"
       "haskell"
+      "clojure"
 
       "androidDev"
 

@@ -7,6 +7,7 @@
   conform-nvim = {
     enable = true;
     formattersByFt = {
+      clojure = ["cljstyle"];
       haskell = ["ormolu"];
       javascript = ["prettierd"];
       javascriptreact = ["prettierd"];
@@ -91,6 +92,8 @@
       bashls.enable = true;
 
       clangd.enable = true;
+
+      clojure-lsp.enable = true;
 
       pylsp = {
         enable = true;

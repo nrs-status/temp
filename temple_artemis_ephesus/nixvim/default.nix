@@ -24,6 +24,8 @@ in {
         yamlfmt #yaml formatter
 
         beautysh #bash formatter
+
+        cljstyle #clojure formatter
       ];
     };
   };
