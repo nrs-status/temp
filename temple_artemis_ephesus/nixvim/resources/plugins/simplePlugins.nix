@@ -48,6 +48,9 @@
   # git integrations
   gitsigns.enable = true;
 
+  #interactive repl
+  conjure.enable = true;
+
   #add indentation guides
   indent-blankline = {
     enable = true;
