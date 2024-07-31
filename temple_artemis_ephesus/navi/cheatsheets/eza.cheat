@@ -9,7 +9,7 @@ eza --absolute
 # display only directories
 eza -D; eza --only-dirs
 
-# display files sorted by field
+# display files sorted by field; e.g. sort by recent
 eza -s name|size|created|accessed|modified=date=time=newest|oldest
 
 # display files with desired timestamp
