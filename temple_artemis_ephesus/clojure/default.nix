@@ -13,7 +13,6 @@ in {
       packages = with pkgs; [
         clojure
         babashka
-        leiningen
       ];
     };
   };
