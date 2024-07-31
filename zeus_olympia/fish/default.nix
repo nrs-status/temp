@@ -71,8 +71,6 @@ in {
 
         c = "printf \"\\033c\"";
         clear = "printf \"\\033c\"";
-
-        rb = "sudo /etc/nixos/temple_artemis_ephesus/cli/scripts/rebuild.sh";
       };
 
       shellAbbrs = {
