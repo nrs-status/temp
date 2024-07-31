@@ -48,7 +48,7 @@
       "home-manager"
       "keyRebindings"
       "bluetooth"
-      "fish"
+      #"fish"
       "firewall"
 
       #enable only one of the following at a time
