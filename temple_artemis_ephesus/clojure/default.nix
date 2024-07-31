@@ -15,6 +15,7 @@ in {
         cljstyle #formatter
         babashka
         rlwrap #for history in bb cli
+        leiningen
       ];
     };
   };
