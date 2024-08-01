@@ -8,6 +8,14 @@
       hash = "sha256-EI3dQcsvv8T4lYNcWML8SesOQfAkCEsZvd+C3S+MY5o=";
       fetchSubmodules = true;
     };
+    preparePatch = patch: hash:
+      fetchpatch {
+        url = "file://${src}/llm/patches/${patch}";
+        inherit hash;
+        stripLen = 1;
+        extraPrefix = "llm/llama.cpp/";
+      };
+
     llamacppPatches = [
       (preparePatch "01-load-progress.diff" "sha256-UTmnBS5hQjIL3eXDZc8RBDNJunLlkqJWH20LpXNiGRQ=")
       (preparePatch "02-clip-log.diff" "sha256-rMWbl3QgrPlhisTeHwD7EnGRJyOhLB4UeS7rqa0tdXM=")
