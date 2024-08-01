@@ -5,7 +5,7 @@
       owner = "ollama";
       repo = "ollama";
       rev = "v${version}";
-      hash = "";
+      hash = "sha256-EI3dQcsvv8T4lYNcWML8SesOQfAkCEsZvd+C3S+MY5o=";
       fetchSubmodules = true;
     };
   });
