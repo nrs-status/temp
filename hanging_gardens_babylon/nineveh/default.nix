@@ -33,6 +33,8 @@
       "wofi"
       "anki"
       "navi"
+
+      "ai"
     ];
   };
   nixosVars = {
