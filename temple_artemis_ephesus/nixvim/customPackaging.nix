@@ -53,7 +53,7 @@
 
       plugins = import ./resources/plugins {lib = pkgs.lib;};
 
-      extraPlugins = with pkgs.vimPlugins; [nvim-surround];
+      extraPlugins = with pkgs.vimPlugins; [vim-sexp vim-sexp-mappings-for-regular-people nvim-surround];
 
       extraConfigLua = ''
                 local set= function(name) -- defines a function called 'set' that will automatically configure packages such that set "package" is equivalent to require('package').setup()
