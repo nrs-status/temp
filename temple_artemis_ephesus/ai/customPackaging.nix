@@ -9,7 +9,7 @@
       fetchSubmodules = true;
     };
     preparePatch = patch: hash:
-      fetchpatch {
+      pkgs.fetchpatch {
         url = "file://${src}/llm/patches/${patch}";
         inherit hash;
         stripLen = 1;
