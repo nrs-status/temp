@@ -56,6 +56,8 @@
       extraPlugins = with pkgs.vimPlugins; [vim-sexp vim-sexp-mappings-for-regular-people nvim-surround];
 
       extraConfigLua = ''
+                -- toggle abs/relative numbers
+                vim.api.nvim_command('command! abs :set relativenumber!')
                 local set= function(name) -- defines a function called 'set' that will automatically configure packages such that set "package" is equivalent to require('package').setup()
                   local ok, p = pcall(require, name) -- assigns the return value of pcall(require, name) to ok, p
                   if ok then
