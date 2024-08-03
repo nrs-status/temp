@@ -27,6 +27,15 @@ in {
                 "h" = "overloadt(shift, h, 130)";
                 "j" = "overloadt(meta, j, 130)";
                 "d" = "overloadt(meta, d, 130)";
+
+                "1" = "!";
+                "2" = "@";
+                "5" = "%";
+                "6" = "^";
+                "7" = "&";
+                "8" = "*";
+                "9" = "(";
+                "0" = ")";
               };
               "custom:S" = {
                 #see man keyd for explanation
