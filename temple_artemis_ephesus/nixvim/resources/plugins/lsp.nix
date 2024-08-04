@@ -7,6 +7,7 @@
   conform-nvim = {
     enable = true;
     formattersByFt = {
+      sql = ["sleek"];
       clojure = ["cljstyle"];
       haskell = ["ormolu"];
       javascript = ["prettierd"];

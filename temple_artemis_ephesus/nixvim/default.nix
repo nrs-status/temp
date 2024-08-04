@@ -26,6 +26,8 @@ in {
         beautysh #bash formatter
 
         cljstyle #clojure formatter
+
+        sleek #sql formatter
       ];
     };
   };
