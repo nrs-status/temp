@@ -73,7 +73,7 @@
   }
   {
     action = ":q!<cr>";
-    key = "<leader>q1";
+    key = "<leader>q!";
   }
   {
     action = ":w<cr>";
