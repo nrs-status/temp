@@ -27,7 +27,7 @@ in {
 
         cljstyle #clojure formatter
 
-        sleek #sql formatter
+        sqlfluff #sql formatter
       ];
     };
   };
