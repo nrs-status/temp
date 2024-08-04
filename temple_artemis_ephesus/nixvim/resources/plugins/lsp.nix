@@ -7,7 +7,6 @@
   conform-nvim = {
     enable = true;
     formattersByFt = {
-      sql = ["sqlfluff"];
       clojure = ["cljstyle"];
       haskell = ["ormolu"];
       javascript = ["prettierd"];
@@ -39,7 +38,6 @@
         black.enable = true;
         clang_format.enable = true;
         shellharden.enable = true;
-        sqlfluff.enable = true;
         yamlfmt.enable = true;
         isort.enable = true;
         terraform_fmt.enable = true;
@@ -107,7 +105,6 @@
       };
       terraformls.enable = true;
       nixd.enable = true;
-      sqls.enable = true;
 
       yamlls.enable = true;
 
