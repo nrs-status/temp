@@ -31,7 +31,7 @@
     };
   };
   none-ls = {
-    enable = true;
+    enable = false;
     enableLspFormat = false; #disabled while testing conform-nvim
     sources = {
       formatting = {
