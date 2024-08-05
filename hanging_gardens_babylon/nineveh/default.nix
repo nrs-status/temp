@@ -25,6 +25,7 @@
       "clojure"
 
       "androidDev"
+      "buildTools"
 
       "gammastep"
       "cloudwork"
