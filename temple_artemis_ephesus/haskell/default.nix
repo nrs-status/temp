@@ -19,6 +19,8 @@ in {
         haskellPackages.aeson #json library for haskell
 
         haskellPackages.BNFC #backus naur form converter
+        alex #tool for generating lexical analysers in haskell
+        happy #parser generator for haskell
       ];
     };
   };

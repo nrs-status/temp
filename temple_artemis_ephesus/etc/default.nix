@@ -25,6 +25,7 @@ in {
         #other terminals for debugging purposes
         alacritty
         xterm
+
       ];
     };
   };
