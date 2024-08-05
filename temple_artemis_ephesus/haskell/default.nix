@@ -17,6 +17,8 @@ in {
         haskellPackages.hoogle #search function definitions
 
         haskellPackages.aeson #json library for haskell
+
+        haskellPackages.BNFC #backus naur form converter
       ];
     };
   };
