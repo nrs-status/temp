@@ -26,3 +26,6 @@ sed -n '#p'; e.g. sed -n '7p'
 
 # delete all empty lines
 sed '/^$?d'
+
+#delete all lines containing a specific word from a file, editing the file in place/in-place, i.e., modifying the source/original
+sed -i '/lastModified/d' filename.txt
