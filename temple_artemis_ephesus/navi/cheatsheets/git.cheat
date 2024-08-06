@@ -36,8 +36,13 @@ git log -- <dir-path>
 # find commits where a specific file/directory does not contain a regexp pattern
 git grep -L '<pattern>' $(git rev-list --all) -- <filepath>
 
+<<<<<<< HEAD
 # get the current commit hash
 git rev-parse HEAD
 
 # get the commit hash of a commit n numbers behind HEAD
 git rev-parse HEAD~n
+=======
+# print the current commit hash
+git rev-parse HEAD
+>>>>>>> ea9d3fd761d7624d56410a2f1d358e554ab4406d

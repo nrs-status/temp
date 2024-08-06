@@ -108,6 +108,7 @@ in {
           diff = {
             algorithm = "histogram";
             colorMoved = "default";
+            tool = "nvimdiff";
           };
           merge = {
             conflictstyle = "zdiff3";
