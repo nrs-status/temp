@@ -24,13 +24,11 @@ du -sh DIRECTORY
 # delete/remove everything in this directory except files containing a certain word
 rm !(*WORD*)
 
-<<<<<<< HEAD
 # check whether a file exists; returns 0 if it exists and 1 otherwise
 test -f <filepath>
 
 # have mkdir automatically create the nested directories in the path if they don't exist
 mkdir -p <path>
-=======
+
 # get the absolute path pointed to by a symlink
 readlink -f <symlink_path>
->>>>>>> ea9d3fd761d7624d56410a2f1d358e554ab4406d

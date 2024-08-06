@@ -21,6 +21,7 @@ in {
         imv
         feh
         gimp
+        inkscape #vector graphics editor
 
         #video
         streamlink
