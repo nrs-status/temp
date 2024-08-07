@@ -23,6 +23,7 @@
       "python"
       "haskell"
       "clojure"
+      "racket"
 
       "androidDev"
       "buildTools"
