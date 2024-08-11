@@ -15,8 +15,11 @@ in {
         crawl
         dwarfs #read-only fs
         fuse-overlayfs
+
         #wine64
-        wineWowPackages.waylandFull
+       # wineWowPackages.waylandFull
+        wineWowPackages.unstableFull
+        winetricks
         lutris
         bottles
       ];
