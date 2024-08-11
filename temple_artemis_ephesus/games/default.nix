@@ -22,6 +22,8 @@ in {
         winetricks
         lutris
         bottles
+
+        bubblewrap #prereq for some installs
       ];
     };
   };
