@@ -26,6 +26,8 @@ in {
         alacritty
         xterm
 
+        unixtools.xxd #display binary files
+
       ];
     };
   };
