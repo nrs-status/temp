@@ -95,3 +95,6 @@ nix eval --raw nixpkgs#<packageName>
 
 #build a specific package from a system flake
 nix build .#nixosConfigurations.<hostname>.<attr>
+
+#allow relative paths by allowing impure mode (in this case, used to get a shell from a flake that must build a derivation containing a ~/... path)
+nix develop --impure
