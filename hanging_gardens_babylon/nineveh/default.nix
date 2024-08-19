@@ -17,13 +17,13 @@
       "etc"
 
       #programming languages
-      "php"
+#      "php"
       "javascript"
       "typescript"
       "python"
       "haskell"
       "clojure"
-      "racket"
+#      "racket"
 
       "androidDev"
       "buildTools"
@@ -61,6 +61,8 @@
       "docker"
 
       #"vault-server"
+
+      "etc"
     ];
   };
 }
