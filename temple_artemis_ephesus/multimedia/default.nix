@@ -15,6 +15,7 @@ in {
         okular
         calibre
         pandoc
+        djview
 
         #image  -- imagemagick, imv, and feh are all meant for the same use. they are all enabled while i try them out
         imagemagick
