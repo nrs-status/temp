@@ -24,6 +24,7 @@
       "haskell"
       "clojure"
 #      "racket"
+      "scala"
 
       "androidDev"
       "buildTools"
