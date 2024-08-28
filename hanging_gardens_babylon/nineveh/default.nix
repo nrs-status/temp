@@ -22,6 +22,7 @@
       "typescript"
       "python"
       "haskell"
+      "lean4"
       "clojure"
 #      "racket"
       "scala"
