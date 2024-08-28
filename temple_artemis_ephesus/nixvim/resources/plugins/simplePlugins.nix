@@ -62,6 +62,9 @@
     };
   };
 
+  #lean4 lang
+  lean.enable = true;
+
   #status line
   lualine.enable = true;
 
