@@ -67,7 +67,6 @@
     enable = true;
     abbreviations = {
       enable = true;
-      leader = "*";
     };
   };
 
