@@ -63,7 +63,14 @@
   };
 
   #lean4 lang
-  lean.enable = true;
+  lean = {
+    enable = true;
+    abbreviations = {
+      enable = true;
+      leader = "*"
+    };
+  };
+
 
   #status line
   lualine.enable = true;
