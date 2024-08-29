@@ -68,6 +68,7 @@
     abbreviations = {
       enable = true;
     };
+    mappings = true;
   };
 
 
