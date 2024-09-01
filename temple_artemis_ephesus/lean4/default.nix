@@ -11,8 +11,8 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        #lean4
-        elan
+        lean4
+        #elan currently conflicts
       ];
     };
   };
