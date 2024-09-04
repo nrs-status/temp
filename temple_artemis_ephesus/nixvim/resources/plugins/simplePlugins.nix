@@ -68,6 +68,10 @@
     leanPackage = null;
     abbreviations = {
       enable = true;
+      extra = {
+        osemic = "⦂"; 
+
+      };
     };
     mappings = true;
   };
