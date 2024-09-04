@@ -65,6 +65,7 @@
   #lean4 lang
   lean = {
     enable = true;
+    leanPackage = null;
     abbreviations = {
       enable = true;
     };
