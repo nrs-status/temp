@@ -27,6 +27,7 @@
 #      "racket"
       #"scala"
       "curry"
+      "prolog"
 
       "androidDev"
       "buildTools"
