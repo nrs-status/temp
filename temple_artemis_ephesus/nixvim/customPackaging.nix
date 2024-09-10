@@ -53,6 +53,12 @@
 
       plugins = import ./resources/plugins {lib = pkgs.lib;};
 
+      filetype = {
+        extension = {
+          pl = "prolog";
+        };
+      }; 
+
       extraPlugins = with pkgs.vimPlugins; [vim-sexp vim-sexp-mappings-for-regular-people nvim-surround];
 
       extraConfigLua = ''
