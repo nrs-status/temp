@@ -23,9 +23,10 @@
       "python"
       "haskell"
       "lean4"
-      "clojure"
+      #"clojure"
 #      "racket"
-      "scala"
+      #"scala"
+      "curry"
 
       "androidDev"
       "buildTools"
