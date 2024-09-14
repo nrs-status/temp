@@ -14,6 +14,13 @@
 
   markdown-preview = {
     enable = true;
+    settings = {
+      auto_close = 1;
+      auto_start = 1;
+      browser = "firefox";
+      echo_preview_url = 1;
+      theme = "dark";
+    };
   };
 
   #automatic nix indentation, filetype detection for .nix files, syntax highlighting for nix
