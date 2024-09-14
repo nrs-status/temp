@@ -15,8 +15,8 @@
   markdown-preview = {
     enable = true;
     settings = {
-      auto_close = 1;
-      auto_start = 1;
+      auto_close = true;
+      auto_start = true;
       browser = "firefox";
       echo_preview_url = 1;
       theme = "dark";
