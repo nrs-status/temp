@@ -18,7 +18,7 @@
       auto_close = true;
       auto_start = true;
       browser = "firefox";
-      echo_preview_url = 1;
+      echo_preview_url = true;
       theme = "dark";
     };
   };
