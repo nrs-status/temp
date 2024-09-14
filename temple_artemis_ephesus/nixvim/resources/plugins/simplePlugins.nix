@@ -12,6 +12,10 @@
   #colored brackets, parentheses, etc.
   rainbow-delimiters.enable = true;
 
+  markdown-preview = {
+    enable = true;
+  };
+
   #automatic nix indentation, filetype detection for .nix files, syntax highlighting for nix
   nix.enable = true;
 
