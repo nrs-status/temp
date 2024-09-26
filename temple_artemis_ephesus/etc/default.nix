@@ -28,7 +28,7 @@ in {
 
         unixtools.xxd #display binary files
 
-        cinny #chat client
+        cinny-desktop #chat client
 
       ];
     };
