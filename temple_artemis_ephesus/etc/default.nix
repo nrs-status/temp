@@ -22,6 +22,10 @@ in {
         docker-compose
         d2 #scripting language for diagrams
 
+        tree-sitter
+        ast-grep
+        semgrep
+
         #other terminals for debugging purposes
         alacritty
         xterm
