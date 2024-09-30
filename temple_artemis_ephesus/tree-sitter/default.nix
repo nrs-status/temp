@@ -12,8 +12,6 @@ in {
     home = {
       packages = with pkgs; [
         tree-sitter
-        (lib.hiPrio tree-sitter-grammars.tree-sitter-python)
-        tree-sitter-grammars.tree-sitter-haskell
       ];
     };
   };
