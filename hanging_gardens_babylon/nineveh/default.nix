@@ -29,6 +29,8 @@
       "curry"
       "prolog"
 
+      "tree-sitter"
+
       "androidDev"
       "buildTools"
 

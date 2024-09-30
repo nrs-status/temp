@@ -11,7 +11,6 @@ in {
   config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
-        tree-sitter
         distrobox
         ventoy #bootable usb maker
         vesktop #discord client
