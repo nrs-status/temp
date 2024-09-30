@@ -26,23 +26,22 @@
       #"clojure"
 #      "racket"
       #"scala"
-      "curry"
-      "prolog"
+#      "curry"
+#      "prolog"
 
-      "tree-sitter"
 
-      "androidDev"
+#      "androidDev"
       "buildTools"
 
       "gammastep"
-      "cloudwork"
+#      "cloudwork"
       "gtk"
       #"custom_packages"
       "wofi"
       "anki"
       "navi"
 
-      "ai"
+#      "ai"
     ];
   };
   nixosVars = {
