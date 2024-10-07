@@ -33,6 +33,7 @@ in {
         unixtools.xxd #display binary files
 
         cinny-desktop #chat client
+        kdePackages.konversation #irc client
 
       ];
     };
