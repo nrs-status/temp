@@ -59,7 +59,17 @@
         };
       }; 
 
-      extraPlugins = with pkgs.vimPlugins; [vim-sexp vim-sexp-mappings-for-regular-people nvim-surround];
+      extraPlugins = with pkgs.vimPlugins; [
+        vim-sexp vim-sexp-mappings-for-regular-people nvim-surround
+      ] ++ [(pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-agda";
+    src = pkgs.fetchFromGitHub {
+        owner = "ashinkarov";
+        repo = "nvim-agda";
+        rev = "9024909ac5cbac0a0b6f1f3f7f2b65c907c8fc12";
+        hash = "";
+    };
+})];
 
       extraConfigLua = ''
                 -- toggle abs/relative numbers
