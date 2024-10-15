@@ -12,6 +12,7 @@ in {
     home = {
       packages = with pkgs; [
         agda
+        lua54Packages.luautf8
       ];
     };
   };
