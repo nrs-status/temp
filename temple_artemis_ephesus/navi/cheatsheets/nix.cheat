@@ -3,7 +3,7 @@
 # determine what is making a store path depend on another; figure out specific dependencies between store paths
 nix why-depends --precise PACKAGE DEPENDENCY 
 
-# query a store path to determine what's keeping it alive
+# query a store path to determine what's keeping it alive; cause
 nix-store --query --roots <path>
 
 # query a store path to determine its runtime dependencies
