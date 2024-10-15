@@ -23,6 +23,7 @@
       "python"
       "haskell"
       "lean4"
+      "agda"
       #"clojure"
 #      "racket"
       #"scala"
