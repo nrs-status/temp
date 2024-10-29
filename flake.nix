@@ -72,7 +72,7 @@
     };
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
-      "sieyes" = nixpkgs.lib.nixosSystem {
+      ${hostName} = nixpkgs.lib.nixosSystem {
         system = env.nixosVars.system;
         specialArgs = env;
         modules = [
