@@ -66,7 +66,7 @@
       };
       "test" = {
         type = "app";
-        program = "${self.packages.hello}/bin/hello";
+        program = pkgs.lib.getExe self.packages.hello;
       };
     };
     nixosConfigurations = {
