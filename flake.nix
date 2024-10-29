@@ -55,7 +55,7 @@
       };
   in {
     overlays.default = defaultOverlay;
-    packages."x86_64-linux" = pkgs;
+    packages = pkgs;
 #    packages."x86_64-linux" = {
 #      nixvim = pkgs.nixvim
 #    };
