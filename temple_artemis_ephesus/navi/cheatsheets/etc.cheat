@@ -32,3 +32,6 @@ mkdir -p <path>
 
 # get the absolute path pointed to by a symlink
 readlink -f <symlink_path>
+
+# shutdown/turn off computer in x minutes
+sudo shutdown -h +60
