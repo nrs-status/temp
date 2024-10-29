@@ -62,7 +62,7 @@
     apps."x86_64-linux" = {
       "nvim" = {
         type = "app";
-        program = ${self.packages.x86_64-linux.nixvim};
+        program = "${self.packages.x86_64-linux.nixvim}";
       };
     };
     nixosConfigurations = {
