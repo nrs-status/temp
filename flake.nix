@@ -72,6 +72,6 @@
         program = pkgs.lib.getExe self.packages.hello;
       };
     };
-    nixosConfigurations = nineveh.nineveh
+    nixosConfigurations = nineveh.nineveh;
   };
 }
