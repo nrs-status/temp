@@ -49,6 +49,12 @@
     }; #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
   in {
     overlays.default = final: prev: helpers.createAttrsFromCustomPackagingFiles ./temple_artemis_ephesus;
+    apps."x86_64-linux" = {
+      "nvim" = {
+        type = "app";
+        program = nixpkgs.neovim;
+      };
+    };
     nixosConfigurations = let
       pkgs = import nixpkgs {
         system = env.nixosVars.system;

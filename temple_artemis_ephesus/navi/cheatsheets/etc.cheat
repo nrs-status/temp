@@ -15,7 +15,7 @@ distrobox create --name ubuntu --init --image ubuntu:latest
 # extract the contents of a .tar.gz file
 tar -xzvf filename.tar.gz
 
-# cat/copy something to clipboard
+# cat/copy something to clipboard; wayland
 cat file | wl-copy
 
 # determine how much weight/size/disk usage a particular directory has
