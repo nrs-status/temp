@@ -63,7 +63,6 @@
       "nvim" = {
         type = "app";
         program = ${self.packages.x86_64-linux.nixvim};
-          program = "${self.packages.x86_64-linux.blender_2_79}/bin/blender";
       };
     };
     nixosConfigurations = {
