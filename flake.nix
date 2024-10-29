@@ -23,7 +23,6 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
 
-    nineveh.url = "github:nrs-status/nineveh";
   };
 
   outputs = inputs @ {
@@ -34,7 +33,6 @@
     vault-secrets,
     nix-doom-emacs-unstraightened,
     emacs-overlay,
-    nineveh,
     ...
   }: let
     env = import hanging_gardens_babylon/nineveh;
@@ -74,7 +72,7 @@
     };
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
-      ${hostName} = nixpkgs.lib.nixosSystem {
+      "nineveh" = nixpkgs.lib.nixosSystem {
         system = env.nixosVars.system;
         specialArgs = env;
         modules = [
