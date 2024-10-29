@@ -47,21 +47,21 @@
       lib = pkgs.lib;
       nixvim = inputs.nixvim;
     }; #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
+    defaultOverlay = final: prev: helpers.createAttrsFromCustomPackagingFiles ./temple_artemis_ephesus;
+    pkgs = import nixpkgs {
+        system = env.nixosVars.system;
+        config.allowUnfree = true;
+        overlays = [defaultOverlay];
+      };
   in {
-    overlays.default = final: prev: helpers.createAttrsFromCustomPackagingFiles ./temple_artemis_ephesus;
+    overlays.default = defaultOverlay;
     apps."x86_64-linux" = {
       "nvim" = {
         type = "app";
         program = nixpkgs.neovim;
       };
     };
-    nixosConfigurations = let
-      pkgs = import nixpkgs {
-        system = env.nixosVars.system;
-        config.allowUnfree = true;
-        overlays = [self.overlays.default];
-      };
-    in {
+    nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
       ${hostName} = nixpkgs.lib.nixosSystem {
         system = env.nixosVars.system;
