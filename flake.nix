@@ -64,6 +64,11 @@
         type = "app";
         program = "${self.packages.nixvim}/bin/nvim";
       };
+      "test" = {
+        type = "app";
+        program = "${self.packages.hello}/bin/hello"
+  
+      }
     };
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error

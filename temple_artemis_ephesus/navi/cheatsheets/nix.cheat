@@ -45,6 +45,9 @@ nix build 'github:NixOS/nixpkgs?rev=336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3'#ha
 # unpin flake/update flake lock file
 nix flake update
 
+# update only a single flake located in the flake registry
+nix flake update --flake flakeref
+
 # import the nixpkgs flake from the repl
 :lf github:NixOS/nixpkgs
 
@@ -99,4 +102,5 @@ nix build .#nixosConfigurations.<hostname>.<attr>
 # allow relative paths by allowing impure mode (in this case, used to get a shell from a flake that must build a derivation containing a ~/... path)
 nix develop --impure
 
-
+# get information about a flake, such as current lockpoint/pin and current store path
+nix flake metadata flakeref 
