@@ -66,9 +66,8 @@
       };
       "test" = {
         type = "app";
-        program = "${self.packages.hello}/bin/hello"
-  
-      }
+        program = "${self.packages.hello}/bin/hello";
+      };
     };
     nixosConfigurations = {
       #the following variable name must be the current host's variable name, otherwise will raise an error
