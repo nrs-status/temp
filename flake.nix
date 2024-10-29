@@ -55,10 +55,15 @@
       };
   in {
     overlays.default = defaultOverlay;
+    packages."x86_64-linux" = pkgs;
+#    packages."x86_64-linux" = {
+#      nixvim = pkgs.nixvim
+#    };
     apps."x86_64-linux" = {
       "nvim" = {
         type = "app";
-        program = pkgs.nixvim;
+        program = ${self.packages.x86_64-linux.nixvim};
+          program = "${self.packages.x86_64-linux.blender_2_79}/bin/blender";
       };
     };
     nixosConfigurations = {

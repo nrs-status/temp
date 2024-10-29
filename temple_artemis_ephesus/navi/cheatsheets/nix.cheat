@@ -75,28 +75,28 @@ nix-build --expr 'let pkgs = import <nixpkgs> {}; in import ./pkgToBuild.nix { i
 # run nix-build on a file and pass it a nixpkgs or some arguments
 nix-build pkgToBuild.nix --arg pkgs 'import <nixpkgs> {}'
 
-#evaluate a nix expression
+# evaluate a nix expression
 nix eval --expr '1 + 2'
 
-#get the current version of the nixpkgs flake
+# get the current version of the nixpkgs flake
 nix eval --raw nixpkgs#lib.version
 
-#print the store path of a package
+# print/get the store path of a package
 nix eval --raw nixpkgs#<packageName>
 
-#nix build where you need to pass the flake as a function input. Independently, only grab a specific attribute from target
+# nix build where you need to pass the flake as a function input. Independently, only grab a specific attribute from target
 -A attributeName --arg flakeArg 'builtins.getFlake "github:nix-community/nixvim"'
 
 # path to the system profile
 /nix/var/nix/profiles/system
 
-#nix build without dealing with ./result links
+# nix build without dealing with ./result links
 --no-link --print-out-paths
 
-#build a specific package from a system flake
+# build a specific package from a system flake
 nix build .#nixosConfigurations.<hostname>.<attr>
 
-#allow relative paths by allowing impure mode (in this case, used to get a shell from a flake that must build a derivation containing a ~/... path)
+# allow relative paths by allowing impure mode (in this case, used to get a shell from a flake that must build a derivation containing a ~/... path)
 nix develop --impure
 
 
