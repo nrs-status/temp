@@ -58,7 +58,7 @@
     apps."x86_64-linux" = {
       "nvim" = {
         type = "app";
-        program = nixpkgs.neovim;
+        program = pkgs.nixvim;
       };
     };
     nixosConfigurations = {
