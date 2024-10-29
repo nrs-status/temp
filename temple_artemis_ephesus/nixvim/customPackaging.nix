@@ -49,7 +49,6 @@
         foldenable = true;
       };
 
-      package 
 
       keymaps = import ./resources/keymaps.nix;
 
