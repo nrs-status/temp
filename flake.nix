@@ -36,15 +36,15 @@
   }: let
     env = import hanging_gardens_babylon/nineveh;
     system = env.nixosVars.system;
-    pkgs = import nixpkgs {
+    noOverlayPkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
     hostName = env.nixosVars.hostName;
     helpers = import ./lighthouse_alexandria {
-      inherit pkgs;
+      pkgs = noOverlayPkgs;
       inherit system;
-      lib = pkgs.lib;
+      lib = noOverlayPkgs.lib;
       nixvim = inputs.nixvim;
     }; #all of these are passed because helpers contains the function that builds derivations from pkg.nix files in temple
     defaultOverlay = final: prev: helpers.createAttrsFromCustomPackagingFiles ./temple_artemis_ephesus;
