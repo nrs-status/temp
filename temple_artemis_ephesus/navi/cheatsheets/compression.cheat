@@ -1,0 +1,4 @@
+% shintu, compression
+
+#make a compressed tar file out of a folder or file
+tar -czvf nameIWantForArchive.tar.gz /path/to/directory/or/file
