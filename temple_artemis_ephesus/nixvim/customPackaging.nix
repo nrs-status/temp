@@ -49,6 +49,8 @@
         foldenable = true;
       };
 
+      package 
+
       keymaps = import ./resources/keymaps.nix;
 
       plugins = import ./resources/plugins {lib = pkgs.lib;};
