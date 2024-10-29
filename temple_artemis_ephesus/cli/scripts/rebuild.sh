@@ -11,5 +11,5 @@ fi
 LOC=$PWD
 cd /etc/nixos
 git add -A
-nixos-rebuild switch --flake github:nrs-status/nineveh |& tee /var/log/nixos-rebuild/"$DATE"
+nixos-rebuild switch --flake github:nrs-status/nineveh/new |& tee /var/log/nixos-rebuild/"$DATE"
 cd "$LOC"
